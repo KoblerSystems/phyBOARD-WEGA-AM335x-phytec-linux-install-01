@@ -1,0 +1,5841 @@
+%!PS-Adobe-3.0
+%%Creator: graphviz version 2.26.3 (20100126.1600)
+%%Title: g
+%%Pages: (atend)
+%%BoundingBox: (atend)
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 3815 728
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 3779 692 boxprim clip newpath
+1 1 set_scale 0 rotate 40 41 translate
+% create_new_git_bsp_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 232 684 moveto
+168 684 lineto
+168 648 lineto
+232 648 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+176 667.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+184.5 658.8 moveto 31 (bsp_local) alignedtext
+grestore
+% git_init_bsp_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 173 588.44 moveto
+200 576 lineto
+227 588.44 lineto
+226.97 608.56 lineto
+173.03 608.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+189 591.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_bsp_local->git_init_bsp_local
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 200 647.83 moveto
+200 639.11 200 628.53 200 619.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 203.5 619.01 moveto
+200 609.01 lineto
+196.5 619.01 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 203.5 619.01 moveto
+200 609.01 lineto
+196.5 619.01 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_bsp_local_
+gsave
+0 0 0.75294 nodecolor
+newpath 270.11 514.54 moveto
+270.11 529.46 lineto
+229.04 540 lineto
+170.96 540 lineto
+129.89 529.46 lineto
+129.89 514.54 lineto
+170.96 504 lineto
+229.04 504 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 270.11 514.54 moveto
+270.11 529.46 lineto
+229.04 540 lineto
+170.96 540 lineto
+129.89 529.46 lineto
+129.89 514.54 lineto
+170.96 504 lineto
+229.04 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+150.5 519.3 moveto 99 (__GIT_REPO_DIR_bsp_local_) alignedtext
+grestore
+% git_init_bsp_local->__GIT_REPO_DIR_bsp_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 200 575.83 moveto
+200 568.13 200 558.97 200 550.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 203.5 550.41 moveto
+200 540.41 lineto
+196.5 550.41 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 203.5 550.41 moveto
+200 540.41 lineto
+196.5 550.41 lineto
+closepath stroke
+grestore
+% git_fetch_bsp_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 252.85 444.44 moveto
+283 432 lineto
+313.15 444.44 lineto
+313.12 464.56 lineto
+252.88 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+269.5 447.3 moveto 27 (git fetch) alignedtext
+grestore
+% __GIT_REPO_DIR_bsp_local_->git_fetch_bsp_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 220.94 503.83 moveto
+232.26 494.02 246.3 481.83 258.17 471.54 curveto
+stroke
+0 0 0 edgecolor
+newpath 260.71 473.97 moveto
+265.97 464.77 lineto
+256.12 468.68 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 260.71 473.97 moveto
+265.97 464.77 lineto
+256.12 468.68 lineto
+closepath stroke
+grestore
+% create_new_git_bsp_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 112 540 moveto
+48 540 lineto
+48 504 lineto
+112 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+56 523.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+64.5 514.8 moveto 31 (bsp_work) alignedtext
+grestore
+% git_init_bsp_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 181 444.44 moveto
+208 432 lineto
+235 444.44 lineto
+234.97 464.56 lineto
+181.03 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+197 447.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_bsp_work->git_init_bsp_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 112.3 503.83 moveto
+130.76 493.45 153.92 480.42 172.84 469.78 curveto
+stroke
+0 0 0 edgecolor
+newpath 174.74 472.72 moveto
+181.74 464.77 lineto
+171.31 466.62 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 174.74 472.72 moveto
+181.74 464.77 lineto
+171.31 466.62 lineto
+closepath stroke
+grestore
+% git_add_bsp_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 360 156.44 moveto
+387 144 lineto
+414 156.44 lineto
+413.97 176.56 lineto
+360.03 176.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+376 159.3 moveto 22 (git add) alignedtext
+grestore
+% create_new_git_bsp_work->git_add_bsp_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 61.85 503.79 moveto
+38.24 478.08 0 428.62 0 378 curveto
+0 378 0 378 0 306 curveto
+0 231.82 252.93 183.46 349.84 167.66 curveto
+stroke
+0 0 0 edgecolor
+newpath 350.47 171.11 moveto
+359.79 166.06 lineto
+349.36 164.19 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 350.47 171.11 moveto
+359.79 166.06 lineto
+349.36 164.19 lineto
+closepath stroke
+grestore
+% git_push_bsp_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 100.76 300.44 moveto
+129 288 lineto
+157.24 300.44 lineto
+157.22 320.56 lineto
+100.78 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+116.5 303.3 moveto 25 (git push) alignedtext
+grestore
+% create_new_git_bsp_work->git_push_bsp_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 84.09 503.96 moveto
+92.87 465.27 113.5 374.31 123.45 330.47 curveto
+stroke
+0 0 0 edgecolor
+newpath 126.88 331.17 moveto
+125.68 320.64 lineto
+120.05 329.62 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 126.88 331.17 moveto
+125.68 320.64 lineto
+120.05 329.62 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_bsp_work_
+gsave
+0 0 0.75294 nodecolor
+newpath 318.22 370.54 moveto
+318.22 385.46 lineto
+276.5 396 lineto
+217.5 396 lineto
+175.78 385.46 lineto
+175.78 370.54 lineto
+217.5 360 lineto
+276.5 360 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 318.22 370.54 moveto
+318.22 385.46 lineto
+276.5 396 lineto
+217.5 396 lineto
+175.78 385.46 lineto
+175.78 370.54 lineto
+217.5 360 lineto
+276.5 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+197 375.3 moveto 100 (__GIT_REPO_DIR_bsp_work_) alignedtext
+grestore
+% git_init_bsp_work->__GIT_REPO_DIR_bsp_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 215.89 435.43 moveto
+220.6 426.75 226.72 415.45 232.28 405.17 curveto
+stroke
+0 0 0 edgecolor
+newpath 235.5 406.59 moveto
+237.18 396.13 lineto
+229.34 403.25 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 235.5 406.59 moveto
+237.18 396.13 lineto
+229.34 403.25 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_bsp_work_->git_push_bsp_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 217.22 359.83 moveto
+200.36 349.54 179.24 336.66 161.89 326.07 curveto
+stroke
+0 0 0 edgecolor
+newpath 163.57 322.99 moveto
+153.21 320.77 lineto
+159.92 328.97 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 163.57 322.99 moveto
+153.21 320.77 lineto
+159.92 328.97 lineto
+closepath stroke
+grestore
+% git_checkout_bsp_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 283.14 300.44 moveto
+321 288 lineto
+358.86 300.44 lineto
+358.83 320.56 lineto
+283.17 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+302 303.3 moveto 38 (git checkout) alignedtext
+grestore
+% __GIT_REPO_DIR_bsp_work_->git_checkout_bsp_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 265.67 359.83 moveto
+275.6 350.18 287.87 338.23 298.34 328.05 curveto
+stroke
+0 0 0 edgecolor
+newpath 300.85 330.49 moveto
+305.58 321.01 lineto
+295.97 325.47 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 300.85 330.49 moveto
+305.58 321.01 lineto
+295.97 325.47 lineto
+closepath stroke
+grestore
+% git_add_bsp_work->__GIT_REPO_DIR_bsp_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 369.47 176.89 moveto
+344.73 198.8 299.73 242.13 274 288 curveto
+263.14 307.36 256.2 331.56 252.08 349.99 curveto
+stroke
+0 0 0 edgecolor
+newpath 248.64 349.33 moveto
+250.02 359.83 lineto
+255.49 350.76 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 248.64 349.33 moveto
+250.02 359.83 lineto
+255.49 350.76 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_bsp_work_
+gsave
+0.56078 0.45882 0.98039 nodecolor
+newpath 599.06 226.54 moveto
+599.06 241.46 lineto
+556.26 252 lineto
+495.74 252 lineto
+452.94 241.46 lineto
+452.94 226.54 lineto
+495.74 216 lineto
+556.26 216 lineto
+closepath fill
+1 setlinewidth
+filled
+0.56078 0.45882 0.98039 nodecolor
+newpath 599.06 226.54 moveto
+599.06 241.46 lineto
+556.26 252 lineto
+495.74 252 lineto
+452.94 241.46 lineto
+452.94 226.54 lineto
+495.74 216 lineto
+556.26 216 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+474.5 231.3 moveto 103 (__GIT_WORK_DIR_bsp_work_) alignedtext
+grestore
+% __GIT_WORK_DIR_bsp_work_->git_add_bsp_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 492.35 216.57 moveto
+471.5 205.77 444.71 191.89 423.36 180.83 curveto
+stroke
+0 0 0 edgecolor
+newpath 424.77 177.62 moveto
+414.28 176.13 lineto
+421.55 183.84 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 424.77 177.62 moveto
+414.28 176.13 lineto
+421.55 183.84 lineto
+closepath stroke
+grestore
+% git_push_bsp_work->__GIT_REPO_DIR_bsp_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 131.76 320.64 moveto
+137.45 349.46 151.64 415.35 172 468 curveto
+175.49 477.02 180.06 486.49 184.5 494.94 curveto
+stroke
+0 0 0 edgecolor
+newpath 181.55 496.84 moveto
+189.38 503.97 lineto
+187.7 493.51 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 181.55 496.84 moveto
+189.38 503.97 lineto
+187.7 493.51 lineto
+closepath stroke
+grestore
+% push_git_bsp_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 82 396 moveto
+28 396 lineto
+28 360 lineto
+82 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+41 379.8 moveto 28 (push_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+39.5 370.8 moveto 31 (bsp_work) alignedtext
+grestore
+% push_git_bsp_work->git_push_bsp_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 73.67 359.83 moveto
+83.6 350.18 95.87 338.23 106.34 328.05 curveto
+stroke
+0 0 0 edgecolor
+newpath 108.85 330.49 moveto
+113.58 321.01 lineto
+103.97 325.47 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 108.85 330.49 moveto
+113.58 321.01 lineto
+103.97 325.47 lineto
+closepath stroke
+grestore
+% create_co_git_bsp_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 346 540 moveto
+288 540 lineto
+288 504 lineto
+346 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+296 523.8 moveto 42 (create_co_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+301.5 514.8 moveto 31 (bsp_work) alignedtext
+grestore
+% create_co_git_bsp_work->git_init_bsp_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 289.49 503.83 moveto
+274.06 493.64 254.77 480.89 238.83 470.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 240.64 467.36 moveto
+230.36 464.77 lineto
+236.78 473.2 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 240.64 467.36 moveto
+230.36 464.77 lineto
+236.78 473.2 lineto
+closepath stroke
+grestore
+% create_co_git_bsp_work->git_fetch_bsp_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 308.42 503.83 moveto
+304.17 494.83 298.98 483.85 294.4 474.15 curveto
+stroke
+0 0 0 edgecolor
+newpath 297.52 472.55 moveto
+290.09 465.01 lineto
+291.19 475.54 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 297.52 472.55 moveto
+290.09 465.01 lineto
+291.19 475.54 lineto
+closepath stroke
+grestore
+% create_co_git_bsp_work->git_checkout_bsp_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 319.55 503.54 moveto
+323.38 473.47 329.88 412.05 327 360 curveto
+326.47 350.39 325.41 339.86 324.32 330.67 curveto
+stroke
+0 0 0 edgecolor
+newpath 327.78 330.12 moveto
+323.07 320.63 lineto
+320.83 330.99 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 327.78 330.12 moveto
+323.07 320.63 lineto
+320.83 330.99 lineto
+closepath stroke
+grestore
+% git_fetch_bsp_work->__GIT_REPO_DIR_bsp_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 275.37 434.73 moveto
+271.08 426.16 265.6 415.21 260.61 405.22 curveto
+stroke
+0 0 0 edgecolor
+newpath 263.63 403.43 moveto
+256.02 396.05 lineto
+257.37 406.56 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 263.63 403.43 moveto
+256.02 396.05 lineto
+257.37 406.56 lineto
+closepath stroke
+grestore
+% git_checkout_bsp_work->__GIT_WORK_DIR_bsp_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 347.8 296.59 moveto
+379.58 285.42 433.31 266.56 473.48 252.45 curveto
+stroke
+0 0 0 edgecolor
+newpath 474.84 255.68 moveto
+483.12 249.06 lineto
+472.52 249.07 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 474.84 255.68 moveto
+483.12 249.06 lineto
+472.52 249.07 lineto
+closepath stroke
+grestore
+% create_new_git_ptxdist_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2054 684 moveto
+1990 684 lineto
+1990 648 lineto
+2054 648 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1998 667.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2000.5 658.8 moveto 43 (ptxdist_local) alignedtext
+grestore
+% git_init_ptxdist_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1995 588.44 moveto
+2022 576 lineto
+2049 588.44 lineto
+2048.97 608.56 lineto
+1995.03 608.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2011 591.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_ptxdist_local->git_init_ptxdist_local
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2022 647.83 moveto
+2022 639.11 2022 628.53 2022 619.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 2025.5 619.01 moveto
+2022 609.01 lineto
+2018.5 619.01 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2025.5 619.01 moveto
+2022 609.01 lineto
+2018.5 619.01 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_ptxdist_local_
+gsave
+0 0 0.75294 nodecolor
+newpath 2100.09 514.54 moveto
+2100.09 529.46 lineto
+2054.34 540 lineto
+1989.66 540 lineto
+1943.91 529.46 lineto
+1943.91 514.54 lineto
+1989.66 504 lineto
+2054.34 504 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 2100.09 514.54 moveto
+2100.09 529.46 lineto
+2054.34 540 lineto
+1989.66 540 lineto
+1943.91 529.46 lineto
+1943.91 514.54 lineto
+1989.66 504 lineto
+2054.34 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1966 519.3 moveto 112 (__GIT_REPO_DIR_ptxdist_local_) alignedtext
+grestore
+% git_init_ptxdist_local->__GIT_REPO_DIR_ptxdist_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2022 575.83 moveto
+2022 568.13 2022 558.97 2022 550.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 2025.5 550.41 moveto
+2022 540.41 lineto
+2018.5 550.41 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2025.5 550.41 moveto
+2022 540.41 lineto
+2018.5 550.41 lineto
+closepath stroke
+grestore
+% git_fetch_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1867.85 444.44 moveto
+1898 432 lineto
+1928.15 444.44 lineto
+1928.12 464.56 lineto
+1867.88 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1884.5 447.3 moveto 27 (git fetch) alignedtext
+grestore
+% __GIT_REPO_DIR_ptxdist_local_->git_fetch_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1990.71 503.83 moveto
+1972.91 493.5 1950.59 480.54 1932.32 469.93 curveto
+stroke
+0 0 0 edgecolor
+newpath 1933.84 466.77 moveto
+1923.44 464.77 lineto
+1930.33 472.82 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1933.84 466.77 moveto
+1923.44 464.77 lineto
+1930.33 472.82 lineto
+closepath stroke
+grestore
+% create_new_git_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2182 540 moveto
+2118 540 lineto
+2118 504 lineto
+2182 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2126 523.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2128 514.8 moveto 44 (ptxdist_work) alignedtext
+grestore
+% git_init_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1946 444.44 moveto
+1973 432 lineto
+2000 444.44 lineto
+1999.97 464.56 lineto
+1946.03 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1962 447.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_ptxdist_work->git_init_ptxdist_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2117.82 507.74 moveto
+2114.84 506.46 2111.87 505.2 2109 504 curveto
+2075.6 490.04 2037.24 474.89 2009.8 464.2 curveto
+stroke
+0 0 0 edgecolor
+newpath 2010.8 460.83 moveto
+2000.21 460.47 lineto
+2008.26 467.36 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2010.8 460.83 moveto
+2000.21 460.47 lineto
+2008.26 467.36 lineto
+closepath stroke
+grestore
+% git_add_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1982 156.44 moveto
+2009 144 lineto
+2036 156.44 lineto
+2035.97 176.56 lineto
+1982.03 176.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1998 159.3 moveto 22 (git add) alignedtext
+grestore
+% create_new_git_ptxdist_work->git_add_ptxdist_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2157.63 503.73 moveto
+2168.2 476.73 2186 424.38 2186 378 curveto
+2186 378 2186 378 2186 306 curveto
+2186 234.36 2097.67 192.08 2045.81 173.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 2046.86 170.08 moveto
+2036.27 170.11 lineto
+2044.57 176.7 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2046.86 170.08 moveto
+2036.27 170.11 lineto
+2044.57 176.7 lineto
+closepath stroke
+grestore
+% git_push_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2044.76 300.44 moveto
+2073 288 lineto
+2101.24 300.44 lineto
+2101.22 320.56 lineto
+2044.78 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2060.5 303.3 moveto 25 (git push) alignedtext
+grestore
+% create_new_git_ptxdist_work->git_push_ptxdist_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2151.42 503.86 moveto
+2153.06 472.67 2152.97 407.63 2129 360 curveto
+2122.72 347.53 2112.39 336.33 2102.29 327.4 curveto
+stroke
+0 0 0 edgecolor
+newpath 2104.25 324.47 moveto
+2094.33 320.75 lineto
+2099.76 329.84 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2104.25 324.47 moveto
+2094.33 320.75 lineto
+2099.76 329.84 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_ptxdist_work_
+gsave
+0 0 0.75294 nodecolor
+newpath 2004.09 370.54 moveto
+2004.09 385.46 lineto
+1958.34 396 lineto
+1893.66 396 lineto
+1847.91 385.46 lineto
+1847.91 370.54 lineto
+1893.66 360 lineto
+1958.34 360 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 2004.09 370.54 moveto
+2004.09 385.46 lineto
+1958.34 396 lineto
+1893.66 396 lineto
+1847.91 385.46 lineto
+1847.91 370.54 lineto
+1893.66 360 lineto
+1958.34 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1870 375.3 moveto 112 (__GIT_REPO_DIR_ptxdist_work_) alignedtext
+grestore
+% git_init_ptxdist_work->__GIT_REPO_DIR_ptxdist_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1963.94 436.12 moveto
+1958.14 427.24 1950.44 415.44 1943.49 404.79 curveto
+stroke
+0 0 0 edgecolor
+newpath 1946.28 402.66 moveto
+1937.88 396.2 lineto
+1940.42 406.49 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1946.28 402.66 moveto
+1937.88 396.2 lineto
+1940.42 406.49 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_ptxdist_work_->git_push_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1961.58 360.57 moveto
+1983.99 349.6 2012.87 335.45 2035.61 324.31 curveto
+stroke
+0 0 0 edgecolor
+newpath 2037.18 327.44 moveto
+2044.62 319.9 lineto
+2034.1 321.15 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2037.18 327.44 moveto
+2044.62 319.9 lineto
+2034.1 321.15 lineto
+closepath stroke
+grestore
+% git_checkout_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1862.14 300.44 moveto
+1900 288 lineto
+1937.86 300.44 lineto
+1937.83 320.56 lineto
+1862.17 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1881 303.3 moveto 38 (git checkout) alignedtext
+grestore
+% __GIT_REPO_DIR_ptxdist_work_->git_checkout_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1919.44 359.83 moveto
+1916.22 350.93 1912.3 340.07 1908.83 330.45 curveto
+stroke
+0 0 0 edgecolor
+newpath 1912.11 329.22 moveto
+1905.42 321.01 lineto
+1905.52 331.6 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1912.11 329.22 moveto
+1905.42 321.01 lineto
+1905.52 331.6 lineto
+closepath stroke
+grestore
+% git_add_ptxdist_work->__GIT_REPO_DIR_ptxdist_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2007.11 176.66 moveto
+2004.51 194.74 1999.08 226.25 1990 252 curveto
+1977.41 287.7 1956.75 326.14 1942.32 351.04 curveto
+stroke
+0 0 0 edgecolor
+newpath 1939.17 349.5 moveto
+1937.12 359.89 lineto
+1945.2 353.04 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1939.17 349.5 moveto
+1937.12 359.89 lineto
+1945.2 353.04 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_ptxdist_work_
+gsave
+0.56078 0.45882 0.98039 nodecolor
+newpath 1981.04 226.54 moveto
+1981.04 241.46 lineto
+1933.57 252 lineto
+1866.43 252 lineto
+1818.96 241.46 lineto
+1818.96 226.54 lineto
+1866.43 216 lineto
+1933.57 216 lineto
+closepath fill
+1 setlinewidth
+filled
+0.56078 0.45882 0.98039 nodecolor
+newpath 1981.04 226.54 moveto
+1981.04 241.46 lineto
+1933.57 252 lineto
+1866.43 252 lineto
+1818.96 241.46 lineto
+1818.96 226.54 lineto
+1866.43 216 lineto
+1933.57 216 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1842 231.3 moveto 116 (__GIT_WORK_DIR_ptxdist_work_) alignedtext
+grestore
+% __GIT_WORK_DIR_ptxdist_work_->git_add_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1927.51 215.83 moveto
+1942.94 205.64 1962.23 192.89 1978.17 182.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 1980.22 185.2 moveto
+1986.64 176.77 lineto
+1976.36 179.36 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1980.22 185.2 moveto
+1986.64 176.77 lineto
+1976.36 179.36 lineto
+closepath stroke
+grestore
+% git_push_ptxdist_work->__GIT_REPO_DIR_ptxdist_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2065.97 320.83 moveto
+2061.15 331.51 2054.94 346.39 2051 360 curveto
+2037.71 405.86 2029.42 460.88 2025.26 493.56 curveto
+stroke
+0 0 0 edgecolor
+newpath 2021.75 493.38 moveto
+2024 503.74 lineto
+2028.7 494.24 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2021.75 493.38 moveto
+2024 503.74 lineto
+2028.7 494.24 lineto
+closepath stroke
+grestore
+% push_git_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2120 396 moveto
+2060 396 lineto
+2060 360 lineto
+2120 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2076 379.8 moveto 28 (push_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2068 370.8 moveto 44 (ptxdist_work) alignedtext
+grestore
+% push_git_ptxdist_work->git_push_ptxdist_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2085.71 359.83 moveto
+2083.63 351.02 2081.1 340.3 2078.85 330.76 curveto
+stroke
+0 0 0 edgecolor
+newpath 2082.25 329.93 moveto
+2076.54 321.01 lineto
+2075.43 331.54 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2082.25 329.93 moveto
+2076.54 321.01 lineto
+2075.43 331.54 lineto
+closepath stroke
+grestore
+% create_co_git_ptxdist_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1926 540 moveto
+1866 540 lineto
+1866 504 lineto
+1926 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1875 523.8 moveto 42 (create_co_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1874 514.8 moveto 44 (ptxdist_work) alignedtext
+grestore
+% create_co_git_ptxdist_work->git_init_ptxdist_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1915.43 503.83 moveto
+1925.76 494.18 1938.53 482.23 1949.42 472.05 curveto
+stroke
+0 0 0 edgecolor
+newpath 1952.04 474.39 moveto
+1956.95 465.01 lineto
+1947.26 469.28 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1952.04 474.39 moveto
+1956.95 465.01 lineto
+1947.26 469.28 lineto
+closepath stroke
+grestore
+% create_co_git_ptxdist_work->git_fetch_ptxdist_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1896.5 503.83 moveto
+1896.75 495.11 1897.04 484.53 1897.3 475.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 1900.8 475.1 moveto
+1897.58 465.01 lineto
+1893.81 474.9 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1900.8 475.1 moveto
+1897.58 465.01 lineto
+1893.81 474.9 lineto
+closepath stroke
+grestore
+% create_co_git_ptxdist_work->git_checkout_ptxdist_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1880.44 503.63 moveto
+1856.64 473.17 1816.23 410.57 1839 360 curveto
+1844.92 346.85 1855.81 335.6 1866.77 326.83 curveto
+stroke
+0 0 0 edgecolor
+newpath 1869.16 329.41 moveto
+1875.07 320.62 lineto
+1864.97 323.8 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1869.16 329.41 moveto
+1875.07 320.62 lineto
+1864.97 323.8 lineto
+closepath stroke
+grestore
+% git_fetch_ptxdist_work->__GIT_REPO_DIR_ptxdist_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1904.08 434.38 moveto
+1907.36 425.94 1911.5 415.28 1915.31 405.5 curveto
+stroke
+0 0 0 edgecolor
+newpath 1918.59 406.72 moveto
+1918.95 396.13 lineto
+1912.06 404.19 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1918.59 406.72 moveto
+1918.95 396.13 lineto
+1912.06 404.19 lineto
+closepath stroke
+grestore
+% git_checkout_ptxdist_work->__GIT_WORK_DIR_ptxdist_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1900 287.83 moveto
+1900 280.13 1900 270.97 1900 262.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 1903.5 262.41 moveto
+1900 252.41 lineto
+1896.5 262.41 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1903.5 262.41 moveto
+1900 252.41 lineto
+1896.5 262.41 lineto
+closepath stroke
+grestore
+% create_new_git_barebox_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 650 396 moveto
+586 396 lineto
+586 360 lineto
+650 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+594 379.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+595.5 370.8 moveto 45 (barebox_local) alignedtext
+grestore
+% git_init_barebox_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 691 300.44 moveto
+718 288 lineto
+745 300.44 lineto
+744.97 320.56 lineto
+691.03 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+707 303.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_barebox_local->git_init_barebox_local
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 643.23 359.83 moveto
+657.26 349.73 674.77 337.13 689.31 326.66 curveto
+stroke
+0 0 0 edgecolor
+newpath 691.41 329.45 moveto
+697.48 320.77 lineto
+687.32 323.77 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 691.41 329.45 moveto
+697.48 320.77 lineto
+687.32 323.77 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_barebox_local_
+gsave
+0 0 0.75294 nodecolor
+newpath 873.2 226.54 moveto
+873.2 241.46 lineto
+826.81 252 lineto
+761.19 252 lineto
+714.8 241.46 lineto
+714.8 226.54 lineto
+761.19 216 lineto
+826.81 216 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 873.2 226.54 moveto
+873.2 241.46 lineto
+826.81 252 lineto
+761.19 252 lineto
+714.8 241.46 lineto
+714.8 226.54 lineto
+761.19 216 lineto
+826.81 216 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+737.5 231.3 moveto 113 (__GIT_REPO_DIR_barebox_local_) alignedtext
+grestore
+% git_init_barebox_local->__GIT_REPO_DIR_barebox_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 730.89 293.79 moveto
+740.85 284.35 754.98 270.97 767.34 259.26 curveto
+stroke
+0 0 0 edgecolor
+newpath 769.91 261.65 moveto
+774.76 252.23 lineto
+765.09 256.57 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 769.91 261.65 moveto
+774.76 252.23 lineto
+765.09 256.57 lineto
+closepath stroke
+grestore
+% git_fetch_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 873.85 156.44 moveto
+904 144 lineto
+934.15 156.44 lineto
+934.12 176.56 lineto
+873.88 176.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+890.5 159.3 moveto 27 (git fetch) alignedtext
+grestore
+% __GIT_REPO_DIR_barebox_local_->git_fetch_barebox_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 821.76 215.83 moveto
+837.33 205.64 856.8 192.89 872.89 182.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 874.98 185.18 moveto
+881.43 176.77 lineto
+871.15 179.32 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 874.98 185.18 moveto
+881.43 176.77 lineto
+871.15 179.32 lineto
+closepath stroke
+grestore
+% create_new_git_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 985 540 moveto
+921 540 lineto
+921 504 lineto
+985 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+929 523.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+930 514.8 moveto 46 (barebox_work) alignedtext
+grestore
+% git_init_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 977 444.44 moveto
+1004 432 lineto
+1031 444.44 lineto
+1030.97 464.56 lineto
+977.03 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+993 447.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_barebox_work->git_init_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 965.87 503.83 moveto
+972.44 494.55 980.51 483.16 987.53 473.25 curveto
+stroke
+0 0 0 edgecolor
+newpath 990.45 475.19 moveto
+993.37 465.01 lineto
+984.73 471.14 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 990.45 475.19 moveto
+993.37 465.01 lineto
+984.73 471.14 lineto
+closepath stroke
+grestore
+% git_add_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1023 156.44 moveto
+1050 144 lineto
+1077 156.44 lineto
+1076.97 176.56 lineto
+1023.03 176.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1039 159.3 moveto 22 (git add) alignedtext
+grestore
+% create_new_git_barebox_work->git_add_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 953.7 503.78 moveto
+954.94 485.13 958.4 455.63 968 432 curveto
+975.34 413.95 985 413.76 993 396 curveto
+1025.51 323.77 1041.12 230.3 1047.04 186.58 curveto
+stroke
+0 0 0 edgecolor
+newpath 1050.52 186.95 moveto
+1048.34 176.58 lineto
+1043.58 186.04 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1050.52 186.95 moveto
+1048.34 176.58 lineto
+1043.58 186.04 lineto
+closepath stroke
+grestore
+% git_push_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 765.76 300.44 moveto
+794 288 lineto
+822.24 300.44 lineto
+822.22 320.56 lineto
+765.78 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+781.5 303.3 moveto 25 (git push) alignedtext
+grestore
+% create_new_git_barebox_work->git_push_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 924.85 503.89 moveto
+894.02 484.53 842.73 453.7 796 432 curveto
+753.53 412.29 723.86 434.35 697 396 curveto
+687.82 382.89 688.89 373.79 697 360 curveto
+700.52 354.01 730.89 337.62 756.72 324.45 curveto
+stroke
+0 0 0 edgecolor
+newpath 758.62 327.41 moveto
+765.97 319.77 lineto
+755.47 321.16 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 758.62 327.41 moveto
+765.97 319.77 lineto
+755.47 321.16 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_barebox_work_
+gsave
+0 0 0.75294 nodecolor
+newpath 983.82 370.54 moveto
+983.82 385.46 lineto
+937.06 396 lineto
+870.94 396 lineto
+824.18 385.46 lineto
+824.18 370.54 lineto
+870.94 360 lineto
+937.06 360 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 983.82 370.54 moveto
+983.82 385.46 lineto
+937.06 396 lineto
+870.94 396 lineto
+824.18 385.46 lineto
+824.18 370.54 lineto
+870.94 360 lineto
+937.06 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+847 375.3 moveto 114 (__GIT_REPO_DIR_barebox_work_) alignedtext
+grestore
+% git_init_barebox_work->__GIT_REPO_DIR_barebox_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 988.38 438.75 moveto
+974.78 428.96 954.61 414.44 937.4 402.05 curveto
+stroke
+0 0 0 edgecolor
+newpath 939.39 399.17 moveto
+929.23 396.17 lineto
+935.3 404.85 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 939.39 399.17 moveto
+929.23 396.17 lineto
+935.3 404.85 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_barebox_work_->git_push_barebox_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 876.24 359.83 moveto
+860.67 349.64 841.2 336.89 825.11 326.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 826.85 323.32 moveto
+816.57 320.77 lineto
+823.02 329.18 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 826.85 323.32 moveto
+816.57 320.77 lineto
+823.02 329.18 lineto
+closepath stroke
+grestore
+% git_reset_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1092.05 300.44 moveto
+1121 288 lineto
+1149.95 300.44 lineto
+1149.92 320.56 lineto
+1092.08 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1108 303.3 moveto 26 (git reset) alignedtext
+grestore
+% __GIT_REPO_DIR_barebox_work_->git_reset_barebox_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 949.75 362.82 moveto
+988.97 349.81 1044.84 331.27 1081.97 318.95 curveto
+stroke
+0 0 0 edgecolor
+newpath 1083.53 322.12 moveto
+1091.92 315.65 lineto
+1081.33 315.48 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1083.53 322.12 moveto
+1091.92 315.65 lineto
+1081.33 315.48 lineto
+closepath stroke
+grestore
+% git_format_patch_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 465.82 300.44 moveto
+513 288 lineto
+560.18 300.44 lineto
+560.13 320.56 lineto
+465.87 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+487 303.3 moveto 52 (git format-patch) alignedtext
+grestore
+% __GIT_REPO_DIR_barebox_work_->git_format_patch_barebox_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 834.65 368.08 moveto
+751.77 356.01 618.12 335.78 569 324 curveto
+568.09 323.78 567.17 323.55 566.24 323.32 curveto
+stroke
+0 0 0 edgecolor
+newpath 566.8 319.85 moveto
+556.23 320.61 lineto
+564.97 326.6 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 566.8 319.85 moveto
+556.23 320.61 lineto
+564.97 326.6 lineto
+closepath stroke
+grestore
+% git_add_barebox_work->__GIT_REPO_DIR_barebox_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1040.1 176.64 moveto
+1015.82 212.56 953.04 305.44 921.97 351.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 918.9 349.71 moveto
+916.2 359.96 lineto
+924.7 353.63 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 918.9 349.71 moveto
+916.2 359.96 lineto
+924.7 353.63 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_barebox_work_
+gsave
+0.56078 0.45882 0.98039 nodecolor
+newpath 1241.77 226.54 moveto
+1241.77 241.46 lineto
+1193.87 252 lineto
+1126.13 252 lineto
+1078.23 241.46 lineto
+1078.23 226.54 lineto
+1126.13 216 lineto
+1193.87 216 lineto
+closepath fill
+1 setlinewidth
+filled
+0.56078 0.45882 0.98039 nodecolor
+newpath 1241.77 226.54 moveto
+1241.77 241.46 lineto
+1193.87 252 lineto
+1126.13 252 lineto
+1078.23 241.46 lineto
+1078.23 226.54 lineto
+1126.13 216 lineto
+1193.87 216 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1101 231.3 moveto 118 (__GIT_WORK_DIR_barebox_work_) alignedtext
+grestore
+% __GIT_WORK_DIR_barebox_work_->git_add_barebox_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1132.24 215.83 moveto
+1116.67 205.64 1097.2 192.89 1081.11 182.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 1082.85 179.32 moveto
+1072.57 176.77 lineto
+1079.02 185.18 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1082.85 179.32 moveto
+1072.57 176.77 lineto
+1079.02 185.18 lineto
+closepath stroke
+grestore
+% git_push_barebox_work->__GIT_REPO_DIR_barebox_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 794 287.83 moveto
+794 280.13 794 270.97 794 262.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 797.5 262.41 moveto
+794 252.41 lineto
+790.5 262.41 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 797.5 262.41 moveto
+794 252.41 lineto
+790.5 262.41 lineto
+closepath stroke
+grestore
+% push_git_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 768 396 moveto
+706 396 lineto
+706 360 lineto
+768 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+723 379.8 moveto 28 (push_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+714 370.8 moveto 46 (barebox_work) alignedtext
+grestore
+% push_git_barebox_work->git_push_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 751.38 359.83 moveto
+758.8 350.46 767.93 338.93 775.84 328.95 curveto
+stroke
+0 0 0 edgecolor
+newpath 778.66 331.02 moveto
+782.12 321.01 lineto
+773.17 326.67 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 778.66 331.02 moveto
+782.12 321.01 lineto
+773.17 326.67 lineto
+closepath stroke
+grestore
+% create_new_git_ptxdist_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 938 684 moveto
+848 684 lineto
+848 648 lineto
+938 648 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+855.5 667.8 moveto 75 (create_new_git_ptxdist) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+870 658.8 moveto 46 (barebox_work) alignedtext
+grestore
+% create_new_git_ptxdist_barebox_work->git_init_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 913.35 647.8 moveto
+937.19 625.14 975.74 584.02 994 540 curveto
+1002.66 519.12 1004.75 493.3 1004.91 474.68 curveto
+stroke
+0 0 0 edgecolor
+newpath 1008.41 474.61 moveto
+1004.82 464.64 lineto
+1001.41 474.67 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1008.41 474.61 moveto
+1004.82 464.64 lineto
+1001.41 474.67 lineto
+closepath stroke
+grestore
+% create_new_git_ptxdist_barebox_work->git_push_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 847.78 659.12 moveto
+812.11 651.97 762.46 638.03 726 612 curveto
+693.45 588.76 684.65 577.95 672 540 curveto
+655.5 490.5 680.73 468.51 718 432 curveto
+739.94 410.5 759.53 421.27 777 396 curveto
+790.21 376.89 793.88 350.27 794.59 330.94 curveto
+stroke
+0 0 0 edgecolor
+newpath 798.1 330.83 moveto
+794.73 320.78 lineto
+791.1 330.73 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 798.1 330.83 moveto
+794.73 320.78 lineto
+791.1 330.73 lineto
+closepath stroke
+grestore
+% ptxdist_git_extract_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 734.91 588.44 moveto
+791 576 lineto
+847.09 588.44 lineto
+847.04 608.56 lineto
+734.96 608.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+759 591.3 moveto 64 (ptxdist --git extract) alignedtext
+grestore
+% create_new_git_ptxdist_barebox_work->ptxdist_git_extract_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 867.26 647.83 moveto
+852.95 637.73 835.1 625.13 820.26 614.66 curveto
+stroke
+0 0 0 edgecolor
+newpath 822.11 611.68 moveto
+811.93 608.77 lineto
+818.08 617.4 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 822.11 611.68 moveto
+811.93 608.77 lineto
+818.08 617.4 lineto
+closepath stroke
+grestore
+% git_fetch_barebox_work_tmp
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 726.85 444.44 moveto
+757 432 lineto
+787.15 444.44 lineto
+787.12 464.56 lineto
+726.88 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+743.5 447.3 moveto 27 (git fetch) alignedtext
+grestore
+% create_new_git_ptxdist_barebox_work->git_fetch_barebox_work_tmp
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 896.16 647.93 moveto
+900.76 615.69 905.59 547.55 874 504 curveto
+871.47 500.51 829.5 481.61 796.54 467.15 curveto
+stroke
+0 0 0 edgecolor
+newpath 797.66 463.82 moveto
+787.09 463.02 lineto
+794.85 470.23 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 797.66 463.82 moveto
+787.09 463.02 lineto
+794.85 470.23 lineto
+closepath stroke
+grestore
+% create_new_git_ptxdist_barebox_work->git_reset_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 938.23 659.84 moveto
+1008.28 647.46 1135 612.57 1135 522 curveto
+1135 522 1135 522 1135 450 curveto
+1135 407.9 1129 359.21 1124.86 330.6 curveto
+stroke
+0 0 0 edgecolor
+newpath 1128.31 330.05 moveto
+1123.37 320.67 lineto
+1121.39 331.08 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1128.31 330.05 moveto
+1123.37 320.67 lineto
+1121.39 331.08 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_barebox_work___git
+gsave
+0 0 0.75294 nodecolor
+newpath 865.09 514.54 moveto
+865.09 529.46 lineto
+811.15 540 lineto
+734.85 540 lineto
+680.91 529.46 lineto
+680.91 514.54 lineto
+734.85 504 lineto
+811.15 504 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 865.09 514.54 moveto
+865.09 529.46 lineto
+811.15 540 lineto
+734.85 540 lineto
+680.91 529.46 lineto
+680.91 514.54 lineto
+734.85 504 lineto
+811.15 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+706 519.3 moveto 134 (__GIT_WORK_DIR_barebox_work___git) alignedtext
+grestore
+% ptxdist_git_extract_barebox_work->__GIT_WORK_DIR_barebox_work___git
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 786.73 576.94 moveto
+784.73 568.9 782.28 559.1 780 550.02 curveto
+stroke
+0 0 0 edgecolor
+newpath 783.37 549.05 moveto
+777.55 540.2 lineto
+776.58 550.75 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 783.37 549.05 moveto
+777.55 540.2 lineto
+776.58 550.75 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_barebox_work___git->git_fetch_barebox_work_tmp
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 768.96 503.83 moveto
+767.03 495.11 764.67 484.53 762.57 475.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 765.92 474.01 moveto
+760.33 465.01 lineto
+759.09 475.53 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 765.92 474.01 moveto
+760.33 465.01 lineto
+759.09 475.53 lineto
+closepath stroke
+grestore
+% git_fetch_barebox_work_tmp->__GIT_REPO_DIR_barebox_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 777.13 440.14 moveto
+798.18 429.83 831.91 413.31 859.3 399.89 curveto
+stroke
+0 0 0 edgecolor
+newpath 860.88 403.02 moveto
+868.32 395.48 lineto
+857.8 396.73 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 860.88 403.02 moveto
+868.32 395.48 lineto
+857.8 396.73 lineto
+closepath stroke
+grestore
+% git_reset_barebox_work->__GIT_WORK_DIR_barebox_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1129.08 291.08 moveto
+1133.76 282.44 1139.8 271.3 1145.29 261.15 curveto
+stroke
+0 0 0 edgecolor
+newpath 1148.45 262.68 moveto
+1150.13 252.22 lineto
+1142.29 259.35 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1148.45 262.68 moveto
+1150.13 252.22 lineto
+1142.29 259.35 lineto
+closepath stroke
+grestore
+% create_src_git_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1103 540 moveto
+1041 540 lineto
+1041 504 lineto
+1103 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1050 523.8 moveto 44 (create_src_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1049 514.8 moveto 46 (barebox_work) alignedtext
+grestore
+% create_src_git_barebox_work->git_init_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1054.84 503.83 moveto
+1045.81 494.27 1034.66 482.47 1025.11 472.35 curveto
+stroke
+0 0 0 edgecolor
+newpath 1027.58 469.87 moveto
+1018.17 465.01 lineto
+1022.49 474.68 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1027.58 469.87 moveto
+1018.17 465.01 lineto
+1022.49 474.68 lineto
+closepath stroke
+grestore
+% create_src_git_barebox_work->git_reset_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1076.09 503.96 moveto
+1084.87 465.27 1105.5 374.31 1115.45 330.47 curveto
+stroke
+0 0 0 edgecolor
+newpath 1118.88 331.17 moveto
+1117.68 320.64 lineto
+1112.05 329.62 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1118.88 331.17 moveto
+1117.68 320.64 lineto
+1112.05 329.62 lineto
+closepath stroke
+grestore
+% create_src_git_barebox_work->git_fetch_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1066.28 503.82 moveto
+1060.32 485.45 1050.43 456.4 1040 432 curveto
+1000.02 338.51 942.67 231.9 917.13 185.57 curveto
+stroke
+0 0 0 edgecolor
+newpath 920.09 183.67 moveto
+912.18 176.62 lineto
+913.96 187.06 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 920.09 183.67 moveto
+912.18 176.62 lineto
+913.96 187.06 lineto
+closepath stroke
+grestore
+% git_fetch_barebox_work->__GIT_REPO_DIR_barebox_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 904 176.64 moveto
+904 212.11 904 303.13 904 349.67 curveto
+stroke
+0 0 0 edgecolor
+newpath 900.5 349.96 moveto
+904 359.96 lineto
+907.5 349.96 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 900.5 349.96 moveto
+904 359.96 lineto
+907.5 349.96 lineto
+closepath stroke
+grestore
+% create_ptx_patches_git_barebox_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 462 396 moveto
+374 396 lineto
+374 360 lineto
+462 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+381.5 379.8 moveto 73 (create_ptx_patches_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+395 370.8 moveto 46 (barebox_work) alignedtext
+grestore
+% create_ptx_patches_git_barebox_work->git_add_bsp_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 415.41 359.96 moveto
+409.87 321.35 396.86 230.7 390.55 186.75 curveto
+stroke
+0 0 0 edgecolor
+newpath 393.99 186.05 moveto
+389.1 176.64 lineto
+387.06 187.04 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 393.99 186.05 moveto
+389.1 176.64 lineto
+387.06 187.04 lineto
+closepath stroke
+grestore
+% create_ptx_patches_git_barebox_work->git_format_patch_barebox_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 441.97 359.83 moveto
+455.17 349.83 471.62 337.36 485.36 326.95 curveto
+stroke
+0 0 0 edgecolor
+newpath 487.65 329.6 moveto
+493.51 320.77 lineto
+483.43 324.02 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 487.65 329.6 moveto
+493.51 320.77 lineto
+483.43 324.02 lineto
+closepath stroke
+grestore
+% git_format_patch_barebox_work->__GIT_WORK_DIR_bsp_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 516.15 288.57 moveto
+517.58 280.61 519.32 270.99 520.93 262.05 curveto
+stroke
+0 0 0 edgecolor
+newpath 524.41 262.48 moveto
+522.75 252.02 lineto
+517.53 261.24 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 524.41 262.48 moveto
+522.75 252.02 lineto
+517.53 261.24 lineto
+closepath stroke
+grestore
+% create_new_git_linux_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1754 396 moveto
+1690 396 lineto
+1690 360 lineto
+1754 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1698 379.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1703.5 370.8 moveto 37 (linux_local) alignedtext
+grestore
+% git_init_linux_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1674 300.44 moveto
+1701 288 lineto
+1728 300.44 lineto
+1727.97 320.56 lineto
+1674.03 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1690 303.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_linux_local->git_init_linux_local
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1716.7 359.83 moveto
+1714.13 351.02 1711.01 340.3 1708.22 330.76 curveto
+stroke
+0 0 0 edgecolor
+newpath 1711.54 329.63 moveto
+1705.38 321.01 lineto
+1704.82 331.59 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1711.54 329.63 moveto
+1705.38 321.01 lineto
+1704.82 331.59 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_linux_local_
+gsave
+0 0 0.75294 nodecolor
+newpath 1733.9 226.54 moveto
+1733.9 241.46 lineto
+1690.03 252 lineto
+1627.97 252 lineto
+1584.1 241.46 lineto
+1584.1 226.54 lineto
+1627.97 216 lineto
+1690.03 216 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 1733.9 226.54 moveto
+1733.9 241.46 lineto
+1690.03 252 lineto
+1627.97 252 lineto
+1584.1 241.46 lineto
+1584.1 226.54 lineto
+1627.97 216 lineto
+1690.03 216 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1606 231.3 moveto 106 (__GIT_REPO_DIR_linux_local_) alignedtext
+grestore
+% git_init_linux_local->__GIT_REPO_DIR_linux_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1692.7 291.78 moveto
+1687.56 282.96 1680.8 271.36 1674.67 260.87 curveto
+stroke
+0 0 0 edgecolor
+newpath 1677.58 258.91 moveto
+1669.52 252.03 lineto
+1671.54 262.44 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1677.58 258.91 moveto
+1669.52 252.03 lineto
+1671.54 262.44 lineto
+closepath stroke
+grestore
+% git_fetch_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1628.85 156.44 moveto
+1659 144 lineto
+1689.15 156.44 lineto
+1689.12 176.56 lineto
+1628.88 176.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1645.5 159.3 moveto 27 (git fetch) alignedtext
+grestore
+% __GIT_REPO_DIR_linux_local_->git_fetch_linux_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1659 215.83 moveto
+1659 207.11 1659 196.53 1659 187.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 1662.5 187.01 moveto
+1659 177.01 lineto
+1655.5 187.01 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1662.5 187.01 moveto
+1659 177.01 lineto
+1655.5 187.01 lineto
+closepath stroke
+grestore
+% create_new_git_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1518 540 moveto
+1454 540 lineto
+1454 504 lineto
+1518 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1462 523.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1467 514.8 moveto 38 (linux_work) alignedtext
+grestore
+% git_init_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1517 444.44 moveto
+1544 432 lineto
+1571 444.44 lineto
+1570.97 464.56 lineto
+1517.03 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1533 447.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_linux_work->git_init_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1500.64 503.83 moveto
+1508.19 494.46 1517.48 482.93 1525.52 472.95 curveto
+stroke
+0 0 0 edgecolor
+newpath 1528.36 474.99 moveto
+1531.91 465.01 lineto
+1522.91 470.6 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1528.36 474.99 moveto
+1531.91 465.01 lineto
+1522.91 470.6 lineto
+closepath stroke
+grestore
+% git_add_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1281 156.44 moveto
+1308 144 lineto
+1335 156.44 lineto
+1334.97 176.56 lineto
+1281.03 176.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1297 159.3 moveto 22 (git add) alignedtext
+grestore
+% create_new_git_linux_work->git_add_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1453.92 506.7 moveto
+1416.36 486.89 1355.64 448.58 1327 396 curveto
+1289.8 327.72 1297.49 231.26 1303.83 186.54 curveto
+stroke
+0 0 0 edgecolor
+newpath 1307.3 186.98 moveto
+1305.34 176.57 lineto
+1300.38 185.93 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1307.3 186.98 moveto
+1305.34 176.57 lineto
+1300.38 185.93 lineto
+closepath stroke
+grestore
+% git_push_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1578.76 300.44 moveto
+1607 288 lineto
+1635.24 300.44 lineto
+1635.22 320.56 lineto
+1578.78 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1594.5 303.3 moveto 25 (git push) alignedtext
+grestore
+% create_new_git_linux_work->git_push_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1488.11 503.99 moveto
+1490.82 485.25 1496.6 455.43 1508 432 curveto
+1527.68 391.55 1562.01 351.92 1584.62 328.22 curveto
+stroke
+0 0 0 edgecolor
+newpath 1587.35 330.43 moveto
+1591.8 320.82 lineto
+1582.32 325.56 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1587.35 330.43 moveto
+1591.8 320.82 lineto
+1582.32 325.56 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_linux_work_
+gsave
+0 0 0.75294 nodecolor
+newpath 1485.9 370.54 moveto
+1485.9 385.46 lineto
+1442.03 396 lineto
+1379.97 396 lineto
+1336.1 385.46 lineto
+1336.1 370.54 lineto
+1379.97 360 lineto
+1442.03 360 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 1485.9 370.54 moveto
+1485.9 385.46 lineto
+1442.03 396 lineto
+1379.97 396 lineto
+1336.1 385.46 lineto
+1336.1 370.54 lineto
+1379.97 360 lineto
+1442.03 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1358 375.3 moveto 106 (__GIT_REPO_DIR_linux_work_) alignedtext
+grestore
+% git_init_linux_work->__GIT_REPO_DIR_linux_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1525.79 440.14 moveto
+1507.11 430.03 1477.42 413.96 1452.91 400.69 curveto
+stroke
+0 0 0 edgecolor
+newpath 1454.27 397.44 moveto
+1443.81 395.76 lineto
+1450.93 403.6 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1454.27 397.44 moveto
+1443.81 395.76 lineto
+1450.93 403.6 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_linux_work_->git_push_linux_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1453.05 362.55 moveto
+1487.5 349.9 1535.83 332.14 1569.11 319.92 curveto
+stroke
+0 0 0 edgecolor
+newpath 1570.74 323.05 moveto
+1578.92 316.32 lineto
+1568.32 316.48 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1570.74 323.05 moveto
+1578.92 316.32 lineto
+1568.32 316.48 lineto
+closepath stroke
+grestore
+% git_reset_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1383.05 300.44 moveto
+1412 288 lineto
+1440.95 300.44 lineto
+1440.92 320.56 lineto
+1383.08 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1399 303.3 moveto 26 (git reset) alignedtext
+grestore
+% __GIT_REPO_DIR_linux_work_->git_reset_linux_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1411.25 359.83 moveto
+1411.37 351.11 1411.52 340.53 1411.65 331.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 1415.15 331.05 moveto
+1411.79 321.01 lineto
+1408.15 330.96 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1415.15 331.05 moveto
+1411.79 321.01 lineto
+1408.15 330.96 lineto
+closepath stroke
+grestore
+% git_format_patch_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 577.82 300.44 moveto
+625 288 lineto
+672.18 300.44 lineto
+672.13 320.56 lineto
+577.87 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+599 303.3 moveto 52 (git format-patch) alignedtext
+grestore
+% __GIT_REPO_DIR_linux_work_->git_format_patch_linux_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1335.91 374.65 moveto
+1175.86 367.15 805.69 347.78 682 324 curveto
+680.54 323.72 679.05 323.41 677.57 323.08 curveto
+stroke
+0 0 0 edgecolor
+newpath 678.22 319.64 moveto
+667.68 320.65 lineto
+676.55 326.44 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 678.22 319.64 moveto
+667.68 320.65 lineto
+676.55 326.44 lineto
+closepath stroke
+grestore
+% git_add_linux_work->__GIT_REPO_DIR_linux_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1309.43 176.83 moveto
+1311.57 195.09 1316.54 226.78 1327 252 curveto
+1342.5 289.36 1369.71 327.33 1388.96 351.68 curveto
+stroke
+0 0 0 edgecolor
+newpath 1386.41 354.09 moveto
+1395.4 359.7 lineto
+1391.86 349.71 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1386.41 354.09 moveto
+1395.4 359.7 lineto
+1391.86 349.71 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_linux_work_
+gsave
+0.56078 0.45882 0.98039 nodecolor
+newpath 1489.86 226.54 moveto
+1489.86 241.46 lineto
+1444.84 252 lineto
+1381.16 252 lineto
+1336.14 241.46 lineto
+1336.14 226.54 lineto
+1381.16 216 lineto
+1444.84 216 lineto
+closepath fill
+1 setlinewidth
+filled
+0.56078 0.45882 0.98039 nodecolor
+newpath 1489.86 226.54 moveto
+1489.86 241.46 lineto
+1444.84 252 lineto
+1381.16 252 lineto
+1336.14 241.46 lineto
+1336.14 226.54 lineto
+1381.16 216 lineto
+1444.84 216 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1358 231.3 moveto 110 (__GIT_WORK_DIR_linux_work_) alignedtext
+grestore
+% __GIT_WORK_DIR_linux_work_->git_add_linux_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1386.5 215.83 moveto
+1371.78 205.73 1353.4 193.13 1338.12 182.66 curveto
+stroke
+0 0 0 edgecolor
+newpath 1339.77 179.54 moveto
+1329.54 176.77 lineto
+1335.81 185.31 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1339.77 179.54 moveto
+1329.54 176.77 lineto
+1335.81 185.31 lineto
+closepath stroke
+grestore
+% git_push_linux_work->__GIT_REPO_DIR_linux_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1617.03 292.12 moveto
+1623.5 283.15 1632.13 271.2 1639.88 260.47 curveto
+stroke
+0 0 0 edgecolor
+newpath 1642.84 262.36 moveto
+1645.85 252.2 lineto
+1637.16 258.26 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1642.84 262.36 moveto
+1645.85 252.2 lineto
+1637.16 258.26 lineto
+closepath stroke
+grestore
+% push_git_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1634 396 moveto
+1580 396 lineto
+1580 360 lineto
+1634 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1593 379.8 moveto 28 (push_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1588 370.8 moveto 38 (linux_work) alignedtext
+grestore
+% push_git_linux_work->git_push_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1607 359.83 moveto
+1607 351.11 1607 340.53 1607 331.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 1610.5 331.01 moveto
+1607 321.01 lineto
+1603.5 331.01 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1610.5 331.01 moveto
+1607 321.01 lineto
+1603.5 331.01 lineto
+closepath stroke
+grestore
+% create_new_git_ptxdist_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1471 684 moveto
+1381 684 lineto
+1381 648 lineto
+1471 648 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1388.5 667.8 moveto 75 (create_new_git_ptxdist) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1407 658.8 moveto 38 (linux_work) alignedtext
+grestore
+% create_new_git_ptxdist_linux_work->git_init_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1445.38 647.96 moveto
+1468.63 625.14 1506.96 583.55 1527 540 curveto
+1536.56 519.23 1540.74 493.4 1542.57 474.75 curveto
+stroke
+0 0 0 edgecolor
+newpath 1546.07 474.94 moveto
+1543.4 464.69 lineto
+1539.09 474.36 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1546.07 474.94 moveto
+1543.4 464.69 lineto
+1539.09 474.36 lineto
+closepath stroke
+grestore
+% create_new_git_ptxdist_linux_work->git_push_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1471.22 659.25 moveto
+1539.75 646.16 1662 610.43 1662 522 curveto
+1662 522 1662 522 1662 450 curveto
+1662 409.12 1658.85 397.69 1643 360 curveto
+1638.43 349.14 1631.59 338.14 1625.09 328.93 curveto
+stroke
+0 0 0 edgecolor
+newpath 1627.79 326.69 moveto
+1619.05 320.71 lineto
+1622.15 330.84 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1627.79 326.69 moveto
+1619.05 320.71 lineto
+1622.15 330.84 lineto
+closepath stroke
+grestore
+% ptxdist_git_extract_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1269.91 588.44 moveto
+1326 576 lineto
+1382.09 588.44 lineto
+1382.04 608.56 lineto
+1269.96 608.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1294 591.3 moveto 64 (ptxdist --git extract) alignedtext
+grestore
+% create_new_git_ptxdist_linux_work->ptxdist_git_extract_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1400.77 647.83 moveto
+1386.74 637.73 1369.23 625.13 1354.69 614.66 curveto
+stroke
+0 0 0 edgecolor
+newpath 1356.68 611.77 moveto
+1346.52 608.77 lineto
+1352.59 617.45 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1356.68 611.77 moveto
+1346.52 608.77 lineto
+1352.59 617.45 lineto
+closepath stroke
+grestore
+% git_fetch_linux_work_tmp
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1250.85 444.44 moveto
+1281 432 lineto
+1311.15 444.44 lineto
+1311.12 464.56 lineto
+1250.88 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1267.5 447.3 moveto 27 (git fetch) alignedtext
+grestore
+% create_new_git_ptxdist_linux_work->git_fetch_linux_work_tmp
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1429.28 647.85 moveto
+1434.06 615.47 1439.19 547.11 1407 504 curveto
+1405.58 502.1 1356.88 481.55 1320.45 466.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 1321.6 463.05 moveto
+1311.02 462.43 lineto
+1318.91 469.51 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1321.6 463.05 moveto
+1311.02 462.43 lineto
+1318.91 469.51 lineto
+closepath stroke
+grestore
+% create_new_git_ptxdist_linux_work->git_reset_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1380.92 659.54 moveto
+1345.45 652.63 1296.28 638.8 1261 612 curveto
+1230.37 588.74 1224.14 576.81 1213 540 curveto
+1183.55 442.75 1308.18 360.63 1373.84 325 curveto
+stroke
+0 0 0 edgecolor
+newpath 1375.51 328.07 moveto
+1382.69 320.28 lineto
+1372.22 321.9 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1375.51 328.07 moveto
+1382.69 320.28 lineto
+1372.22 321.9 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_linux_work___git
+gsave
+0 0 0.75294 nodecolor
+newpath 1397.8 514.54 moveto
+1397.8 529.46 lineto
+1346.37 540 lineto
+1273.63 540 lineto
+1222.2 529.46 lineto
+1222.2 514.54 lineto
+1273.63 504 lineto
+1346.37 504 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 1397.8 514.54 moveto
+1397.8 529.46 lineto
+1346.37 540 lineto
+1273.63 540 lineto
+1222.2 529.46 lineto
+1222.2 514.54 lineto
+1273.63 504 lineto
+1346.37 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1246.5 519.3 moveto 127 (__GIT_WORK_DIR_linux_work___git) alignedtext
+grestore
+% ptxdist_git_extract_linux_work->__GIT_WORK_DIR_linux_work___git
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1322.13 576.57 moveto
+1320.36 568.61 1318.22 558.99 1316.23 550.05 curveto
+stroke
+0 0 0 edgecolor
+newpath 1319.59 549.02 moveto
+1314 540.02 lineto
+1312.76 550.54 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1319.59 549.02 moveto
+1314 540.02 lineto
+1312.76 550.54 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_linux_work___git->git_fetch_linux_work_tmp
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1302.68 503.83 moveto
+1299.1 494.93 1294.72 484.07 1290.85 474.45 curveto
+stroke
+0 0 0 edgecolor
+newpath 1294.03 472.97 moveto
+1287.04 465.01 lineto
+1287.53 475.59 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1294.03 472.97 moveto
+1287.04 465.01 lineto
+1287.53 475.59 lineto
+closepath stroke
+grestore
+% git_fetch_linux_work_tmp->__GIT_REPO_DIR_linux_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1299.9 439.53 moveto
+1318.12 429.44 1346.28 413.84 1369.7 400.88 curveto
+stroke
+0 0 0 edgecolor
+newpath 1371.68 403.78 moveto
+1378.74 395.87 lineto
+1368.29 397.65 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1371.68 403.78 moveto
+1378.74 395.87 lineto
+1368.29 397.65 lineto
+closepath stroke
+grestore
+% git_reset_linux_work->__GIT_WORK_DIR_linux_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1412.25 287.83 moveto
+1412.36 280.13 1412.49 270.97 1412.61 262.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 1416.1 262.46 moveto
+1412.74 252.41 lineto
+1409.11 262.36 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1416.1 262.46 moveto
+1412.74 252.41 lineto
+1409.11 262.36 lineto
+closepath stroke
+grestore
+% create_src_git_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 1634 540 moveto
+1574 540 lineto
+1574 504 lineto
+1634 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1582 523.8 moveto 44 (create_src_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+1585 514.8 moveto 38 (linux_work) alignedtext
+grestore
+% create_src_git_linux_work->git_init_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1588.86 503.83 moveto
+1581.05 494.46 1571.44 482.93 1563.12 472.95 curveto
+stroke
+0 0 0 edgecolor
+newpath 1565.6 470.45 moveto
+1556.5 465.01 lineto
+1560.22 474.93 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1565.6 470.45 moveto
+1556.5 465.01 lineto
+1560.22 474.93 lineto
+closepath stroke
+grestore
+% create_src_git_linux_work->git_reset_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1602.38 503.81 moveto
+1599.97 484.67 1594.1 454.27 1580 432 curveto
+1548.32 381.95 1489.18 344.68 1450.2 324.12 curveto
+stroke
+0 0 0 edgecolor
+newpath 1451.73 320.97 moveto
+1441.24 319.5 lineto
+1448.52 327.2 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1451.73 320.97 moveto
+1441.24 319.5 lineto
+1448.52 327.2 lineto
+closepath stroke
+grestore
+% create_src_git_linux_work->git_fetch_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 1634.2 513.01 moveto
+1684.98 495.81 1782 453.13 1782 378 curveto
+1782 378 1782 378 1782 306 curveto
+1782 262.41 1771.22 249.22 1743 216 curveto
+1730.71 201.53 1713.56 189.56 1697.96 180.6 curveto
+stroke
+0 0 0 edgecolor
+newpath 1699.46 177.42 moveto
+1689.01 175.67 lineto
+1696.08 183.56 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1699.46 177.42 moveto
+1689.01 175.67 lineto
+1696.08 183.56 lineto
+closepath stroke
+grestore
+% git_fetch_linux_work->__GIT_REPO_DIR_linux_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 1633.06 176.76 moveto
+1615.96 186.94 1593.4 201.26 1575 216 curveto
+1520.63 259.54 1464.39 318.76 1433.95 352.21 curveto
+stroke
+0 0 0 edgecolor
+newpath 1431.25 349.97 moveto
+1427.14 359.74 lineto
+1436.44 354.67 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 1431.25 349.97 moveto
+1427.14 359.74 lineto
+1436.44 354.67 lineto
+closepath stroke
+grestore
+% create_ptx_patches_git_linux_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 568 396 moveto
+480 396 lineto
+480 360 lineto
+568 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+487.5 379.8 moveto 73 (create_ptx_patches_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+505 370.8 moveto 38 (linux_work) alignedtext
+grestore
+% create_ptx_patches_git_linux_work->git_add_bsp_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 495.52 359.86 moveto
+482.44 350.42 467.54 337.94 457 324 curveto
+425.53 282.39 431.82 263.84 411 216 curveto
+406.69 206.09 401.86 195.18 397.67 185.78 curveto
+stroke
+0 0 0 edgecolor
+newpath 400.86 184.34 moveto
+393.58 176.64 lineto
+394.47 187.2 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 400.86 184.34 moveto
+393.58 176.64 lineto
+394.47 187.2 lineto
+closepath stroke
+grestore
+% create_ptx_patches_git_linux_work->git_format_patch_linux_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 549.49 359.83 moveto
+563.65 349.73 581.33 337.13 596.02 326.66 curveto
+stroke
+0 0 0 edgecolor
+newpath 598.17 329.43 moveto
+604.28 320.77 lineto
+594.1 323.73 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 598.17 329.43 moveto
+604.28 320.77 lineto
+594.1 323.73 lineto
+closepath stroke
+grestore
+% git_format_patch_linux_work->__GIT_WORK_DIR_bsp_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 606.38 292.46 moveto
+593.15 282.83 575.01 269.64 559.32 258.23 curveto
+stroke
+0 0 0 edgecolor
+newpath 561.04 255.16 moveto
+550.89 252.1 lineto
+556.92 260.82 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 561.04 255.16 moveto
+550.89 252.1 lineto
+556.92 260.82 lineto
+closepath stroke
+grestore
+% create_new_git_toolchain_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2421 684 moveto
+2357 684 lineto
+2357 648 lineto
+2421 648 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2365 667.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2364.5 658.8 moveto 49 (toolchain_local) alignedtext
+grestore
+% git_init_toolchain_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2362 588.44 moveto
+2389 576 lineto
+2416 588.44 lineto
+2415.97 608.56 lineto
+2362.03 608.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2378 591.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_toolchain_local->git_init_toolchain_local
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2389 647.83 moveto
+2389 639.11 2389 628.53 2389 619.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 2392.5 619.01 moveto
+2389 609.01 lineto
+2385.5 619.01 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2392.5 619.01 moveto
+2389 609.01 lineto
+2385.5 619.01 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_toolchain_local_
+gsave
+0 0 0.75294 nodecolor
+newpath 2470.77 514.54 moveto
+2470.77 529.46 lineto
+2422.87 540 lineto
+2355.13 540 lineto
+2307.23 529.46 lineto
+2307.23 514.54 lineto
+2355.13 504 lineto
+2422.87 504 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 2470.77 514.54 moveto
+2470.77 529.46 lineto
+2422.87 540 lineto
+2355.13 540 lineto
+2307.23 529.46 lineto
+2307.23 514.54 lineto
+2355.13 504 lineto
+2422.87 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2330 519.3 moveto 118 (__GIT_REPO_DIR_toolchain_local_) alignedtext
+grestore
+% git_init_toolchain_local->__GIT_REPO_DIR_toolchain_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2389 575.83 moveto
+2389 568.13 2389 558.97 2389 550.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 2392.5 550.41 moveto
+2389 540.41 lineto
+2385.5 550.41 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2392.5 550.41 moveto
+2389 540.41 lineto
+2385.5 550.41 lineto
+closepath stroke
+grestore
+% git_fetch_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2484.85 444.44 moveto
+2515 432 lineto
+2545.15 444.44 lineto
+2545.12 464.56 lineto
+2484.88 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2501.5 447.3 moveto 27 (git fetch) alignedtext
+grestore
+% __GIT_REPO_DIR_toolchain_local_->git_fetch_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2420.8 503.83 moveto
+2438.96 493.45 2461.77 480.42 2480.38 469.78 curveto
+stroke
+0 0 0 edgecolor
+newpath 2482.2 472.77 moveto
+2489.15 464.77 lineto
+2478.73 466.69 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2482.2 472.77 moveto
+2489.15 464.77 lineto
+2478.73 466.69 lineto
+closepath stroke
+grestore
+% create_new_git_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2289 540 moveto
+2223 540 lineto
+2223 504 lineto
+2289 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2232 523.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2231 514.8 moveto 50 (toolchain_work) alignedtext
+grestore
+% git_init_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2413 444.44 moveto
+2440 432 lineto
+2467 444.44 lineto
+2466.97 464.56 lineto
+2413.03 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2429 447.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_toolchain_work->git_init_toolchain_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2289.42 507.53 moveto
+2292.31 506.32 2295.21 505.13 2298 504 curveto
+2333.55 489.63 2374.51 474.17 2403.27 463.49 curveto
+stroke
+0 0 0 edgecolor
+newpath 2404.75 466.68 moveto
+2412.91 459.92 lineto
+2402.32 460.11 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2404.75 466.68 moveto
+2412.91 459.92 lineto
+2402.32 460.11 lineto
+closepath stroke
+grestore
+% git_add_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2516 156.44 moveto
+2543 144 lineto
+2570 156.44 lineto
+2569.97 176.56 lineto
+2516.03 176.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2532 159.3 moveto 22 (git add) alignedtext
+grestore
+% create_new_git_toolchain_work->git_add_toolchain_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2249.21 503.65 moveto
+2239.82 476.56 2224 424.1 2224 378 curveto
+2224 378 2224 378 2224 306 curveto
+2224 244.75 2421.81 190.67 2505.9 170.45 curveto
+stroke
+0 0 0 edgecolor
+newpath 2506.88 173.81 moveto
+2515.8 168.1 lineto
+2505.26 167 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2506.88 173.81 moveto
+2515.8 168.1 lineto
+2505.26 167 lineto
+closepath stroke
+grestore
+% git_push_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2324.76 300.44 moveto
+2353 288 lineto
+2381.24 300.44 lineto
+2381.22 320.56 lineto
+2324.78 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2340.5 303.3 moveto 25 (git push) alignedtext
+grestore
+% create_new_git_toolchain_work->git_push_toolchain_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2254.56 504 moveto
+2252.89 472.44 2253.34 406.13 2281 360 curveto
+2289.44 345.93 2303.07 334.32 2316.21 325.51 curveto
+stroke
+0 0 0 edgecolor
+newpath 2318.13 328.44 moveto
+2324.71 320.14 lineto
+2314.39 322.52 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2318.13 328.44 moveto
+2324.71 320.14 lineto
+2314.39 322.52 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_toolchain_work_
+gsave
+0 0 0.75294 nodecolor
+newpath 2575.77 370.54 moveto
+2575.77 385.46 lineto
+2527.87 396 lineto
+2460.13 396 lineto
+2412.23 385.46 lineto
+2412.23 370.54 lineto
+2460.13 360 lineto
+2527.87 360 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 2575.77 370.54 moveto
+2575.77 385.46 lineto
+2527.87 396 lineto
+2460.13 396 lineto
+2412.23 385.46 lineto
+2412.23 370.54 lineto
+2460.13 360 lineto
+2527.87 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2435 375.3 moveto 118 (__GIT_REPO_DIR_toolchain_work_) alignedtext
+grestore
+% git_init_toolchain_work->__GIT_REPO_DIR_toolchain_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2450.16 436.46 moveto
+2456.97 427.37 2466.18 415.1 2474.39 404.15 curveto
+stroke
+0 0 0 edgecolor
+newpath 2477.22 406.2 moveto
+2480.42 396.1 lineto
+2471.62 402 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2477.22 406.2 moveto
+2480.42 396.1 lineto
+2471.62 402 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_toolchain_work_->git_push_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2459.15 360.2 moveto
+2438.26 349.54 2411.71 335.98 2390.39 325.09 curveto
+stroke
+0 0 0 edgecolor
+newpath 2391.8 321.88 moveto
+2381.3 320.45 lineto
+2388.62 328.12 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2391.8 321.88 moveto
+2381.3 320.45 lineto
+2388.62 328.12 lineto
+closepath stroke
+grestore
+% git_checkout_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2515.14 300.44 moveto
+2553 288 lineto
+2590.86 300.44 lineto
+2590.83 320.56 lineto
+2515.17 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2534 303.3 moveto 38 (git checkout) alignedtext
+grestore
+% __GIT_REPO_DIR_toolchain_work_->git_checkout_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2508.89 359.83 moveto
+2516.57 350.46 2526.02 338.93 2534.2 328.95 curveto
+stroke
+0 0 0 edgecolor
+newpath 2537.07 330.96 moveto
+2540.7 321.01 lineto
+2531.66 326.52 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2537.07 330.96 moveto
+2540.7 321.01 lineto
+2531.66 326.52 lineto
+closepath stroke
+grestore
+% git_add_toolchain_work->__GIT_REPO_DIR_toolchain_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2529.6 176.86 moveto
+2521.24 187.09 2511.12 201.42 2506 216 curveto
+2490.32 260.71 2490.05 316.51 2491.72 349.59 curveto
+stroke
+0 0 0 edgecolor
+newpath 2488.25 350.11 moveto
+2492.34 359.88 lineto
+2495.23 349.69 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2488.25 350.11 moveto
+2492.34 359.88 lineto
+2495.23 349.69 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_toolchain_work_
+gsave
+0.56078 0.45882 0.98039 nodecolor
+newpath 2683.23 226.54 moveto
+2683.23 241.46 lineto
+2633.89 252 lineto
+2564.11 252 lineto
+2514.77 241.46 lineto
+2514.77 226.54 lineto
+2564.11 216 lineto
+2633.89 216 lineto
+closepath fill
+1 setlinewidth
+filled
+0.56078 0.45882 0.98039 nodecolor
+newpath 2683.23 226.54 moveto
+2683.23 241.46 lineto
+2633.89 252 lineto
+2564.11 252 lineto
+2514.77 241.46 lineto
+2514.77 226.54 lineto
+2564.11 216 lineto
+2633.89 216 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2538 231.3 moveto 122 (__GIT_WORK_DIR_toolchain_work_) alignedtext
+grestore
+% __GIT_WORK_DIR_toolchain_work_->git_add_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2584.87 215.83 moveto
+2577.58 206.46 2568.61 194.93 2560.85 184.95 curveto
+stroke
+0 0 0 edgecolor
+newpath 2563.57 182.75 moveto
+2554.67 177.01 lineto
+2558.05 187.05 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2563.57 182.75 moveto
+2554.67 177.01 lineto
+2558.05 187.05 lineto
+closepath stroke
+grestore
+% git_push_toolchain_work->__GIT_REPO_DIR_toolchain_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2356.54 320.61 moveto
+2359.1 331.44 2362.52 346.59 2365 360 curveto
+2373.64 406.72 2381.23 461.48 2385.45 493.87 curveto
+stroke
+0 0 0 edgecolor
+newpath 2382 494.48 moveto
+2386.76 503.95 lineto
+2388.95 493.59 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2382 494.48 moveto
+2386.76 503.95 lineto
+2388.95 493.59 lineto
+closepath stroke
+grestore
+% push_git_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2356 396 moveto
+2290 396 lineto
+2290 360 lineto
+2356 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2309 379.8 moveto 28 (push_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2298 370.8 moveto 50 (toolchain_work) alignedtext
+grestore
+% push_git_toolchain_work->git_push_toolchain_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2330.57 359.83 moveto
+2334.28 350.93 2338.8 340.07 2342.81 330.45 curveto
+stroke
+0 0 0 edgecolor
+newpath 2346.13 331.58 moveto
+2346.75 321.01 lineto
+2339.67 328.89 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2346.13 331.58 moveto
+2346.75 321.01 lineto
+2339.67 328.89 lineto
+closepath stroke
+grestore
+% create_co_git_toolchain_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2555 540 moveto
+2489 540 lineto
+2489 504 lineto
+2555 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2501 523.8 moveto 42 (create_co_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2497 514.8 moveto 50 (toolchain_work) alignedtext
+grestore
+% create_co_git_toolchain_work->git_init_toolchain_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2501.31 503.83 moveto
+2490.13 494.02 2476.25 481.83 2464.53 471.54 curveto
+stroke
+0 0 0 edgecolor
+newpath 2466.65 468.74 moveto
+2456.82 464.77 lineto
+2462.03 474 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2466.65 468.74 moveto
+2456.82 464.77 lineto
+2462.03 474 lineto
+closepath stroke
+grestore
+% create_co_git_toolchain_work->git_fetch_toolchain_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2520.23 503.83 moveto
+2519.39 495.11 2518.36 484.53 2517.44 475.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 2520.91 474.62 moveto
+2516.46 465.01 lineto
+2513.94 475.3 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2520.91 474.62 moveto
+2516.46 465.01 lineto
+2513.94 475.3 lineto
+closepath stroke
+grestore
+% create_co_git_toolchain_work->git_checkout_toolchain_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2534.88 503.92 moveto
+2550.69 480.41 2576.46 437.44 2585 396 curveto
+2588.23 380.33 2589.23 375.43 2585 360 curveto
+2582.02 349.12 2576.22 338.21 2570.36 329.08 curveto
+stroke
+0 0 0 edgecolor
+newpath 2573.11 326.9 moveto
+2564.6 320.6 lineto
+2567.33 330.83 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2573.11 326.9 moveto
+2564.6 320.6 lineto
+2567.33 330.83 lineto
+closepath stroke
+grestore
+% git_fetch_toolchain_work->__GIT_REPO_DIR_toolchain_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2510.23 433.66 moveto
+2507.84 425.44 2504.86 415.23 2502.11 405.82 curveto
+stroke
+0 0 0 edgecolor
+newpath 2505.42 404.66 moveto
+2499.26 396.04 lineto
+2498.7 406.62 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2505.42 404.66 moveto
+2499.26 396.04 lineto
+2498.7 406.62 lineto
+closepath stroke
+grestore
+% git_checkout_toolchain_work->__GIT_WORK_DIR_toolchain_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2562.53 291.08 moveto
+2568.11 282.35 2575.32 271.07 2581.85 260.84 curveto
+stroke
+0 0 0 edgecolor
+newpath 2584.93 262.53 moveto
+2587.36 252.22 lineto
+2579.03 258.76 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2584.93 262.53 moveto
+2587.36 252.22 lineto
+2579.03 258.76 lineto
+closepath stroke
+grestore
+% create_new_git_gcc_linaro_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2865 396 moveto
+2797 396 lineto
+2797 360 lineto
+2865 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2807 379.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2805 370.8 moveto 52 (gcc-linaro_local) alignedtext
+grestore
+% git_init_gcc_linaro_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2841 300.44 moveto
+2868 288 lineto
+2895 300.44 lineto
+2894.97 320.56 lineto
+2841.03 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2857 303.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_gcc_linaro_local->git_init_gcc_linaro_local
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2840.34 359.83 moveto
+2844.96 350.83 2850.61 339.85 2855.59 330.15 curveto
+stroke
+0 0 0 edgecolor
+newpath 2858.83 331.5 moveto
+2860.29 321.01 lineto
+2852.6 328.3 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2858.83 331.5 moveto
+2860.29 321.01 lineto
+2852.6 328.3 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_gcc_linaro_local_
+gsave
+0 0 0.75294 nodecolor
+newpath 2989.11 226.54 moveto
+2989.11 241.46 lineto
+2939.84 252 lineto
+2870.16 252 lineto
+2820.89 241.46 lineto
+2820.89 226.54 lineto
+2870.16 216 lineto
+2939.84 216 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 2989.11 226.54 moveto
+2989.11 241.46 lineto
+2939.84 252 lineto
+2870.16 252 lineto
+2820.89 241.46 lineto
+2820.89 226.54 lineto
+2870.16 216 lineto
+2939.84 216 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2844.5 231.3 moveto 121 (__GIT_REPO_DIR_gcc_linaro_local_) alignedtext
+grestore
+% git_init_gcc_linaro_local->__GIT_REPO_DIR_gcc_linaro_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2875.49 291.43 moveto
+2879.95 282.75 2885.76 271.45 2891.04 261.17 curveto
+stroke
+0 0 0 edgecolor
+newpath 2894.23 262.62 moveto
+2895.68 252.13 lineto
+2888 259.42 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2894.23 262.62 moveto
+2895.68 252.13 lineto
+2888 259.42 lineto
+closepath stroke
+grestore
+% git_fetch_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2874.85 156.44 moveto
+2905 144 lineto
+2935.15 156.44 lineto
+2935.12 176.56 lineto
+2874.88 176.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2891.5 159.3 moveto 27 (git fetch) alignedtext
+grestore
+% __GIT_REPO_DIR_gcc_linaro_local_->git_fetch_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2905 215.83 moveto
+2905 207.11 2905 196.53 2905 187.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 2908.5 187.01 moveto
+2905 177.01 lineto
+2901.5 187.01 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2908.5 187.01 moveto
+2905 177.01 lineto
+2901.5 187.01 lineto
+closepath stroke
+grestore
+% create_new_git_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3270 540 moveto
+3202 540 lineto
+3202 504 lineto
+3270 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3212 523.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3210 514.8 moveto 52 (gcc-linaro_work) alignedtext
+grestore
+% git_init_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3143 444.44 moveto
+3170 432 lineto
+3197 444.44 lineto
+3196.97 464.56 lineto
+3143.03 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3159 447.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_gcc_linaro_work->git_init_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3219.35 503.83 moveto
+3210.67 494.36 3199.97 482.7 3190.76 472.65 curveto
+stroke
+0 0 0 edgecolor
+newpath 3193.09 470.01 moveto
+3183.76 465.01 lineto
+3187.93 474.74 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3193.09 470.01 moveto
+3183.76 465.01 lineto
+3187.93 474.74 lineto
+closepath stroke
+grestore
+% git_add_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3214 156.44 moveto
+3241 144 lineto
+3268 156.44 lineto
+3267.97 176.56 lineto
+3214.03 176.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3230 159.3 moveto 22 (git add) alignedtext
+grestore
+% create_new_git_gcc_linaro_work->git_add_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3265.72 503.89 moveto
+3300.97 479.88 3355 433.94 3355 378 curveto
+3355 378 3355 378 3355 306 curveto
+3355 265.12 3360.12 249.01 3336 216 curveto
+3321.67 196.39 3297.91 182.88 3277.73 174.28 curveto
+stroke
+0 0 0 edgecolor
+newpath 3278.76 170.93 moveto
+3268.18 170.45 lineto
+3276.15 177.42 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3278.76 170.93 moveto
+3268.18 170.45 lineto
+3276.15 177.42 lineto
+closepath stroke
+grestore
+% git_push_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2950.76 300.44 moveto
+2979 288 lineto
+3007.24 300.44 lineto
+3007.22 320.56 lineto
+2950.78 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2966.5 303.3 moveto 25 (git push) alignedtext
+grestore
+% create_new_git_gcc_linaro_work->git_push_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3235.12 503.94 moveto
+3233.11 483.43 3226.64 450.43 3206 432 curveto
+3148.39 380.56 3099.41 440.08 3036 396 curveto
+3012.77 379.85 2996.95 350.87 2987.98 330.15 curveto
+stroke
+0 0 0 edgecolor
+newpath 2991.15 328.67 moveto
+2984.12 320.74 lineto
+2984.67 331.32 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2991.15 328.67 moveto
+2984.12 320.74 lineto
+2984.67 331.32 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_gcc_linaro_work_
+gsave
+0 0 0.75294 nodecolor
+newpath 3213.11 370.54 moveto
+3213.11 385.46 lineto
+3163.84 396 lineto
+3094.16 396 lineto
+3044.89 385.46 lineto
+3044.89 370.54 lineto
+3094.16 360 lineto
+3163.84 360 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 3213.11 370.54 moveto
+3213.11 385.46 lineto
+3163.84 396 lineto
+3094.16 396 lineto
+3044.89 385.46 lineto
+3044.89 370.54 lineto
+3094.16 360 lineto
+3163.84 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3068.5 375.3 moveto 121 (__GIT_REPO_DIR_gcc_linaro_work_) alignedtext
+grestore
+% git_init_gcc_linaro_work->__GIT_REPO_DIR_gcc_linaro_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3161.7 435.43 moveto
+3156.71 426.66 3150.19 415.22 3144.29 404.86 curveto
+stroke
+0 0 0 edgecolor
+newpath 3147.31 403.09 moveto
+3139.32 396.13 lineto
+3141.23 406.55 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3147.31 403.09 moveto
+3139.32 396.13 lineto
+3141.23 406.55 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_gcc_linaro_work_->git_push_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3092.31 360.39 moveto
+3069.28 349.34 3039.68 335.13 3016.51 324 curveto
+stroke
+0 0 0 edgecolor
+newpath 3017.86 320.77 moveto
+3007.33 319.6 lineto
+3014.83 327.08 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3017.86 320.77 moveto
+3007.33 319.6 lineto
+3014.83 327.08 lineto
+closepath stroke
+grestore
+% git_reset_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3212.05 300.44 moveto
+3241 288 lineto
+3269.95 300.44 lineto
+3269.92 320.56 lineto
+3212.08 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3228 303.3 moveto 26 (git reset) alignedtext
+grestore
+% __GIT_REPO_DIR_gcc_linaro_work_->git_reset_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3157.26 359.83 moveto
+3173.12 349.64 3192.94 336.89 3209.32 326.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 3211.5 329.12 moveto
+3218.02 320.77 lineto
+3207.72 323.23 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3211.5 329.12 moveto
+3218.02 320.77 lineto
+3207.72 323.23 lineto
+closepath stroke
+grestore
+% git_format_patch_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2608.82 300.44 moveto
+2656 288 lineto
+2703.18 300.44 lineto
+2703.13 320.56 lineto
+2608.87 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2630 303.3 moveto 52 (git format-patch) alignedtext
+grestore
+% __GIT_REPO_DIR_gcc_linaro_work_->git_format_patch_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3059.46 367.41 moveto
+2965.6 353.13 2800.12 327.94 2713.12 314.69 curveto
+stroke
+0 0 0 edgecolor
+newpath 2713.58 311.22 moveto
+2703.17 313.18 lineto
+2712.53 318.14 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2713.58 311.22 moveto
+2703.17 313.18 lineto
+2712.53 318.14 lineto
+closepath stroke
+grestore
+% git_add_gcc_linaro_work->__GIT_REPO_DIR_gcc_linaro_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3213.64 169.86 moveto
+3191.52 177.74 3161.58 192.18 3146 216 curveto
+3119.53 256.47 3120.84 315.15 3124.62 349.66 curveto
+stroke
+0 0 0 edgecolor
+newpath 3121.2 350.47 moveto
+3125.91 359.96 lineto
+3128.14 349.61 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3121.2 350.47 moveto
+3125.91 359.96 lineto
+3128.14 349.61 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_gcc_linaro_work_
+gsave
+0.56078 0.45882 0.98039 nodecolor
+newpath 3327.07 226.54 moveto
+3327.07 241.46 lineto
+3276.65 252 lineto
+3205.35 252 lineto
+3154.93 241.46 lineto
+3154.93 226.54 lineto
+3205.35 216 lineto
+3276.65 216 lineto
+closepath fill
+1 setlinewidth
+filled
+0.56078 0.45882 0.98039 nodecolor
+newpath 3327.07 226.54 moveto
+3327.07 241.46 lineto
+3276.65 252 lineto
+3205.35 252 lineto
+3154.93 241.46 lineto
+3154.93 226.54 lineto
+3205.35 216 lineto
+3276.65 216 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3178.5 231.3 moveto 125 (__GIT_WORK_DIR_gcc_linaro_work_) alignedtext
+grestore
+% __GIT_WORK_DIR_gcc_linaro_work_->git_add_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3241 215.83 moveto
+3241 207.11 3241 196.53 3241 187.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 3244.5 187.01 moveto
+3241 177.01 lineto
+3237.5 187.01 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3244.5 187.01 moveto
+3241 177.01 lineto
+3237.5 187.01 lineto
+closepath stroke
+grestore
+% git_push_gcc_linaro_work->__GIT_REPO_DIR_gcc_linaro_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2966.11 293.46 moveto
+2956.46 284.07 2942.94 270.92 2931.07 259.37 curveto
+stroke
+0 0 0 edgecolor
+newpath 2933.17 256.53 moveto
+2923.57 252.06 lineto
+2928.29 261.55 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2933.17 256.53 moveto
+2923.57 252.06 lineto
+2928.29 261.55 lineto
+closepath stroke
+grestore
+% push_git_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2951 396 moveto
+2883 396 lineto
+2883 360 lineto
+2951 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2903 379.8 moveto 28 (push_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2891 370.8 moveto 52 (gcc-linaro_work) alignedtext
+grestore
+% push_git_gcc_linaro_work->git_push_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2932.65 359.83 moveto
+2940.8 350.36 2950.84 338.7 2959.5 328.65 curveto
+stroke
+0 0 0 edgecolor
+newpath 2962.21 330.87 moveto
+2966.08 321.01 lineto
+2956.9 326.3 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2962.21 330.87 moveto
+2966.08 321.01 lineto
+2956.9 326.3 lineto
+closepath stroke
+grestore
+% create_new_git_ptxdist_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3095 684 moveto
+3005 684 lineto
+3005 648 lineto
+3095 648 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3012.5 667.8 moveto 75 (create_new_git_ptxdist) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3024 658.8 moveto 52 (gcc-linaro_work) alignedtext
+grestore
+% create_new_git_ptxdist_gcc_linaro_work->git_init_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3070.76 647.79 moveto
+3095.14 625.13 3134.82 584 3155 540 curveto
+3164.49 519.3 3168.05 493.46 3169.35 474.79 curveto
+stroke
+0 0 0 edgecolor
+newpath 3172.85 474.88 moveto
+3169.88 464.71 lineto
+3165.86 474.51 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3172.85 474.88 moveto
+3169.88 464.71 lineto
+3165.86 474.51 lineto
+closepath stroke
+grestore
+% create_new_git_ptxdist_gcc_linaro_work->git_push_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3004.71 658.56 moveto
+2968.88 651.08 2918.76 636.99 2881 612 curveto
+2845.78 588.7 2833.7 579.59 2819 540 curveto
+2801.49 492.82 2815.4 465.45 2853 432 curveto
+2890.49 398.65 2926.65 433.48 2960 396 curveto
+2975.76 378.28 2979.63 350.84 2980.1 330.91 curveto
+stroke
+0 0 0 edgecolor
+newpath 2983.6 330.71 moveto
+2980.07 320.72 lineto
+2976.6 330.73 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2983.6 330.71 moveto
+2980.07 320.72 lineto
+2976.6 330.73 lineto
+closepath stroke
+grestore
+% ptxdist_git_extract_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2889.91 588.44 moveto
+2946 576 lineto
+3002.09 588.44 lineto
+3002.04 608.56 lineto
+2889.96 608.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2914 591.3 moveto 64 (ptxdist --git extract) alignedtext
+grestore
+% create_new_git_ptxdist_gcc_linaro_work->ptxdist_git_extract_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3023.76 647.83 moveto
+3009.17 637.73 2990.96 625.13 2975.84 614.66 curveto
+stroke
+0 0 0 edgecolor
+newpath 2977.55 611.59 moveto
+2967.34 608.77 lineto
+2973.57 617.34 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2977.55 611.59 moveto
+2967.34 608.77 lineto
+2973.57 617.34 lineto
+closepath stroke
+grestore
+% git_fetch_gcc_linaro_work_tmp
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2861.85 444.44 moveto
+2892 432 lineto
+2922.15 444.44 lineto
+2922.12 464.56 lineto
+2861.88 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2878.5 447.3 moveto 27 (git fetch) alignedtext
+grestore
+% create_new_git_ptxdist_gcc_linaro_work->git_fetch_gcc_linaro_work_tmp
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3053.42 647.96 moveto
+3058.5 615.47 3064.19 546.53 3031 504 curveto
+3003.22 468.4 2978.01 484.55 2936 468 curveto
+2934.61 467.45 2933.19 466.89 2931.76 466.32 curveto
+stroke
+0 0 0 edgecolor
+newpath 2932.84 462.98 moveto
+2922.25 462.5 lineto
+2930.23 469.48 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2932.84 462.98 moveto
+2922.25 462.5 lineto
+2930.23 469.48 lineto
+closepath stroke
+grestore
+% create_new_git_ptxdist_gcc_linaro_work->git_reset_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3095.2 660.41 moveto
+3166.73 648.75 3298 614.73 3298 522 curveto
+3298 522 3298 522 3298 450 curveto
+3298 404.83 3273.45 356.93 3256.57 329.33 curveto
+stroke
+0 0 0 edgecolor
+newpath 3259.48 327.38 moveto
+3251.19 320.79 lineto
+3253.56 331.11 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3259.48 327.38 moveto
+3251.19 320.79 lineto
+3253.56 331.11 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_gcc_linaro_work___git
+gsave
+0 0 0.75294 nodecolor
+newpath 3022.01 514.54 moveto
+3022.01 529.46 lineto
+2965.18 540 lineto
+2884.82 540 lineto
+2827.99 529.46 lineto
+2827.99 514.54 lineto
+2884.82 504 lineto
+2965.18 504 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 3022.01 514.54 moveto
+3022.01 529.46 lineto
+2965.18 540 lineto
+2884.82 540 lineto
+2827.99 529.46 lineto
+2827.99 514.54 lineto
+2884.82 504 lineto
+2965.18 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2854 519.3 moveto 142 (__GIT_WORK_DIR_gcc_linaro_work___git) alignedtext
+grestore
+% ptxdist_git_extract_gcc_linaro_work->__GIT_WORK_DIR_gcc_linaro_work___git
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2941.02 576.94 moveto
+2938.68 568.9 2935.82 559.1 2933.17 550.02 curveto
+stroke
+0 0 0 edgecolor
+newpath 2936.47 548.82 moveto
+2930.31 540.2 lineto
+2929.75 550.78 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2936.47 548.82 moveto
+2930.31 540.2 lineto
+2929.75 550.78 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_gcc_linaro_work___git->git_fetch_gcc_linaro_work_tmp
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2916.67 503.83 moveto
+2912.55 494.83 2907.51 483.85 2903.07 474.15 curveto
+stroke
+0 0 0 edgecolor
+newpath 2906.23 472.64 moveto
+2898.88 465.01 lineto
+2899.86 475.55 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2906.23 472.64 moveto
+2898.88 465.01 lineto
+2899.86 475.55 lineto
+closepath stroke
+grestore
+% git_fetch_gcc_linaro_work_tmp->__GIT_REPO_DIR_gcc_linaro_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2917.36 442.29 moveto
+2953.45 431.33 3020.66 410.91 3069.68 396.02 curveto
+stroke
+0 0 0 edgecolor
+newpath 3070.99 399.28 moveto
+3079.54 393.03 lineto
+3068.96 392.58 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3070.99 399.28 moveto
+3079.54 393.03 lineto
+3068.96 392.58 lineto
+closepath stroke
+grestore
+% git_reset_gcc_linaro_work->__GIT_WORK_DIR_gcc_linaro_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3241 287.83 moveto
+3241 280.13 3241 270.97 3241 262.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 3244.5 262.41 moveto
+3241 252.41 lineto
+3237.5 262.41 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3244.5 262.41 moveto
+3241 252.41 lineto
+3237.5 262.41 lineto
+closepath stroke
+grestore
+% create_src_git_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3146 540 moveto
+3078 540 lineto
+3078 504 lineto
+3146 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3090 523.8 moveto 44 (create_src_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3086 514.8 moveto 52 (gcc-linaro_work) alignedtext
+grestore
+% create_src_git_gcc_linaro_work->git_init_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3126.64 503.83 moveto
+3134.19 494.46 3143.48 482.93 3151.52 472.95 curveto
+stroke
+0 0 0 edgecolor
+newpath 3154.36 474.99 moveto
+3157.91 465.01 lineto
+3148.91 470.6 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3154.36 474.99 moveto
+3157.91 465.01 lineto
+3148.91 470.6 lineto
+closepath stroke
+grestore
+% create_src_git_gcc_linaro_work->git_reset_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3111.78 503.95 moveto
+3112.5 484.07 3116.57 452.23 3134 432 curveto
+3161.58 399.98 3194.93 428.45 3222 396 curveto
+3237.1 377.89 3241.11 350.73 3241.79 330.99 curveto
+stroke
+0 0 0 edgecolor
+newpath 3245.29 330.91 moveto
+3241.87 320.88 lineto
+3238.29 330.85 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3245.29 330.91 moveto
+3241.87 320.88 lineto
+3238.29 330.85 lineto
+closepath stroke
+grestore
+% create_src_git_gcc_linaro_work->git_fetch_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3080.88 503.94 moveto
+3045.53 484.04 2985.64 452.2 2931 432 curveto
+2869.53 409.28 2828.29 447.69 2788 396 curveto
+2760.89 361.22 2736.69 324.93 2812 216 curveto
+2824.81 197.48 2846.19 184.42 2865.23 175.79 curveto
+stroke
+0 0 0 edgecolor
+newpath 2866.79 178.93 moveto
+2874.62 171.79 lineto
+2864.05 172.49 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2866.79 178.93 moveto
+2874.62 171.79 lineto
+2864.05 172.49 lineto
+closepath stroke
+grestore
+% git_fetch_gcc_linaro_work->__GIT_REPO_DIR_gcc_linaro_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2935.29 176.01 moveto
+2954.41 185.69 2979 199.72 2998 216 curveto
+3045.78 256.94 3089.11 317.04 3111.98 351.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 3109.19 353.48 moveto
+3117.61 359.91 lineto
+3115.04 349.64 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3109.19 353.48 moveto
+3117.61 359.91 lineto
+3115.04 349.64 lineto
+closepath stroke
+grestore
+% create_ptx_patches_git_gcc_linaro_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 2734 396 moveto
+2646 396 lineto
+2646 360 lineto
+2734 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2653.5 379.8 moveto 73 (create_ptx_patches_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+2664 370.8 moveto 52 (gcc-linaro_work) alignedtext
+grestore
+% create_ptx_patches_git_gcc_linaro_work->git_add_toolchain_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2699.59 359.56 moveto
+2704.35 349.37 2709.59 336.32 2712 324 curveto
+2721.38 276.09 2725.17 251.82 2692 216 curveto
+2662.86 184.53 2613.96 171.37 2580.18 165.88 curveto
+stroke
+0 0 0 edgecolor
+newpath 2580.62 162.41 moveto
+2570.21 164.41 lineto
+2579.6 169.33 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2580.62 162.41 moveto
+2570.21 164.41 lineto
+2579.6 169.33 lineto
+closepath stroke
+grestore
+% create_ptx_patches_git_gcc_linaro_work->git_format_patch_gcc_linaro_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 2681.42 359.83 moveto
+2677.17 350.83 2671.98 339.85 2667.4 330.15 curveto
+stroke
+0 0 0 edgecolor
+newpath 2670.52 328.55 moveto
+2663.09 321.01 lineto
+2664.19 331.54 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2670.52 328.55 moveto
+2663.09 321.01 lineto
+2664.19 331.54 lineto
+closepath stroke
+grestore
+% git_format_patch_gcc_linaro_work->__GIT_WORK_DIR_toolchain_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 2644.19 291.08 moveto
+2637.14 282.18 2627.99 270.61 2619.76 260.23 curveto
+stroke
+0 0 0 edgecolor
+newpath 2622.38 257.89 moveto
+2613.42 252.22 lineto
+2616.89 262.23 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 2622.38 257.89 moveto
+2613.42 252.22 lineto
+2616.89 262.23 lineto
+closepath stroke
+grestore
+% create_git_tftpboot_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3501 540 moveto
+3439 540 lineto
+3439 504 lineto
+3501 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3454.5 523.8 moveto 31 (create_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3446.5 514.8 moveto 47 (tftpboot_local) alignedtext
+grestore
+% git_clone_tftpboot_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3572.15 444.44 moveto
+3603 432 lineto
+3633.85 444.44 lineto
+3633.82 464.56 lineto
+3572.18 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3589 447.3 moveto 28 (git clone) alignedtext
+grestore
+% create_git_tftpboot_local->git_clone_tftpboot_local
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3501.18 505.12 moveto
+3520.89 494.45 3546.43 480.62 3567 469.49 curveto
+stroke
+0 0 0 edgecolor
+newpath 3568.93 472.42 moveto
+3576.06 464.58 lineto
+3565.6 466.27 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3568.93 472.42 moveto
+3576.06 464.58 lineto
+3565.6 466.27 lineto
+closepath stroke
+grestore
+% git_fetch_tftpboot_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3493.85 444.44 moveto
+3524 432 lineto
+3554.15 444.44 lineto
+3554.12 464.56 lineto
+3493.88 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3510.5 447.3 moveto 27 (git fetch) alignedtext
+grestore
+% create_git_tftpboot_local->git_fetch_tftpboot_local
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3483.63 503.83 moveto
+3490.59 494.55 3499.13 483.16 3506.57 473.25 curveto
+stroke
+0 0 0 edgecolor
+newpath 3509.55 475.11 moveto
+3512.75 465.01 lineto
+3503.95 470.91 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3509.55 475.11 moveto
+3512.75 465.01 lineto
+3503.95 470.91 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_tftpboot_local_
+gsave
+0 0 0.75294 nodecolor
+newpath 3682.93 370.54 moveto
+3682.93 385.46 lineto
+3636.11 396 lineto
+3569.89 396 lineto
+3523.07 385.46 lineto
+3523.07 370.54 lineto
+3569.89 360 lineto
+3636.11 360 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 3682.93 370.54 moveto
+3682.93 385.46 lineto
+3636.11 396 lineto
+3569.89 396 lineto
+3523.07 385.46 lineto
+3523.07 370.54 lineto
+3569.89 360 lineto
+3636.11 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3545.5 375.3 moveto 115 (__GIT_REPO_DIR_tftpboot_local_) alignedtext
+grestore
+% git_clone_tftpboot_local->__GIT_REPO_DIR_tftpboot_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3603 431.83 moveto
+3603 424.13 3603 414.97 3603 406.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 3606.5 406.41 moveto
+3603 396.41 lineto
+3599.5 406.41 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3606.5 406.41 moveto
+3603 396.41 lineto
+3599.5 406.41 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_tftpboot_remote_
+gsave
+0.56078 0.45882 0.98039 nodecolor
+newpath 3687.11 514.54 moveto
+3687.11 529.46 lineto
+3637.84 540 lineto
+3568.16 540 lineto
+3518.89 529.46 lineto
+3518.89 514.54 lineto
+3568.16 504 lineto
+3637.84 504 lineto
+closepath fill
+1 setlinewidth
+filled
+0.56078 0.45882 0.98039 nodecolor
+newpath 3687.11 514.54 moveto
+3687.11 529.46 lineto
+3637.84 540 lineto
+3568.16 540 lineto
+3518.89 529.46 lineto
+3518.89 514.54 lineto
+3568.16 504 lineto
+3637.84 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3542.5 519.3 moveto 121 (__GIT_REPO_DIR_tftpboot_remote_) alignedtext
+grestore
+% __GIT_REPO_DIR_tftpboot_remote_->git_clone_tftpboot_local
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3603 503.83 moveto
+3603 495.11 3603 484.53 3603 475.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 3606.5 475.01 moveto
+3603 465.01 lineto
+3599.5 475.01 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3606.5 475.01 moveto
+3603 465.01 lineto
+3599.5 475.01 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_tftpboot_remote_->git_fetch_tftpboot_local
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3583.06 503.83 moveto
+3572.29 494.02 3558.93 481.83 3547.64 471.54 curveto
+stroke
+0 0 0 edgecolor
+newpath 3549.96 468.92 moveto
+3540.21 464.77 lineto
+3545.24 474.09 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3549.96 468.92 moveto
+3540.21 464.77 lineto
+3545.24 474.09 lineto
+closepath stroke
+grestore
+% git_fetch_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3447.85 300.44 moveto
+3478 288 lineto
+3508.15 300.44 lineto
+3508.12 320.56 lineto
+3447.88 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3464.5 303.3 moveto 27 (git fetch) alignedtext
+grestore
+% __GIT_REPO_DIR_tftpboot_local_->git_fetch_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3571.46 359.83 moveto
+3553.43 349.45 3530.81 336.42 3512.34 325.78 curveto
+stroke
+0 0 0 edgecolor
+newpath 3514.06 322.73 moveto
+3503.64 320.77 lineto
+3510.56 328.8 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3514.06 322.73 moveto
+3503.64 320.77 lineto
+3510.56 328.8 lineto
+closepath stroke
+grestore
+% git_fetch_tftpboot_local->__GIT_REPO_DIR_tftpboot_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3537.76 437.46 moveto
+3548.16 427.98 3562.77 414.67 3575.53 403.04 curveto
+stroke
+0 0 0 edgecolor
+newpath 3578.15 405.39 moveto
+3583.18 396.06 lineto
+3573.43 400.21 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3578.15 405.39 moveto
+3583.18 396.06 lineto
+3573.43 400.21 lineto
+closepath stroke
+grestore
+% create_new_git_tftpboot_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3769 540 moveto
+3705 540 lineto
+3705 504 lineto
+3769 504 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3713 523.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3713.5 514.8 moveto 47 (tftpboot_local) alignedtext
+grestore
+% git_init_tftpboot_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3681 444.44 moveto
+3708 432 lineto
+3735 444.44 lineto
+3734.97 464.56 lineto
+3681.03 464.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3697 447.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_tftpboot_local->git_init_tftpboot_local
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3729.68 503.83 moveto
+3726.1 494.93 3721.72 484.07 3717.85 474.45 curveto
+stroke
+0 0 0 edgecolor
+newpath 3721.03 472.97 moveto
+3714.04 465.01 lineto
+3714.53 475.59 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3721.03 472.97 moveto
+3714.04 465.01 lineto
+3714.53 475.59 lineto
+closepath stroke
+grestore
+% git_init_tftpboot_local->__GIT_REPO_DIR_tftpboot_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3692.05 439.06 moveto
+3677.76 429.26 3656.28 414.53 3638 402 curveto
+stroke
+0 0 0 edgecolor
+newpath 3639.55 398.82 moveto
+3629.32 396.05 lineto
+3635.59 404.59 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3639.55 398.82 moveto
+3629.32 396.05 lineto
+3635.59 404.59 lineto
+closepath stroke
+grestore
+% download_bundle_git_tftpboot_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3569 684 moveto
+3485 684 lineto
+3485 648 lineto
+3569 648 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3492.5 667.8 moveto 69 (download_bundle_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3503.5 658.8 moveto 47 (tftpboot_local) alignedtext
+grestore
+% download_bundle_tftpboot_local
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3576 588.44 moveto
+3603 576 lineto
+3630 588.44 lineto
+3629.97 608.56 lineto
+3576.03 608.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3595 591.3 moveto 16 (wget) alignedtext
+grestore
+% download_bundle_git_tftpboot_local->download_bundle_tftpboot_local
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3546.18 647.83 moveto
+3556.37 638.18 3568.98 626.23 3579.72 616.05 curveto
+stroke
+0 0 0 edgecolor
+newpath 3582.31 618.42 moveto
+3587.16 609.01 lineto
+3577.49 613.34 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3582.31 618.42 moveto
+3587.16 609.01 lineto
+3577.49 613.34 lineto
+closepath stroke
+grestore
+% download_bundle_tftpboot_local->__GIT_REPO_DIR_tftpboot_remote_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3603 575.83 moveto
+3603 568.13 3603 558.97 3603 550.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 3606.5 550.41 moveto
+3603 540.41 lineto
+3599.5 550.41 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3606.5 550.41 moveto
+3603 540.41 lineto
+3599.5 550.41 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_tftpboot_remote_url_
+gsave
+0.56078 0.45882 0.98039 nodecolor
+newpath 3771.21 658.54 moveto
+3771.21 673.46 lineto
+3717.19 684 lineto
+3640.81 684 lineto
+3586.79 673.46 lineto
+3586.79 658.54 lineto
+3640.81 648 lineto
+3717.19 648 lineto
+closepath fill
+1 setlinewidth
+filled
+0.56078 0.45882 0.98039 nodecolor
+newpath 3771.21 658.54 moveto
+3771.21 673.46 lineto
+3717.19 684 lineto
+3640.81 684 lineto
+3586.79 673.46 lineto
+3586.79 658.54 lineto
+3640.81 648 lineto
+3717.19 648 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3611.5 663.3 moveto 135 (__GIT_REPO_DIR_tftpboot_remote_url_) alignedtext
+grestore
+% __GIT_REPO_DIR_tftpboot_remote_url_->download_bundle_tftpboot_local
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3659.82 647.83 moveto
+3649.63 638.18 3637.02 626.23 3626.28 616.05 curveto
+stroke
+0 0 0 edgecolor
+newpath 3628.51 613.34 moveto
+3618.84 609.01 lineto
+3623.69 618.42 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3628.51 613.34 moveto
+3618.84 609.01 lineto
+3623.69 618.42 lineto
+closepath stroke
+grestore
+% create_new_git_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3765 396 moveto
+3701 396 lineto
+3701 360 lineto
+3765 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3709 379.8 moveto 48 (create_new_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3709 370.8 moveto 48 (tftpboot_work) alignedtext
+grestore
+% git_init_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3526 300.44 moveto
+3553 288 lineto
+3580 300.44 lineto
+3579.97 320.56 lineto
+3526.03 320.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3542 303.3 moveto 22 (git init) alignedtext
+grestore
+% create_new_git_tftpboot_work->git_init_tftpboot_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3700.83 363.72 moveto
+3697.85 362.44 3694.87 361.19 3692 360 curveto
+3657.44 345.71 3617.62 330.35 3589.48 319.68 curveto
+stroke
+0 0 0 edgecolor
+newpath 3590.64 316.37 moveto
+3580.04 316.11 lineto
+3588.16 322.92 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3590.64 316.37 moveto
+3580.04 316.11 lineto
+3588.16 322.92 lineto
+closepath stroke
+grestore
+% git_add_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3532 12.44 moveto
+3559 0 lineto
+3586 12.44 lineto
+3585.97 32.56 lineto
+3532.03 32.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3548 15.3 moveto 22 (git add) alignedtext
+grestore
+% create_new_git_tftpboot_work->git_add_tftpboot_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3740.63 359.73 moveto
+3751.2 332.73 3769 280.38 3769 234 curveto
+3769 234 3769 234 3769 162 curveto
+3769 79.05 3656.17 40.34 3595.92 25.58 curveto
+stroke
+0 0 0 edgecolor
+newpath 3596.56 22.13 moveto
+3586.02 23.25 lineto
+3594.96 28.94 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3596.56 22.13 moveto
+3586.02 23.25 lineto
+3594.96 28.94 lineto
+closepath stroke
+grestore
+% git_push_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3641.76 156.44 moveto
+3670 144 lineto
+3698.24 156.44 lineto
+3698.22 176.56 lineto
+3641.78 176.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3657.5 159.3 moveto 25 (git push) alignedtext
+grestore
+% create_new_git_tftpboot_work->git_push_tftpboot_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3733.69 359.71 moveto
+3734.21 328.83 3732.41 264.95 3712 216 curveto
+3707.24 204.59 3699.41 193.52 3691.78 184.41 curveto
+stroke
+0 0 0 edgecolor
+newpath 3694.17 181.83 moveto
+3684.94 176.64 lineto
+3688.92 186.46 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3694.17 181.83 moveto
+3684.94 176.64 lineto
+3688.92 186.46 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_tftpboot_work_
+gsave
+0 0 0.75294 nodecolor
+newpath 3583.04 226.54 moveto
+3583.04 241.46 lineto
+3535.57 252 lineto
+3468.43 252 lineto
+3420.96 241.46 lineto
+3420.96 226.54 lineto
+3468.43 216 lineto
+3535.57 216 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.75294 nodecolor
+newpath 3583.04 226.54 moveto
+3583.04 241.46 lineto
+3535.57 252 lineto
+3468.43 252 lineto
+3420.96 241.46 lineto
+3420.96 226.54 lineto
+3468.43 216 lineto
+3535.57 216 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3444 231.3 moveto 116 (__GIT_REPO_DIR_tftpboot_work_) alignedtext
+grestore
+% git_init_tftpboot_work->__GIT_REPO_DIR_tftpboot_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3543.17 292.12 moveto
+3536.82 283.15 3528.35 271.2 3520.75 260.47 curveto
+stroke
+0 0 0 edgecolor
+newpath 3523.53 258.34 moveto
+3514.89 252.2 lineto
+3517.82 262.39 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3523.53 258.34 moveto
+3514.89 252.2 lineto
+3517.82 262.39 lineto
+closepath stroke
+grestore
+% __GIT_REPO_DIR_tftpboot_work_->git_push_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3541.39 217.12 moveto
+3568.86 205.35 3605.29 189.73 3632.36 178.13 curveto
+stroke
+0 0 0 edgecolor
+newpath 3634.07 181.21 moveto
+3641.88 174.05 lineto
+3631.31 174.77 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3634.07 181.21 moveto
+3641.88 174.05 lineto
+3631.31 174.77 lineto
+closepath stroke
+grestore
+% git_checkout_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3410.14 156.44 moveto
+3448 144 lineto
+3485.86 156.44 lineto
+3485.83 176.56 lineto
+3410.17 176.56 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3429 159.3 moveto 38 (git checkout) alignedtext
+grestore
+% __GIT_REPO_DIR_tftpboot_work_->git_checkout_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3488.37 215.83 moveto
+3481.41 206.55 3472.87 195.16 3465.43 185.25 curveto
+stroke
+0 0 0 edgecolor
+newpath 3468.05 182.91 moveto
+3459.25 177.01 lineto
+3462.45 187.11 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3468.05 182.91 moveto
+3459.25 177.01 lineto
+3462.45 187.11 lineto
+closepath stroke
+grestore
+% git_add_tftpboot_work->__GIT_REPO_DIR_tftpboot_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3556.29 32.74 moveto
+3552.9 50.64 3546.73 81.7 3540 108 curveto
+3531.29 142.05 3519.33 180.66 3511.17 206.07 curveto
+stroke
+0 0 0 edgecolor
+newpath 3507.78 205.18 moveto
+3508.03 215.77 lineto
+3514.44 207.34 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3507.78 205.18 moveto
+3508.03 215.77 lineto
+3514.44 207.34 lineto
+closepath stroke
+grestore
+% __GIT_WORK_DIR_tftpboot_work_
+gsave
+0.56078 0.45882 0.98039 nodecolor
+newpath 3531 82.54 moveto
+3531 97.46 lineto
+3482.38 108 lineto
+3413.62 108 lineto
+3365 97.46 lineto
+3365 82.54 lineto
+3413.62 72 lineto
+3482.38 72 lineto
+closepath fill
+1 setlinewidth
+filled
+0.56078 0.45882 0.98039 nodecolor
+newpath 3531 82.54 moveto
+3531 97.46 lineto
+3482.38 108 lineto
+3413.62 108 lineto
+3365 97.46 lineto
+3365 82.54 lineto
+3413.62 72 lineto
+3482.38 72 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3388 87.3 moveto 120 (__GIT_WORK_DIR_tftpboot_work_) alignedtext
+grestore
+% __GIT_WORK_DIR_tftpboot_work_->git_add_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3476.01 71.83 moveto
+3491.72 61.64 3511.37 48.89 3527.61 38.36 curveto
+stroke
+0 0 0 edgecolor
+newpath 3529.74 41.15 moveto
+3536.23 32.77 lineto
+3525.93 35.28 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3529.74 41.15 moveto
+3536.23 32.77 lineto
+3525.93 35.28 lineto
+closepath stroke
+grestore
+% git_push_tftpboot_work->__GIT_REPO_DIR_tftpboot_local_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3655.96 176.84 moveto
+3647.1 187.07 3636.2 201.39 3630 216 curveto
+3611.29 260.1 3605.51 316.09 3603.74 349.37 curveto
+stroke
+0 0 0 edgecolor
+newpath 3600.23 349.59 moveto
+3603.29 359.73 lineto
+3607.22 349.9 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3600.23 349.59 moveto
+3603.29 359.73 lineto
+3607.22 349.9 lineto
+closepath stroke
+grestore
+% push_git_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3703 252 moveto
+3639 252 lineto
+3639 216 lineto
+3703 216 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3657 235.8 moveto 28 (push_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3647 226.8 moveto 48 (tftpboot_work) alignedtext
+grestore
+% push_git_tftpboot_work->git_push_tftpboot_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3670.75 215.83 moveto
+3670.63 207.11 3670.48 196.53 3670.35 187.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 3673.85 186.96 moveto
+3670.21 177.01 lineto
+3666.85 187.05 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3673.85 186.96 moveto
+3670.21 177.01 lineto
+3666.85 187.05 lineto
+closepath stroke
+grestore
+% create_co_git_tftpboot_work
+gsave
+1 setlinewidth
+0 0 0 nodecolor
+newpath 3505 396 moveto
+3441 396 lineto
+3441 360 lineto
+3505 360 lineto
+closepath stroke
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3452 379.8 moveto 42 (create_co_git) alignedtext
+0 0 0 nodecolor
+8 /Times-Roman set_font
+3449 370.8 moveto 48 (tftpboot_work) alignedtext
+grestore
+% create_co_git_tftpboot_work->git_init_tftpboot_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3493.19 359.83 moveto
+3504.09 350.02 3517.63 337.83 3529.06 327.54 curveto
+stroke
+0 0 0 edgecolor
+newpath 3531.5 330.06 moveto
+3536.59 320.77 lineto
+3526.81 324.86 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3531.5 330.06 moveto
+3536.59 320.77 lineto
+3526.81 324.86 lineto
+closepath stroke
+grestore
+% create_co_git_tftpboot_work->git_fetch_tftpboot_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3474.26 359.83 moveto
+3474.87 351.11 3475.6 340.53 3476.26 331.06 curveto
+stroke
+0 0 0 edgecolor
+newpath 3479.76 331.22 moveto
+3476.96 321.01 lineto
+3472.77 330.74 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3479.76 331.22 moveto
+3476.96 321.01 lineto
+3472.77 330.74 lineto
+closepath stroke
+grestore
+% create_co_git_tftpboot_work->git_checkout_tftpboot_work
+gsave
+1 setlinewidth
+dashed
+0 0 0 edgecolor
+newpath 3460.29 359.9 moveto
+3444.72 336.37 3419.5 293.37 3412 252 curveto
+3409.15 236.26 3407.36 231.31 3412 216 curveto
+3415.37 204.89 3421.86 193.97 3428.41 184.89 curveto
+stroke
+0 0 0 edgecolor
+newpath 3431.3 186.87 moveto
+3434.61 176.8 lineto
+3425.75 182.61 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3431.3 186.87 moveto
+3434.61 176.8 lineto
+3425.75 182.61 lineto
+closepath stroke
+grestore
+% git_fetch_tftpboot_work->__GIT_REPO_DIR_tftpboot_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3483.33 290.02 moveto
+3486.09 281.72 3489.56 271.33 3492.74 261.77 curveto
+stroke
+0 0 0 edgecolor
+newpath 3496.09 262.81 moveto
+3495.93 252.22 lineto
+3489.44 260.6 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3496.09 262.81 moveto
+3495.93 252.22 lineto
+3489.44 260.6 lineto
+closepath stroke
+grestore
+% git_checkout_tftpboot_work->__GIT_WORK_DIR_tftpboot_work_
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 3448 143.83 moveto
+3448 136.13 3448 126.97 3448 118.42 curveto
+stroke
+0 0 0 edgecolor
+newpath 3451.5 118.41 moveto
+3448 108.41 lineto
+3444.5 118.41 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 3451.5 118.41 moveto
+3448 108.41 lineto
+3444.5 118.41 lineto
+closepath stroke
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+%%BoundingBox: 36 36 3815 728
+end
+restore
+%%EOF

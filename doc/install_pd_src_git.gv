@@ -1,0 +1,860 @@
+digraph g {
+node [
+fontsize = "8"
+];
+create_new_git_bsp_local[label="create_new_git\nbsp_local" shape=box ];
+git_init_bsp_local[label="git init" shape=invhouse ];
+git_init_bsp_local[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_bsp_local_[shape=octagon color=grey style=filled ];
+create_new_git_bsp_work[label="create_new_git\nbsp_work" shape=box ];
+git_init_bsp_work[label="git init" shape=invhouse ];
+git_init_bsp_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_bsp_work_[shape=octagon color=grey style=filled ];
+create_new_git_bsp_work[label="create_new_git\nbsp_work" shape=box ];
+git_add_bsp_work[label="git add" shape=invhouse ];
+__GIT_WORK_DIR_bsp_work_[shape=octagon color=lightskyblue style=filled ];
+git_add_bsp_work[label="git add" shape=invhouse ];
+git_add_bsp_work[label="git add" shape=invhouse ];
+__GIT_REPO_DIR_bsp_work_[shape=octagon color=grey style=filled ];
+create_new_git_bsp_work[label="create_new_git\nbsp_work" shape=box ];
+git_push_bsp_work[label="git push" shape=invhouse ];
+git_push_bsp_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_bsp_local_[shape=octagon color=grey style=filled ];
+__GIT_REPO_DIR_bsp_work_[shape=octagon color=grey style=filled ];
+git_push_bsp_work[label="git push" shape=invhouse ];
+push_git_bsp_work[label="push_git\nbsp_work" shape=box ];
+git_push_bsp_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_bsp_work_[shape=octagon color=grey style=filled ];
+git_push_bsp_work[label="git push" shape=invhouse ];
+git_push_bsp_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_bsp_local_[shape=octagon color=grey style=filled ];
+create_co_git_bsp_work[label="create_co_git\nbsp_work" shape=box ];
+git_init_bsp_work[label="git init" shape=invhouse ];
+git_init_bsp_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_bsp_work_[shape=octagon color=grey style=filled ];
+create_co_git_bsp_work[label="create_co_git\nbsp_work" shape=box ];
+git_fetch_bsp_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_bsp_local_[shape=octagon color=grey style=filled ];
+git_fetch_bsp_work[label="git fetch" shape=invhouse ];
+git_fetch_bsp_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_bsp_work_[shape=octagon color=grey style=filled ];
+create_co_git_bsp_work[label="create_co_git\nbsp_work" shape=box ];
+git_checkout_bsp_work[label="git checkout" shape=invhouse ];
+__GIT_REPO_DIR_bsp_work_[shape=octagon color=grey style=filled ];
+git_checkout_bsp_work[label="git checkout" shape=invhouse ];
+git_checkout_bsp_work[label="git checkout" shape=invhouse ];
+__GIT_WORK_DIR_bsp_work_[shape=octagon color=lightskyblue style=filled ];
+create_new_git_ptxdist_local[label="create_new_git\nptxdist_local" shape=box ];
+git_init_ptxdist_local[label="git init" shape=invhouse ];
+git_init_ptxdist_local[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_ptxdist_local_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_work[label="create_new_git\nptxdist_work" shape=box ];
+git_init_ptxdist_work[label="git init" shape=invhouse ];
+git_init_ptxdist_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_ptxdist_work_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_work[label="create_new_git\nptxdist_work" shape=box ];
+git_add_ptxdist_work[label="git add" shape=invhouse ];
+__GIT_WORK_DIR_ptxdist_work_[shape=octagon color=lightskyblue style=filled ];
+git_add_ptxdist_work[label="git add" shape=invhouse ];
+git_add_ptxdist_work[label="git add" shape=invhouse ];
+__GIT_REPO_DIR_ptxdist_work_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_work[label="create_new_git\nptxdist_work" shape=box ];
+git_push_ptxdist_work[label="git push" shape=invhouse ];
+git_push_ptxdist_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_ptxdist_local_[shape=octagon color=grey style=filled ];
+__GIT_REPO_DIR_ptxdist_work_[shape=octagon color=grey style=filled ];
+git_push_ptxdist_work[label="git push" shape=invhouse ];
+push_git_ptxdist_work[label="push_git\nptxdist_work" shape=box ];
+git_push_ptxdist_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_ptxdist_work_[shape=octagon color=grey style=filled ];
+git_push_ptxdist_work[label="git push" shape=invhouse ];
+git_push_ptxdist_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_ptxdist_local_[shape=octagon color=grey style=filled ];
+create_co_git_ptxdist_work[label="create_co_git\nptxdist_work" shape=box ];
+git_init_ptxdist_work[label="git init" shape=invhouse ];
+git_init_ptxdist_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_ptxdist_work_[shape=octagon color=grey style=filled ];
+create_co_git_ptxdist_work[label="create_co_git\nptxdist_work" shape=box ];
+git_fetch_ptxdist_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_ptxdist_local_[shape=octagon color=grey style=filled ];
+git_fetch_ptxdist_work[label="git fetch" shape=invhouse ];
+git_fetch_ptxdist_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_ptxdist_work_[shape=octagon color=grey style=filled ];
+create_co_git_ptxdist_work[label="create_co_git\nptxdist_work" shape=box ];
+git_checkout_ptxdist_work[label="git checkout" shape=invhouse ];
+__GIT_REPO_DIR_ptxdist_work_[shape=octagon color=grey style=filled ];
+git_checkout_ptxdist_work[label="git checkout" shape=invhouse ];
+git_checkout_ptxdist_work[label="git checkout" shape=invhouse ];
+__GIT_WORK_DIR_ptxdist_work_[shape=octagon color=lightskyblue style=filled ];
+create_new_git_barebox_local[label="create_new_git\nbarebox_local" shape=box ];
+git_init_barebox_local[label="git init" shape=invhouse ];
+git_init_barebox_local[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_barebox_local_[shape=octagon color=grey style=filled ];
+create_new_git_barebox_work[label="create_new_git\nbarebox_work" shape=box ];
+git_init_barebox_work[label="git init" shape=invhouse ];
+git_init_barebox_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+create_new_git_barebox_work[label="create_new_git\nbarebox_work" shape=box ];
+git_add_barebox_work[label="git add" shape=invhouse ];
+__GIT_WORK_DIR_barebox_work_[shape=octagon color=lightskyblue style=filled ];
+git_add_barebox_work[label="git add" shape=invhouse ];
+git_add_barebox_work[label="git add" shape=invhouse ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+create_new_git_barebox_work[label="create_new_git\nbarebox_work" shape=box ];
+git_push_barebox_work[label="git push" shape=invhouse ];
+git_push_barebox_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_barebox_local_[shape=octagon color=grey style=filled ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+git_push_barebox_work[label="git push" shape=invhouse ];
+push_git_barebox_work[label="push_git\nbarebox_work" shape=box ];
+git_push_barebox_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+git_push_barebox_work[label="git push" shape=invhouse ];
+git_push_barebox_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_barebox_local_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_barebox_work[label="create_new_git_ptxdist\nbarebox_work" shape=box ];
+ptxdist_git_extract_barebox_work[label="ptxdist --git extract" shape=invhouse ];
+ptxdist_git_extract_barebox_work[label="ptxdist --git extract" shape=invhouse ];
+__GIT_WORK_DIR_barebox_work___git[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_barebox_work[label="create_new_git_ptxdist\nbarebox_work" shape=box ];
+git_init_barebox_work[label="git init" shape=invhouse ];
+git_init_barebox_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_barebox_work[label="create_new_git_ptxdist\nbarebox_work" shape=box ];
+git_fetch_barebox_work_tmp[label="git fetch" shape=invhouse ];
+__GIT_WORK_DIR_barebox_work___git[shape=octagon color=grey style=filled ];
+git_fetch_barebox_work_tmp[label="git fetch" shape=invhouse ];
+git_fetch_barebox_work_tmp[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_barebox_work[label="create_new_git_ptxdist\nbarebox_work" shape=box ];
+git_reset_barebox_work[label="git reset" shape=invhouse ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+git_reset_barebox_work[label="git reset" shape=invhouse ];
+git_reset_barebox_work[label="git reset" shape=invhouse ];
+__GIT_WORK_DIR_barebox_work_[shape=octagon color=lightskyblue style=filled ];
+create_new_git_ptxdist_barebox_work[label="create_new_git_ptxdist\nbarebox_work" shape=box ];
+git_push_barebox_work[label="git push" shape=invhouse ];
+git_push_barebox_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_barebox_local_[shape=octagon color=grey style=filled ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+git_push_barebox_work[label="git push" shape=invhouse ];
+create_src_git_barebox_work[label="create_src_git\nbarebox_work" shape=box ];
+git_init_barebox_work[label="git init" shape=invhouse ];
+git_init_barebox_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+create_src_git_barebox_work[label="create_src_git\nbarebox_work" shape=box ];
+git_fetch_barebox_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_barebox_local_[shape=octagon color=grey style=filled ];
+git_fetch_barebox_work[label="git fetch" shape=invhouse ];
+git_fetch_barebox_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+create_src_git_barebox_work[label="create_src_git\nbarebox_work" shape=box ];
+git_reset_barebox_work[label="git reset" shape=invhouse ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+git_reset_barebox_work[label="git reset" shape=invhouse ];
+git_reset_barebox_work[label="git reset" shape=invhouse ];
+__GIT_WORK_DIR_barebox_work_[shape=octagon color=lightskyblue style=filled ];
+create_ptx_patches_git_barebox_work[label="create_ptx_patches_git\nbarebox_work" shape=box ];
+git_format_patch_barebox_work[label="git format-patch" shape=invhouse ];
+__GIT_REPO_DIR_barebox_work_[shape=octagon color=grey style=filled ];
+git_format_patch_barebox_work[label="git format-patch" shape=invhouse ];
+git_format_patch_barebox_work[label="git format-patch" shape=invhouse ];
+__GIT_WORK_DIR_bsp_work_[shape=octagon color=lightskyblue style=filled ];
+create_ptx_patches_git_barebox_work[label="create_ptx_patches_git\nbarebox_work" shape=box ];
+git_add_bsp_work[label="git add" shape=invhouse ];
+__GIT_WORK_DIR_bsp_work_[shape=octagon color=lightskyblue style=filled ];
+git_add_bsp_work[label="git add" shape=invhouse ];
+git_add_bsp_work[label="git add" shape=invhouse ];
+__GIT_REPO_DIR_bsp_work_[shape=octagon color=grey style=filled ];
+create_new_git_linux_local[label="create_new_git\nlinux_local" shape=box ];
+git_init_linux_local[label="git init" shape=invhouse ];
+git_init_linux_local[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_linux_local_[shape=octagon color=grey style=filled ];
+create_new_git_linux_work[label="create_new_git\nlinux_work" shape=box ];
+git_init_linux_work[label="git init" shape=invhouse ];
+git_init_linux_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+create_new_git_linux_work[label="create_new_git\nlinux_work" shape=box ];
+git_add_linux_work[label="git add" shape=invhouse ];
+__GIT_WORK_DIR_linux_work_[shape=octagon color=lightskyblue style=filled ];
+git_add_linux_work[label="git add" shape=invhouse ];
+git_add_linux_work[label="git add" shape=invhouse ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+create_new_git_linux_work[label="create_new_git\nlinux_work" shape=box ];
+git_push_linux_work[label="git push" shape=invhouse ];
+git_push_linux_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_linux_local_[shape=octagon color=grey style=filled ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+git_push_linux_work[label="git push" shape=invhouse ];
+push_git_linux_work[label="push_git\nlinux_work" shape=box ];
+git_push_linux_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+git_push_linux_work[label="git push" shape=invhouse ];
+git_push_linux_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_linux_local_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_linux_work[label="create_new_git_ptxdist\nlinux_work" shape=box ];
+ptxdist_git_extract_linux_work[label="ptxdist --git extract" shape=invhouse ];
+ptxdist_git_extract_linux_work[label="ptxdist --git extract" shape=invhouse ];
+__GIT_WORK_DIR_linux_work___git[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_linux_work[label="create_new_git_ptxdist\nlinux_work" shape=box ];
+git_init_linux_work[label="git init" shape=invhouse ];
+git_init_linux_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_linux_work[label="create_new_git_ptxdist\nlinux_work" shape=box ];
+git_fetch_linux_work_tmp[label="git fetch" shape=invhouse ];
+__GIT_WORK_DIR_linux_work___git[shape=octagon color=grey style=filled ];
+git_fetch_linux_work_tmp[label="git fetch" shape=invhouse ];
+git_fetch_linux_work_tmp[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_linux_work[label="create_new_git_ptxdist\nlinux_work" shape=box ];
+git_reset_linux_work[label="git reset" shape=invhouse ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+git_reset_linux_work[label="git reset" shape=invhouse ];
+git_reset_linux_work[label="git reset" shape=invhouse ];
+__GIT_WORK_DIR_linux_work_[shape=octagon color=lightskyblue style=filled ];
+create_new_git_ptxdist_linux_work[label="create_new_git_ptxdist\nlinux_work" shape=box ];
+git_push_linux_work[label="git push" shape=invhouse ];
+git_push_linux_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_linux_local_[shape=octagon color=grey style=filled ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+git_push_linux_work[label="git push" shape=invhouse ];
+create_src_git_linux_work[label="create_src_git\nlinux_work" shape=box ];
+git_init_linux_work[label="git init" shape=invhouse ];
+git_init_linux_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+create_src_git_linux_work[label="create_src_git\nlinux_work" shape=box ];
+git_fetch_linux_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_linux_local_[shape=octagon color=grey style=filled ];
+git_fetch_linux_work[label="git fetch" shape=invhouse ];
+git_fetch_linux_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+create_src_git_linux_work[label="create_src_git\nlinux_work" shape=box ];
+git_reset_linux_work[label="git reset" shape=invhouse ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+git_reset_linux_work[label="git reset" shape=invhouse ];
+git_reset_linux_work[label="git reset" shape=invhouse ];
+__GIT_WORK_DIR_linux_work_[shape=octagon color=lightskyblue style=filled ];
+create_ptx_patches_git_linux_work[label="create_ptx_patches_git\nlinux_work" shape=box ];
+git_format_patch_linux_work[label="git format-patch" shape=invhouse ];
+__GIT_REPO_DIR_linux_work_[shape=octagon color=grey style=filled ];
+git_format_patch_linux_work[label="git format-patch" shape=invhouse ];
+git_format_patch_linux_work[label="git format-patch" shape=invhouse ];
+__GIT_WORK_DIR_bsp_work_[shape=octagon color=lightskyblue style=filled ];
+create_ptx_patches_git_linux_work[label="create_ptx_patches_git\nlinux_work" shape=box ];
+git_add_bsp_work[label="git add" shape=invhouse ];
+__GIT_WORK_DIR_bsp_work_[shape=octagon color=lightskyblue style=filled ];
+git_add_bsp_work[label="git add" shape=invhouse ];
+git_add_bsp_work[label="git add" shape=invhouse ];
+__GIT_REPO_DIR_bsp_work_[shape=octagon color=grey style=filled ];
+create_new_git_toolchain_local[label="create_new_git\ntoolchain_local" shape=box ];
+git_init_toolchain_local[label="git init" shape=invhouse ];
+git_init_toolchain_local[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_toolchain_local_[shape=octagon color=grey style=filled ];
+create_new_git_toolchain_work[label="create_new_git\ntoolchain_work" shape=box ];
+git_init_toolchain_work[label="git init" shape=invhouse ];
+git_init_toolchain_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_toolchain_work_[shape=octagon color=grey style=filled ];
+create_new_git_toolchain_work[label="create_new_git\ntoolchain_work" shape=box ];
+git_add_toolchain_work[label="git add" shape=invhouse ];
+__GIT_WORK_DIR_toolchain_work_[shape=octagon color=lightskyblue style=filled ];
+git_add_toolchain_work[label="git add" shape=invhouse ];
+git_add_toolchain_work[label="git add" shape=invhouse ];
+__GIT_REPO_DIR_toolchain_work_[shape=octagon color=grey style=filled ];
+create_new_git_toolchain_work[label="create_new_git\ntoolchain_work" shape=box ];
+git_push_toolchain_work[label="git push" shape=invhouse ];
+git_push_toolchain_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_toolchain_local_[shape=octagon color=grey style=filled ];
+__GIT_REPO_DIR_toolchain_work_[shape=octagon color=grey style=filled ];
+git_push_toolchain_work[label="git push" shape=invhouse ];
+push_git_toolchain_work[label="push_git\ntoolchain_work" shape=box ];
+git_push_toolchain_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_toolchain_work_[shape=octagon color=grey style=filled ];
+git_push_toolchain_work[label="git push" shape=invhouse ];
+git_push_toolchain_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_toolchain_local_[shape=octagon color=grey style=filled ];
+create_co_git_toolchain_work[label="create_co_git\ntoolchain_work" shape=box ];
+git_init_toolchain_work[label="git init" shape=invhouse ];
+git_init_toolchain_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_toolchain_work_[shape=octagon color=grey style=filled ];
+create_co_git_toolchain_work[label="create_co_git\ntoolchain_work" shape=box ];
+git_fetch_toolchain_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_toolchain_local_[shape=octagon color=grey style=filled ];
+git_fetch_toolchain_work[label="git fetch" shape=invhouse ];
+git_fetch_toolchain_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_toolchain_work_[shape=octagon color=grey style=filled ];
+create_co_git_toolchain_work[label="create_co_git\ntoolchain_work" shape=box ];
+git_checkout_toolchain_work[label="git checkout" shape=invhouse ];
+__GIT_REPO_DIR_toolchain_work_[shape=octagon color=grey style=filled ];
+git_checkout_toolchain_work[label="git checkout" shape=invhouse ];
+git_checkout_toolchain_work[label="git checkout" shape=invhouse ];
+__GIT_WORK_DIR_toolchain_work_[shape=octagon color=lightskyblue style=filled ];
+create_new_git_gcc_linaro_local[label="create_new_git\ngcc-linaro_local" shape=box ];
+git_init_gcc_linaro_local[label="git init" shape=invhouse ];
+git_init_gcc_linaro_local[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_local_[shape=octagon color=grey style=filled ];
+create_new_git_gcc_linaro_work[label="create_new_git\ngcc-linaro_work" shape=box ];
+git_init_gcc_linaro_work[label="git init" shape=invhouse ];
+git_init_gcc_linaro_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+create_new_git_gcc_linaro_work[label="create_new_git\ngcc-linaro_work" shape=box ];
+git_add_gcc_linaro_work[label="git add" shape=invhouse ];
+__GIT_WORK_DIR_gcc_linaro_work_[shape=octagon color=lightskyblue style=filled ];
+git_add_gcc_linaro_work[label="git add" shape=invhouse ];
+git_add_gcc_linaro_work[label="git add" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+create_new_git_gcc_linaro_work[label="create_new_git\ngcc-linaro_work" shape=box ];
+git_push_gcc_linaro_work[label="git push" shape=invhouse ];
+git_push_gcc_linaro_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_local_[shape=octagon color=grey style=filled ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+git_push_gcc_linaro_work[label="git push" shape=invhouse ];
+push_git_gcc_linaro_work[label="push_git\ngcc-linaro_work" shape=box ];
+git_push_gcc_linaro_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+git_push_gcc_linaro_work[label="git push" shape=invhouse ];
+git_push_gcc_linaro_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_local_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_gcc_linaro_work[label="create_new_git_ptxdist\ngcc-linaro_work" shape=box ];
+ptxdist_git_extract_gcc_linaro_work[label="ptxdist --git extract" shape=invhouse ];
+ptxdist_git_extract_gcc_linaro_work[label="ptxdist --git extract" shape=invhouse ];
+__GIT_WORK_DIR_gcc_linaro_work___git[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_gcc_linaro_work[label="create_new_git_ptxdist\ngcc-linaro_work" shape=box ];
+git_init_gcc_linaro_work[label="git init" shape=invhouse ];
+git_init_gcc_linaro_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_gcc_linaro_work[label="create_new_git_ptxdist\ngcc-linaro_work" shape=box ];
+git_fetch_gcc_linaro_work_tmp[label="git fetch" shape=invhouse ];
+__GIT_WORK_DIR_gcc_linaro_work___git[shape=octagon color=grey style=filled ];
+git_fetch_gcc_linaro_work_tmp[label="git fetch" shape=invhouse ];
+git_fetch_gcc_linaro_work_tmp[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+create_new_git_ptxdist_gcc_linaro_work[label="create_new_git_ptxdist\ngcc-linaro_work" shape=box ];
+git_reset_gcc_linaro_work[label="git reset" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+git_reset_gcc_linaro_work[label="git reset" shape=invhouse ];
+git_reset_gcc_linaro_work[label="git reset" shape=invhouse ];
+__GIT_WORK_DIR_gcc_linaro_work_[shape=octagon color=lightskyblue style=filled ];
+create_new_git_ptxdist_gcc_linaro_work[label="create_new_git_ptxdist\ngcc-linaro_work" shape=box ];
+git_push_gcc_linaro_work[label="git push" shape=invhouse ];
+git_push_gcc_linaro_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_local_[shape=octagon color=grey style=filled ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+git_push_gcc_linaro_work[label="git push" shape=invhouse ];
+create_src_git_gcc_linaro_work[label="create_src_git\ngcc-linaro_work" shape=box ];
+git_init_gcc_linaro_work[label="git init" shape=invhouse ];
+git_init_gcc_linaro_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+create_src_git_gcc_linaro_work[label="create_src_git\ngcc-linaro_work" shape=box ];
+git_fetch_gcc_linaro_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_local_[shape=octagon color=grey style=filled ];
+git_fetch_gcc_linaro_work[label="git fetch" shape=invhouse ];
+git_fetch_gcc_linaro_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+create_src_git_gcc_linaro_work[label="create_src_git\ngcc-linaro_work" shape=box ];
+git_reset_gcc_linaro_work[label="git reset" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+git_reset_gcc_linaro_work[label="git reset" shape=invhouse ];
+git_reset_gcc_linaro_work[label="git reset" shape=invhouse ];
+__GIT_WORK_DIR_gcc_linaro_work_[shape=octagon color=lightskyblue style=filled ];
+create_ptx_patches_git_gcc_linaro_work[label="create_ptx_patches_git\ngcc-linaro_work" shape=box ];
+git_format_patch_gcc_linaro_work[label="git format-patch" shape=invhouse ];
+__GIT_REPO_DIR_gcc_linaro_work_[shape=octagon color=grey style=filled ];
+git_format_patch_gcc_linaro_work[label="git format-patch" shape=invhouse ];
+git_format_patch_gcc_linaro_work[label="git format-patch" shape=invhouse ];
+__GIT_WORK_DIR_toolchain_work_[shape=octagon color=lightskyblue style=filled ];
+create_ptx_patches_git_gcc_linaro_work[label="create_ptx_patches_git\ngcc-linaro_work" shape=box ];
+git_add_toolchain_work[label="git add" shape=invhouse ];
+__GIT_WORK_DIR_toolchain_work_[shape=octagon color=lightskyblue style=filled ];
+git_add_toolchain_work[label="git add" shape=invhouse ];
+git_add_toolchain_work[label="git add" shape=invhouse ];
+__GIT_REPO_DIR_toolchain_work_[shape=octagon color=grey style=filled ];
+create_git_tftpboot_local[label="create_git\ntftpboot_local" shape=box ];
+git_clone_tftpboot_local[label="git clone" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_remote_[shape=octagon color=grey style=filled ];
+git_clone_tftpboot_local[label="git clone" shape=invhouse ];
+git_clone_tftpboot_local[label="git clone" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_local_[shape=octagon color=grey style=filled ];
+create_git_tftpboot_local[label="create_git\ntftpboot_local" shape=box ];
+git_fetch_tftpboot_local[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_remote_[shape=octagon color=grey style=filled ];
+git_fetch_tftpboot_local[label="git fetch" shape=invhouse ];
+git_fetch_tftpboot_local[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_local_[shape=octagon color=grey style=filled ];
+create_new_git_tftpboot_local[label="create_new_git\ntftpboot_local" shape=box ];
+git_init_tftpboot_local[label="git init" shape=invhouse ];
+git_init_tftpboot_local[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_local_[shape=octagon color=grey style=filled ];
+download_bundle_git_tftpboot_local[label="download_bundle_git\ntftpboot_local" shape=box ];
+download_bundle_tftpboot_local[label="wget" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_remote_url_[shape=octagon color=lightskyblue style=filled ];
+download_bundle_tftpboot_local[label="wget" shape=invhouse ];
+download_bundle_tftpboot_local[label="wget" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_remote_[shape=octagon color=lightskyblue style=filled ];
+create_new_git_tftpboot_work[label="create_new_git\ntftpboot_work" shape=box ];
+git_init_tftpboot_work[label="git init" shape=invhouse ];
+git_init_tftpboot_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_work_[shape=octagon color=grey style=filled ];
+create_new_git_tftpboot_work[label="create_new_git\ntftpboot_work" shape=box ];
+git_add_tftpboot_work[label="git add" shape=invhouse ];
+__GIT_WORK_DIR_tftpboot_work_[shape=octagon color=lightskyblue style=filled ];
+git_add_tftpboot_work[label="git add" shape=invhouse ];
+git_add_tftpboot_work[label="git add" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_work_[shape=octagon color=grey style=filled ];
+create_new_git_tftpboot_work[label="create_new_git\ntftpboot_work" shape=box ];
+git_push_tftpboot_work[label="git push" shape=invhouse ];
+git_push_tftpboot_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_local_[shape=octagon color=grey style=filled ];
+__GIT_REPO_DIR_tftpboot_work_[shape=octagon color=grey style=filled ];
+git_push_tftpboot_work[label="git push" shape=invhouse ];
+push_git_tftpboot_work[label="push_git\ntftpboot_work" shape=box ];
+git_push_tftpboot_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_work_[shape=octagon color=grey style=filled ];
+git_push_tftpboot_work[label="git push" shape=invhouse ];
+git_push_tftpboot_work[label="git push" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_local_[shape=octagon color=grey style=filled ];
+create_co_git_tftpboot_work[label="create_co_git\ntftpboot_work" shape=box ];
+git_init_tftpboot_work[label="git init" shape=invhouse ];
+git_init_tftpboot_work[label="git init" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_work_[shape=octagon color=grey style=filled ];
+create_co_git_tftpboot_work[label="create_co_git\ntftpboot_work" shape=box ];
+git_fetch_tftpboot_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_local_[shape=octagon color=grey style=filled ];
+git_fetch_tftpboot_work[label="git fetch" shape=invhouse ];
+git_fetch_tftpboot_work[label="git fetch" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_work_[shape=octagon color=grey style=filled ];
+create_co_git_tftpboot_work[label="create_co_git\ntftpboot_work" shape=box ];
+git_checkout_tftpboot_work[label="git checkout" shape=invhouse ];
+__GIT_REPO_DIR_tftpboot_work_[shape=octagon color=grey style=filled ];
+git_checkout_tftpboot_work[label="git checkout" shape=invhouse ];
+git_checkout_tftpboot_work[label="git checkout" shape=invhouse ];
+__GIT_WORK_DIR_tftpboot_work_[shape=octagon color=lightskyblue style=filled ];
+
+create_new_git_bsp_local->git_init_bsp_local[style=dashed ]
+
+git_init_bsp_local->__GIT_REPO_DIR_bsp_local_
+
+create_new_git_bsp_work->git_init_bsp_work[style=dashed ]
+
+git_init_bsp_work->__GIT_REPO_DIR_bsp_work_
+
+create_new_git_bsp_work->git_add_bsp_work[style=dashed ]
+
+__GIT_WORK_DIR_bsp_work_->git_add_bsp_work
+
+git_add_bsp_work->__GIT_REPO_DIR_bsp_work_
+
+create_new_git_bsp_work->git_push_bsp_work[style=dashed ]
+
+git_push_bsp_work->__GIT_REPO_DIR_bsp_local_
+
+__GIT_REPO_DIR_bsp_work_->git_push_bsp_work
+
+push_git_bsp_work->git_push_bsp_work[style=dashed ]
+
+__GIT_REPO_DIR_bsp_work_ git_push_bsp_work
+
+git_push_bsp_work __GIT_REPO_DIR_bsp_local_
+
+create_co_git_bsp_work->git_init_bsp_work[style=dashed ]
+
+git_init_bsp_work __GIT_REPO_DIR_bsp_work_
+
+create_co_git_bsp_work->git_fetch_bsp_work[style=dashed ]
+
+__GIT_REPO_DIR_bsp_local_->git_fetch_bsp_work
+
+git_fetch_bsp_work->__GIT_REPO_DIR_bsp_work_
+
+create_co_git_bsp_work->git_checkout_bsp_work[style=dashed ]
+
+__GIT_REPO_DIR_bsp_work_->git_checkout_bsp_work
+
+git_checkout_bsp_work->__GIT_WORK_DIR_bsp_work_
+
+create_new_git_ptxdist_local->git_init_ptxdist_local[style=dashed ]
+
+git_init_ptxdist_local->__GIT_REPO_DIR_ptxdist_local_
+
+create_new_git_ptxdist_work->git_init_ptxdist_work[style=dashed ]
+
+git_init_ptxdist_work->__GIT_REPO_DIR_ptxdist_work_
+
+create_new_git_ptxdist_work->git_add_ptxdist_work[style=dashed ]
+
+__GIT_WORK_DIR_ptxdist_work_->git_add_ptxdist_work
+
+git_add_ptxdist_work->__GIT_REPO_DIR_ptxdist_work_
+
+create_new_git_ptxdist_work->git_push_ptxdist_work[style=dashed ]
+
+git_push_ptxdist_work->__GIT_REPO_DIR_ptxdist_local_
+
+__GIT_REPO_DIR_ptxdist_work_->git_push_ptxdist_work
+
+push_git_ptxdist_work->git_push_ptxdist_work[style=dashed ]
+
+__GIT_REPO_DIR_ptxdist_work_ git_push_ptxdist_work
+
+git_push_ptxdist_work __GIT_REPO_DIR_ptxdist_local_
+
+create_co_git_ptxdist_work->git_init_ptxdist_work[style=dashed ]
+
+git_init_ptxdist_work __GIT_REPO_DIR_ptxdist_work_
+
+create_co_git_ptxdist_work->git_fetch_ptxdist_work[style=dashed ]
+
+__GIT_REPO_DIR_ptxdist_local_->git_fetch_ptxdist_work
+
+git_fetch_ptxdist_work->__GIT_REPO_DIR_ptxdist_work_
+
+create_co_git_ptxdist_work->git_checkout_ptxdist_work[style=dashed ]
+
+__GIT_REPO_DIR_ptxdist_work_->git_checkout_ptxdist_work
+
+git_checkout_ptxdist_work->__GIT_WORK_DIR_ptxdist_work_
+
+create_new_git_barebox_local->git_init_barebox_local[style=dashed ]
+
+git_init_barebox_local->__GIT_REPO_DIR_barebox_local_
+
+create_new_git_barebox_work->git_init_barebox_work[style=dashed ]
+
+git_init_barebox_work->__GIT_REPO_DIR_barebox_work_
+
+create_new_git_barebox_work->git_add_barebox_work[style=dashed ]
+
+__GIT_WORK_DIR_barebox_work_->git_add_barebox_work
+
+git_add_barebox_work->__GIT_REPO_DIR_barebox_work_
+
+create_new_git_barebox_work->git_push_barebox_work[style=dashed ]
+
+git_push_barebox_work->__GIT_REPO_DIR_barebox_local_
+
+__GIT_REPO_DIR_barebox_work_->git_push_barebox_work
+
+push_git_barebox_work->git_push_barebox_work[style=dashed ]
+
+__GIT_REPO_DIR_barebox_work_ git_push_barebox_work
+
+git_push_barebox_work __GIT_REPO_DIR_barebox_local_
+
+create_new_git_ptxdist_barebox_work->ptxdist_git_extract_barebox_work[style=dashed ]
+
+ptxdist_git_extract_barebox_work->__GIT_WORK_DIR_barebox_work___git
+
+create_new_git_ptxdist_barebox_work->git_init_barebox_work[style=dashed ]
+
+git_init_barebox_work __GIT_REPO_DIR_barebox_work_
+
+create_new_git_ptxdist_barebox_work->git_fetch_barebox_work_tmp[style=dashed ]
+
+__GIT_WORK_DIR_barebox_work___git->git_fetch_barebox_work_tmp
+
+git_fetch_barebox_work_tmp->__GIT_REPO_DIR_barebox_work_
+
+create_new_git_ptxdist_barebox_work->git_reset_barebox_work[style=dashed ]
+
+__GIT_REPO_DIR_barebox_work_->git_reset_barebox_work
+
+git_reset_barebox_work->__GIT_WORK_DIR_barebox_work_
+
+create_new_git_ptxdist_barebox_work->git_push_barebox_work[style=dashed ]
+
+git_push_barebox_work __GIT_REPO_DIR_barebox_local_
+
+__GIT_REPO_DIR_barebox_work_ git_push_barebox_work
+
+create_src_git_barebox_work->git_init_barebox_work[style=dashed ]
+
+git_init_barebox_work __GIT_REPO_DIR_barebox_work_
+
+create_src_git_barebox_work->git_fetch_barebox_work[style=dashed ]
+
+__GIT_REPO_DIR_barebox_local_->git_fetch_barebox_work
+
+git_fetch_barebox_work->__GIT_REPO_DIR_barebox_work_
+
+create_src_git_barebox_work->git_reset_barebox_work[style=dashed ]
+
+__GIT_REPO_DIR_barebox_work_ git_reset_barebox_work
+
+git_reset_barebox_work __GIT_WORK_DIR_barebox_work_
+
+create_ptx_patches_git_barebox_work->git_format_patch_barebox_work[style=dashed ]
+
+__GIT_REPO_DIR_barebox_work_->git_format_patch_barebox_work
+
+git_format_patch_barebox_work->__GIT_WORK_DIR_bsp_work_
+
+create_ptx_patches_git_barebox_work->git_add_bsp_work[style=dashed ]
+
+__GIT_WORK_DIR_bsp_work_ git_add_bsp_work
+
+git_add_bsp_work __GIT_REPO_DIR_bsp_work_
+
+create_new_git_linux_local->git_init_linux_local[style=dashed ]
+
+git_init_linux_local->__GIT_REPO_DIR_linux_local_
+
+create_new_git_linux_work->git_init_linux_work[style=dashed ]
+
+git_init_linux_work->__GIT_REPO_DIR_linux_work_
+
+create_new_git_linux_work->git_add_linux_work[style=dashed ]
+
+__GIT_WORK_DIR_linux_work_->git_add_linux_work
+
+git_add_linux_work->__GIT_REPO_DIR_linux_work_
+
+create_new_git_linux_work->git_push_linux_work[style=dashed ]
+
+git_push_linux_work->__GIT_REPO_DIR_linux_local_
+
+__GIT_REPO_DIR_linux_work_->git_push_linux_work
+
+push_git_linux_work->git_push_linux_work[style=dashed ]
+
+__GIT_REPO_DIR_linux_work_ git_push_linux_work
+
+git_push_linux_work __GIT_REPO_DIR_linux_local_
+
+create_new_git_ptxdist_linux_work->ptxdist_git_extract_linux_work[style=dashed ]
+
+ptxdist_git_extract_linux_work->__GIT_WORK_DIR_linux_work___git
+
+create_new_git_ptxdist_linux_work->git_init_linux_work[style=dashed ]
+
+git_init_linux_work __GIT_REPO_DIR_linux_work_
+
+create_new_git_ptxdist_linux_work->git_fetch_linux_work_tmp[style=dashed ]
+
+__GIT_WORK_DIR_linux_work___git->git_fetch_linux_work_tmp
+
+git_fetch_linux_work_tmp->__GIT_REPO_DIR_linux_work_
+
+create_new_git_ptxdist_linux_work->git_reset_linux_work[style=dashed ]
+
+__GIT_REPO_DIR_linux_work_->git_reset_linux_work
+
+git_reset_linux_work->__GIT_WORK_DIR_linux_work_
+
+create_new_git_ptxdist_linux_work->git_push_linux_work[style=dashed ]
+
+git_push_linux_work __GIT_REPO_DIR_linux_local_
+
+__GIT_REPO_DIR_linux_work_ git_push_linux_work
+
+create_src_git_linux_work->git_init_linux_work[style=dashed ]
+
+git_init_linux_work __GIT_REPO_DIR_linux_work_
+
+create_src_git_linux_work->git_fetch_linux_work[style=dashed ]
+
+__GIT_REPO_DIR_linux_local_->git_fetch_linux_work
+
+git_fetch_linux_work->__GIT_REPO_DIR_linux_work_
+
+create_src_git_linux_work->git_reset_linux_work[style=dashed ]
+
+__GIT_REPO_DIR_linux_work_ git_reset_linux_work
+
+git_reset_linux_work __GIT_WORK_DIR_linux_work_
+
+create_ptx_patches_git_linux_work->git_format_patch_linux_work[style=dashed ]
+
+__GIT_REPO_DIR_linux_work_->git_format_patch_linux_work
+
+git_format_patch_linux_work->__GIT_WORK_DIR_bsp_work_
+
+create_ptx_patches_git_linux_work->git_add_bsp_work[style=dashed ]
+
+__GIT_WORK_DIR_bsp_work_ git_add_bsp_work
+
+git_add_bsp_work __GIT_REPO_DIR_bsp_work_
+
+create_new_git_toolchain_local->git_init_toolchain_local[style=dashed ]
+
+git_init_toolchain_local->__GIT_REPO_DIR_toolchain_local_
+
+create_new_git_toolchain_work->git_init_toolchain_work[style=dashed ]
+
+git_init_toolchain_work->__GIT_REPO_DIR_toolchain_work_
+
+create_new_git_toolchain_work->git_add_toolchain_work[style=dashed ]
+
+__GIT_WORK_DIR_toolchain_work_->git_add_toolchain_work
+
+git_add_toolchain_work->__GIT_REPO_DIR_toolchain_work_
+
+create_new_git_toolchain_work->git_push_toolchain_work[style=dashed ]
+
+git_push_toolchain_work->__GIT_REPO_DIR_toolchain_local_
+
+__GIT_REPO_DIR_toolchain_work_->git_push_toolchain_work
+
+push_git_toolchain_work->git_push_toolchain_work[style=dashed ]
+
+__GIT_REPO_DIR_toolchain_work_ git_push_toolchain_work
+
+git_push_toolchain_work __GIT_REPO_DIR_toolchain_local_
+
+create_co_git_toolchain_work->git_init_toolchain_work[style=dashed ]
+
+git_init_toolchain_work __GIT_REPO_DIR_toolchain_work_
+
+create_co_git_toolchain_work->git_fetch_toolchain_work[style=dashed ]
+
+__GIT_REPO_DIR_toolchain_local_->git_fetch_toolchain_work
+
+git_fetch_toolchain_work->__GIT_REPO_DIR_toolchain_work_
+
+create_co_git_toolchain_work->git_checkout_toolchain_work[style=dashed ]
+
+__GIT_REPO_DIR_toolchain_work_->git_checkout_toolchain_work
+
+git_checkout_toolchain_work->__GIT_WORK_DIR_toolchain_work_
+
+create_new_git_gcc_linaro_local->git_init_gcc_linaro_local[style=dashed ]
+
+git_init_gcc_linaro_local->__GIT_REPO_DIR_gcc_linaro_local_
+
+create_new_git_gcc_linaro_work->git_init_gcc_linaro_work[style=dashed ]
+
+git_init_gcc_linaro_work->__GIT_REPO_DIR_gcc_linaro_work_
+
+create_new_git_gcc_linaro_work->git_add_gcc_linaro_work[style=dashed ]
+
+__GIT_WORK_DIR_gcc_linaro_work_->git_add_gcc_linaro_work
+
+git_add_gcc_linaro_work->__GIT_REPO_DIR_gcc_linaro_work_
+
+create_new_git_gcc_linaro_work->git_push_gcc_linaro_work[style=dashed ]
+
+git_push_gcc_linaro_work->__GIT_REPO_DIR_gcc_linaro_local_
+
+__GIT_REPO_DIR_gcc_linaro_work_->git_push_gcc_linaro_work
+
+push_git_gcc_linaro_work->git_push_gcc_linaro_work[style=dashed ]
+
+__GIT_REPO_DIR_gcc_linaro_work_ git_push_gcc_linaro_work
+
+git_push_gcc_linaro_work __GIT_REPO_DIR_gcc_linaro_local_
+
+create_new_git_ptxdist_gcc_linaro_work->ptxdist_git_extract_gcc_linaro_work[style=dashed ]
+
+ptxdist_git_extract_gcc_linaro_work->__GIT_WORK_DIR_gcc_linaro_work___git
+
+create_new_git_ptxdist_gcc_linaro_work->git_init_gcc_linaro_work[style=dashed ]
+
+git_init_gcc_linaro_work __GIT_REPO_DIR_gcc_linaro_work_
+
+create_new_git_ptxdist_gcc_linaro_work->git_fetch_gcc_linaro_work_tmp[style=dashed ]
+
+__GIT_WORK_DIR_gcc_linaro_work___git->git_fetch_gcc_linaro_work_tmp
+
+git_fetch_gcc_linaro_work_tmp->__GIT_REPO_DIR_gcc_linaro_work_
+
+create_new_git_ptxdist_gcc_linaro_work->git_reset_gcc_linaro_work[style=dashed ]
+
+__GIT_REPO_DIR_gcc_linaro_work_->git_reset_gcc_linaro_work
+
+git_reset_gcc_linaro_work->__GIT_WORK_DIR_gcc_linaro_work_
+
+create_new_git_ptxdist_gcc_linaro_work->git_push_gcc_linaro_work[style=dashed ]
+
+git_push_gcc_linaro_work __GIT_REPO_DIR_gcc_linaro_local_
+
+__GIT_REPO_DIR_gcc_linaro_work_ git_push_gcc_linaro_work
+
+create_src_git_gcc_linaro_work->git_init_gcc_linaro_work[style=dashed ]
+
+git_init_gcc_linaro_work __GIT_REPO_DIR_gcc_linaro_work_
+
+create_src_git_gcc_linaro_work->git_fetch_gcc_linaro_work[style=dashed ]
+
+__GIT_REPO_DIR_gcc_linaro_local_->git_fetch_gcc_linaro_work
+
+git_fetch_gcc_linaro_work->__GIT_REPO_DIR_gcc_linaro_work_
+
+create_src_git_gcc_linaro_work->git_reset_gcc_linaro_work[style=dashed ]
+
+__GIT_REPO_DIR_gcc_linaro_work_ git_reset_gcc_linaro_work
+
+git_reset_gcc_linaro_work __GIT_WORK_DIR_gcc_linaro_work_
+
+create_ptx_patches_git_gcc_linaro_work->git_format_patch_gcc_linaro_work[style=dashed ]
+
+__GIT_REPO_DIR_gcc_linaro_work_->git_format_patch_gcc_linaro_work
+
+git_format_patch_gcc_linaro_work->__GIT_WORK_DIR_toolchain_work_
+
+create_ptx_patches_git_gcc_linaro_work->git_add_toolchain_work[style=dashed ]
+
+__GIT_WORK_DIR_toolchain_work_ git_add_toolchain_work
+
+git_add_toolchain_work __GIT_REPO_DIR_toolchain_work_
+
+create_git_tftpboot_local->git_clone_tftpboot_local[style=dashed ]
+
+__GIT_REPO_DIR_tftpboot_remote_->git_clone_tftpboot_local
+
+git_clone_tftpboot_local->__GIT_REPO_DIR_tftpboot_local_
+
+create_git_tftpboot_local->git_fetch_tftpboot_local[style=dashed ]
+
+__GIT_REPO_DIR_tftpboot_remote_->git_fetch_tftpboot_local
+
+git_fetch_tftpboot_local->__GIT_REPO_DIR_tftpboot_local_
+
+create_new_git_tftpboot_local->git_init_tftpboot_local[style=dashed ]
+
+git_init_tftpboot_local->__GIT_REPO_DIR_tftpboot_local_
+
+download_bundle_git_tftpboot_local->download_bundle_tftpboot_local[style=dashed ]
+
+__GIT_REPO_DIR_tftpboot_remote_url_->download_bundle_tftpboot_local
+
+download_bundle_tftpboot_local->__GIT_REPO_DIR_tftpboot_remote_
+
+create_new_git_tftpboot_work->git_init_tftpboot_work[style=dashed ]
+
+git_init_tftpboot_work->__GIT_REPO_DIR_tftpboot_work_
+
+create_new_git_tftpboot_work->git_add_tftpboot_work[style=dashed ]
+
+__GIT_WORK_DIR_tftpboot_work_->git_add_tftpboot_work
+
+git_add_tftpboot_work->__GIT_REPO_DIR_tftpboot_work_
+
+create_new_git_tftpboot_work->git_push_tftpboot_work[style=dashed ]
+
+git_push_tftpboot_work->__GIT_REPO_DIR_tftpboot_local_
+
+__GIT_REPO_DIR_tftpboot_work_->git_push_tftpboot_work
+
+push_git_tftpboot_work->git_push_tftpboot_work[style=dashed ]
+
+__GIT_REPO_DIR_tftpboot_work_ git_push_tftpboot_work
+
+git_push_tftpboot_work __GIT_REPO_DIR_tftpboot_local_
+
+create_co_git_tftpboot_work->git_init_tftpboot_work[style=dashed ]
+
+git_init_tftpboot_work __GIT_REPO_DIR_tftpboot_work_
+
+create_co_git_tftpboot_work->git_fetch_tftpboot_work[style=dashed ]
+
+__GIT_REPO_DIR_tftpboot_local_->git_fetch_tftpboot_work
+
+git_fetch_tftpboot_work->__GIT_REPO_DIR_tftpboot_work_
+
+create_co_git_tftpboot_work->git_checkout_tftpboot_work[style=dashed ]
+
+__GIT_REPO_DIR_tftpboot_work_->git_checkout_tftpboot_work
+
+git_checkout_tftpboot_work->__GIT_WORK_DIR_tftpboot_work_
+
+
+
+}

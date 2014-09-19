@@ -1,0 +1,2722 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en">
+<title>Build and Use Phytec Linux BSP on Phytec phyBOARD-WEGA-AM335x</title>
+<sect1>
+<title>License</title>
+
+<para>Author: Jan Kobler, Kobler Systems GmbH, email: eng1@koblersystems.de</para>
+<para>This work by <ulink url="http://www.koblersystems.de">Kobler Systems GmbH</ulink> is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit <ulink url="http://creativecommons.org/licenses/by/4.0/"/>.</para>
+<para></para>
+</sect1>
+<sect1>
+<title>About this manual</title>
+
+<para>This manual shows how to </para>
+<itemizedlist>
+<listitem>
+<para>install the source code of the Linux BSP for phyBOARD-WEGA-AM335x on the host, </para></listitem>
+<listitem>
+<para>build it, </para></listitem>
+<listitem>
+<para>install the resulting images on the target and </para></listitem>
+<listitem>
+<para>start Linux on the target. </para></listitem>
+</itemizedlist>
+
+<para>It is possible to boot the target </para>
+<itemizedlist>
+<listitem>
+<para>from NAND or</para></listitem>
+<listitem>
+<para>from SD-card</para></listitem>
+</itemizedlist>
+
+<para>It is possible to load the kernel and the rootfs </para>
+<itemizedlist>
+<listitem>
+<para>from NAND,</para></listitem>
+<listitem>
+<para>from SD-card or</para></listitem>
+<listitem>
+<para>via TFTP and NFS</para></listitem>
+</itemizedlist>
+
+<para>This BSP is for use with:</para>
+<itemizedlist>
+<listitem>
+<para>phyBOARD-WEGA-AM335x with carrier board 1405.0 or 1405.1</para></listitem>
+<listitem>
+<para>HDMI Adapter PEB-AV-01 1406.0 or 1406.1</para></listitem>
+<listitem>
+<para>Eval Module PEB-EVAL-01 1413.0 or 1413.1</para></listitem>
+</itemizedlist>
+
+<para>This tutorial and the accompanying makefiles for this BSP have been tested on:</para>
+<itemizedlist>
+<listitem>
+<para>phyBOARD-WEGA-AM335x with carrier board 1405.1</para></listitem>
+<listitem>
+<para>HDMI Adapter PEB-AV-01 1406.1</para></listitem>
+<listitem>
+<para>Eval Module PEB-EVAL-01 1413.1</para></listitem>
+</itemizedlist>
+
+<para>Some parts of this tutorial are repeated at places where there are needed, to avoid jumping back in the text, when following the instructions. </para>
+<para>There are similar chapters in this text, because they describe the commands for a <emphasis>quick start</emphasis> or for <emphasis>development</emphasis> or usage of the commands for the <emphasis>first time</emphasis> or usage of the commands <emphasis>again</emphasis>.</para>
+<itemizedlist>
+<listitem>
+<para>When you want to use only the necessary commands, follow the instructions in the <link linkend="Quick_Start_Source_1">quick start</link> chapter. </para></listitem>
+<listitem>
+<para>When you want to use all commands or want to change the source code, then start with the <link linkend="Develop_Source_1">development</link> chapter and skip the <emphasis>quick start</emphasis> and <emphasis>again</emphasis> chapters.</para></listitem>
+<listitem>
+<para>When you want to use the commands again, then follow the instructions in the <link linkend="Develop_Source_1">development</link> chapter and skip the <emphasis>first time</emphasis> chapters.</para></listitem>
+</itemizedlist>
+
+<para>At first this might seem to be confusing, but in the long run it saves time, when regularly using this tutorial and the accompanying makefiles. </para>
+<para>The commands used in this document are shown in the following graph.</para>
+<para>The meaning of the node shapes and arrows in this graph is:</para>
+<itemizedlist>
+<listitem>
+<para>grey circle: state of the development environment or action on the target</para></listitem>
+<listitem>
+<para>ellipse: makefile targets in makefile <code>${BSP_MK}</code> or some other command</para></listitem>
+<listitem>
+<para>solid arrow: next step</para></listitem>
+<listitem>
+<para>dashed arrow from A to B: B depends on A</para></listitem>
+</itemizedlist>
+<figure xml:id="fig_svg">
+    <title>Workflow of the development process</title>
+    <mediaobject>
+        <imageobject>
+            <imagedata fileref="install_pd_src.svg" format="svg"/>
+        </imageobject>
+         <textobject><phrase></phrase></textobject>
+    </mediaobject>
+</figure>
+
+
+<para>The commands used to manage the version control in this document and the resulting dataflow are shown in the following graph.</para>
+<para>The meaning of the node shapes and arrows in this graph is:</para>
+<itemizedlist>
+<listitem>
+<para>grey octagon: git repository</para></listitem>
+<listitem>
+<para>light blue octagon: single file or folder</para></listitem>
+<listitem>
+<para>box: makefile targets in makefile <code>${BSP_MK}</code></para></listitem>
+<listitem>
+<para>inverted house: single command</para></listitem>
+<listitem>
+<para>solid arrow: data flow</para></listitem>
+<listitem>
+<para>dashed arrow from A to B: The makefile target A uses the command B</para></listitem>
+</itemizedlist>
+<figure xml:id="fig_svg">
+    <title>Version control dataflow</title>
+    <mediaobject>
+        <imageobject>
+            <imagedata fileref="install_pd_src_git.svg" format="svg"/>
+        </imageobject>
+         <textobject><phrase></phrase></textobject>
+    </mediaobject>
+</figure>
+
+</sect1>
+<sect1>
+<title>Folder, Filenames and Macros</title>
+
+<para>Folders:</para>
+
+<para>Folder for Phytec Linux software: <code>${MY_DEVELOP}</code></para>
+
+<para>Folder for current software distribution: <code>${DISTRIB_IN}</code></para>
+<para>Filenames:</para>
+
+<para>makefile: <code>${BSP_MK}</code></para>
+<para>Macros: </para>
+
+<para>Version Identifier <code>${MY_VERSION}</code></para>
+</sect1>
+<sect1>
+<title>Environment</title>
+
+<para>Define environment variables:</para>
+<screen>
+export MY_VERSION=20140923-1
+export MY_DEVELOP=/MyDevelop/phyBOARD-WEGA-AM335x
+export DISTRIB_IN=${MY_DEVELOP}/distrib/test-${MY_VERSION}</screen>
+
+<para>Please adjust the value of <code>MY_DEVELOP</code> to your needs. Use the same value also in the makefile <code>${BSP_MK}</code>. </para>
+</sect1>
+<sect1>
+<title>Install Software on the host</title>
+
+<para>This section describes how to install Phytec and third party software on the host. </para>
+<para>The commands in this tutorial have been tested on a system running <ulink url="http://www.gentoo.org">Gentoo Linux</ulink>. Most commands should be the same on other Linux systems.</para>
+<para></para>
+<sect2>
+<title>Install third party software on the host</title>
+
+<para>For building the Linux BSP from source you need the tools: <code>wget, expect, sudo, fakeroot</code></para>
+
+<para>On Gentoo Linux you can install these tools with</para>
+<screen>
+emerge --ask -v wget expect sudo fakeroot</screen>
+
+<para><code>emerge</code> is a Gentoo specific command for installing software.</para>
+<para>For testing and using the Linux BSP on a Phytec phyBOARD-WEGA-AM335x board you need the utilities: <code>tftp, nfs, minicom, taylor-uucp</code></para>
+
+<para>You can install these tools with</para>
+
+<screen>
+emerge --ask -v tftp-hpa nfs-utils minicom taylor-uucp</screen>
+
+<para>For working with git repositories you need: <code>git</code></para>
+<para>If you want to use the GUI of git you need also: <code>git gui, gitk</code></para>
+<para><code>nano</code> is used as editor. </para>
+<para>You need a TFTP server on your host system for installing the binary images on the target and boot from NAND. </para>
+<para>You need a NFS and TFTP server on your host system for <link linkend="Boot_via_TFTP_and_NFS">Boot_via_TFTP_and_NFS</link></para>
+<para><code>make</code> is usally used in the commands in this manual. </para>
+<para>Install missing software on the host. </para>
+</sect2>
+<sect2>
+<title>Install Phytec software on the host</title>
+
+<para>Phytec software for Linux for phyBOARD-WEGA-AM335x is shipped  as git bundle. </para>
+<para>Please extract the archive into the folder <code>${DISTRIB_IN}</code></para>
+<screen>
+mkdir -p $(dirname ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle)  &amp;&amp; \
+wget -O ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle http://www.koblersystems.de/bsp-doc/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle; 
+mkdir -p ${DISTRIB_IN}/install
+git clone ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle ${DISTRIB_IN}/install</screen>
+
+<para>Now the Phytec software is available in the folder <code>${DISTRIB_IN}</code>.</para>
+</sect2>
+</sect1>
+<sect1>
+<title>Barebox configuration</title>
+
+<para>This section describes how to edit the config files of the bootloader barebox on the target and how to return to the default environment.</para>
+<para>When you follow the instructions in this manual, you usually don&apos;t need to edit files on the target, because the files are edited instead on the host and downloaded via tftp to the target. </para>
+<sect2>
+<title>Edit barebox files on the target</title>
+
+<para>When you need to edit a file on the target e.g. <code>/env/network/eth0</code>, you can use the command <code>edit</code></para>
+<screen>
+edit /env/network/eth0</screen>
+
+<para>Save the file with CTRL-D or close the file without saving by pressing CTRL-C.</para>
+<para>Save changes</para>
+<screen>
+saveenv</screen>
+</sect2>
+<sect2>
+<title>Default settings</title>
+
+<para>When you want to return to the default settings, erase all your changes.</para>
+<screen>
+erase /dev/nand0.bareboxenv</screen>
+</sect2>
+</sect1>
+<sect1>
+<title>Makefile</title>
+
+<para>The makefile <code>${BSP_MK}</code> contains the code to install and use Phytec Linux for phyBOARD-WEGA-AM335x. </para>
+<para>Define environment variable:</para>
+<screen>
+export BSP_MK=${DISTRIB_IN}/install/scripts/pd_src.mk</screen>
+
+<para>Define alias <code>bmk </code> for the make command:</para>
+<screen>
+alias bmk="make --makefile ${BSP_MK} -C $(dirname ${BSP_MK})"</screen>
+
+<para>Before using the makefile, you need to set some variables in it</para>
+<screen>
+nano ${BSP_MK}</screen>
+
+<para>Especially set the value of <code>${MY_DEVELOP}</code> to the same value you have already defined in the environment. </para>
+<para>New or changed content of file <code>${BSP_MK}</code>:</para>
+<screen>
+
+#################################################
+# User specific settings
+# Please set the variables below this line
+#################################################
+
+# Set the root folder for the Phytec Linux BSP software
+# most of the files and directories are installed or created in this folder or subfolders.
+MY_DEVELOP:=/MyDevelop/phyBOARD-WEGA-AM335x
+
+# current version number
+MY_VERSION:=20140923-1
+
+# VERY IMPORTANT: This is the device name of the SD-card on the host, when it is inserted in the card reader.
+# This device will be ERASED and FORMATTED!!!
+# Don't select a disk of your host, otherwise it will be erased !!
+# You can use 'dmesg' to find out the device name, after the SD-card has been inserted in the card reader.
+# If you don't know the device name use /dev/null
+SDCARD_DEV:=/dev/null
+# This is the prefix of the partition name: usally it is the same as $(SDCARD_DEV)
+# but sometimes its value is '$(SDCARD_DEV)p'.
+SDCARD_PART:=$(SDCARD_DEV)
+
+# The distribution archive has been extracted into this folder
+DISTRIB_IN:=$(MY_DEVELOP)/distrib/test-$(MY_VERSION)
+
+# Please set the download folder for software archives, which can be shared with other development environments.
+MY_DOWNLOAD_SRC:=/MyDevelop/distfiles
+
+# Download folder for archives which are specific to this board
+MY_DOWNLOAD_BOARD:=/MyDownload/phyBOARD-WEGA-AM335x
+
+# Install the toolchain into this folder, i.e. the compiler is installed in this folder. 
+MY_TOOLCHAIN:=$(MY_DEVELOP)/toolchain
+
+# Please set folder of the tftp server
+MY_TFTPBOOT:=/tftpboot
+
+# Please set the IP addresses of your host and the target.
+IP_ADDR_TARGET:=192.168.1.8
+IP_ADDR_HOST:=192.168.1.32
+IP_NETMASK:=255.255.255.0
+IP_ADDR_GATEWAY:=192.168.1.1
+
+# This client address is used in the file /etc/exports
+IP_NFS_CLIENT:=192.168.1.255/24
+
+# Folder for the  local git repositories. This folder may be shared by several projects. 
+LOCAL_GIT:=$(MY_DEVELOP)/git-PD
+
+# Folder for the makefiles which are included at the end of this file. 
+# If you move this file into another folder, you can define the include directory for the makefiles. 
+# Default value is the current working directory. 
+MY_SCRIPTS:=.
+
+#################################################
+#
+#              Git Repositories 
+#
+# For the first tests you don't need to change the following values. 
+#
+# Only when you change the source code of the BSP
+# and save the changes in git repositories 
+# you need to adjust the following values as needed 
+#
+# The values are used in pd_src_git.mk. 
+# Please search there for these macros before you change them. 
+#
+# Revision names or commit ids or start numbers for git repositories
+# GIT_REV_NAME_*: 	git branch or tag name
+# GIT_REV_ID_*: 	git commit id
+# GIT_START_NUMBER_*: 	git start number of patch numbers
+#
+#################################################
+
+GIT_REV_NAME_bsp:=master
+GIT_REV_ID_bsp:=fb5de7ae1f61a84793bbc4d5fc5c66ec9eccd49b
+GIT_REV_NAME_ptxdist:=master
+GIT_REV_ID_ptxdist:=d72665bd5e4565c6793f78ae99e6e22113faed0f
+GIT_REV_NAME_barebox:=master
+GIT_REV_ID_barebox:=0000000
+GIT_REV_ID_barebox_start:=0000000
+GIT_START_NUMBER_barebox:=20
+GIT_REV_NAME_linux:=master
+GIT_REV_ID_linux:=00000000
+GIT_REV_ID_linux_start:=00000000
+GIT_START_NUMBER_linux:=120
+GIT_REV_NAME_toolchain:=master
+GIT_REV_ID_toolchain:=90a8fe685cb903b4cf2b668be54029d3524207b2
+GIT_REV_NAME_gcc-linaro:=master
+GIT_REV_ID_gcc-linaro:=00000000
+GIT_REV_ID_gcc-linaro_start:=000000000
+GIT_START_NUMBER_gcc-linaro:=400
+GIT_REV_NAME_tftpboot:=master
+GIT_REV_ID_tftpboot:=7f123cdf7aa7a2a4a2a58af3edfcd7c11b5541ae
+
+#################################################
+# No need to change the variables below this line
+#################################################</screen>
+
+<para><emphasis role="strong">Note: </emphasis>All needed variables are defined inside the makefile. No specific environment variable needs to be defined outside the makefile. </para>
+
+<para>Both commands list the available make targets</para>
+<screen>
+bmk 
+bmk info_target</screen>
+
+<para>Before you make a target, you can check which commands will be used by using the option <code>-n</code>. </para>
+<screen>
+bmk doc_download -n</screen>
+
+<para><emphasis role="strong">Note: </emphasis>It is important to check which commands are used to avoid any damage to your computer system. </para>
+
+<para>When some of the make targets are succesfully made, then a state file is created for each target in the folder <code>$(STATE)</code>. These targets are again made only, when there is no state file. You can remove such a state file by using a target name, which is the old target name with the prefix <code>rm_</code>. Make e.g. the target <code>doc_download</code></para>
+<screen>
+bmk doc_download -n
+bmk doc_download</screen>
+
+<para>List the target states. </para>
+<screen>
+bmk list_states</screen>
+
+<para>Before you can make the target <code>doc_download</code> again, you have to remove the correspondig state file by making the target <code>rm_doc_download</code>. </para>
+<screen>
+bmk rm_doc_download
+bmk doc_download</screen>
+
+<para>The intention of the makefile <code>${BSP_MK}</code> is to show or execute the correct commands, which are needed to install and use the software Phytec Linux for phyBOARD-WEGA-AM335x. It is important, that the user understands, what the commands like <code>ptxdist</code> are doing. This manual tries to show how to use these commands in the correct sequence. </para>
+<para>The makefile is not intended to replace any existing tool. Feel free to create your own scripts, makefiles or call the resulting commands directly. </para>
+<para>Changes in config files are often achieved by using the stream editor <code>sed</code>. The scripts for the stream editor search for specific patterns in the config files. Be careful when changing the config files yourself.</para>
+</sect1>
+<sect1 id="Quick_Start_Source_1">
+<title>Quick Start: Use the Source Code of Phytec Linux Without Changing It</title>
+
+<para>If you want to get quickly up and running, </para>
+<itemizedlist>
+<listitem>
+<para>follow first the instructions from the beginning of this document until this chapter </para></listitem>
+<listitem>
+<para>and then the instructions in this chapter. </para></listitem>
+</itemizedlist>
+
+<para>In this chapter only the commands are shown, which are needed </para>
+<itemizedlist>
+<listitem>
+<para>to install the tools, </para></listitem>
+<listitem>
+<para>to build the BSP, </para></listitem>
+<listitem>
+<para>to install the images on the target and </para></listitem>
+<listitem>
+<para>to boot the target from different sources</para></listitem>
+</itemizedlist>
+
+<para>for the first time. </para>
+<para>In other parts of this document more commands are shown, which can help you with working with the BSP and developing software. Also if you run into problems when executing the commands in this quick start chapter, you should find some solutions in the rest of this document. </para>
+<sect2>
+<title>Install Tools and BSP</title>
+<sect3>
+<title>Install Tools and BSP for Phytec Linux - First Time</title>
+
+<para>This chapter shows how to install the tool ptxdist, the toolchain and the BSP on the host.</para>
+<sect4>
+<title>Download Docs</title>
+
+<para>download docs for bsp</para>
+<screen>
+bmk doc_download</screen>
+</sect4>
+<sect4>
+<title>Ptxdist</title>
+
+<para>download files for ptxdist</para>
+<screen>
+bmk ptxdist_download</screen>
+
+<para>Extract ptxdist</para>
+<screen>
+bmk ptxdist_extract</screen>
+
+<para>Install ptxdist</para>
+<screen>
+bmk ptxdist_install</screen>
+
+<para>Select <code>${MY_DOWNLOAD_SRC}</code> as common source directory, where all the archives are downloaded, only missing archives are downloaded. All archives which will be downloaded when building the toolchain or the bsp are downloaded in this folder. </para>
+<screen>
+bmk ptxdist_setup_srcdir</screen>
+</sect4>
+<sect4>
+<title>Toolchain</title>
+
+<para>download files for toolchain</para>
+<screen>
+bmk toolchain_download</screen>
+
+<para>Extract Toolchain</para>
+<screen>
+bmk toolchain_extract</screen>
+
+<para>This describes the usage of <code>ptxdist</code> for building the toolchain. You don&apos;t need to call any of the commands, which are shown in the output, to install the toolchain right now. If you run into problems building the toolchain, you will need to call ptxdist directly. At the moment the output is only for your info: </para>
+<screen>
+bmk toolchain_ptxdist</screen>
+
+<para>Set prefix for toolchain folder. The default is /opt. Here a local folder is selected in order not to interfere with other toolchains. </para>
+<screen>
+bmk toolchain_prefix</screen>
+
+<para>select the toolchain</para>
+<screen>
+bmk toolchain_select</screen>
+
+<para>migrate the config file to a new ptxdist version</para>
+<screen>
+bmk toolchain_migrate</screen>
+
+<para>check PTXCONF_SETUP_SRCDIR in ptxdistrc for toolchain</para>
+<screen>
+bmk toolchain_check_srcdir</screen>
+
+<para>build the toolchain from scratch</para>
+<screen>
+bmk toolchain_build</screen>
+
+<para>remove temporary files of toolchain in order to save disk space</para>
+<screen>
+bmk toolchain_clean_build</screen>
+</sect4>
+<sect4>
+<title>BSP</title>
+
+<para>download files for bsp</para>
+<screen>
+bmk bsp_download</screen>
+
+<para>Preparations for installing the BSP</para>
+<screen>
+bmk bsp_prepare</screen>
+
+<para>Extract BSP</para>
+<screen>
+bmk bsp_extract</screen>
+
+<para>Select the configuration files</para>
+<screen>
+bmk bsp_config</screen>
+
+<para>The compiler is searched in the /opt folder. If it is found a link is created. Select the compiler, which you have just built. </para>
+<screen>
+bmk bsp_compiler</screen>
+
+<para>Check PTXCONF_SETUP_SRCDIR in ptxdistrc for bsp</para>
+<screen>
+bmk bsp_check_srcdir</screen>
+</sect4>
+<sect4>
+<title>Barebox environment for tftpboot folder</title>
+
+<para>Create Repository of local repository of tftpboot</para>
+<screen>
+bmk create_git_tftpboot_local</screen>
+
+<para>Create new git repositories of current tftpboot and checkout files in new source folder for existing remote repositories </para>
+<screen>
+bmk create_co_git_tftpboot_work</screen>
+
+<para>cp env into images. Copy the prepared tftpboot files into the images folder</para>
+<screen>
+bmk archive_barebox_env</screen>
+</sect4>
+<sect4>
+<title>Summary</title>
+
+<para>Install Tools and BSP</para>
+<screen>
+bmk  \
+	doc_download \
+	ptxdist_download \
+	ptxdist_extract \
+	ptxdist_install \
+	ptxdist_setup_srcdir \
+	toolchain_download \
+	toolchain_extract \
+	toolchain_ptxdist \
+	toolchain_prefix \
+	toolchain_select \
+	toolchain_migrate \
+	toolchain_check_srcdir \
+	toolchain_build \
+	toolchain_clean_build \
+	bsp_download \
+	bsp_prepare \
+	bsp_extract \
+	bsp_config \
+	bsp_compiler \
+	bsp_check_srcdir \
+	create_git_tftpboot_local \
+	create_co_git_tftpboot_work \
+	archive_barebox_env</screen>
+</sect4>
+</sect3>
+</sect2>
+<sect2>
+<title>Build BSP for Phytec Linux - First Time</title>
+
+<para>This chapter shows how to build the BSP on the host.</para>
+<para>Build BSP with ptxdist </para>
+<screen>
+bmk bsp_go</screen>
+
+<para>At the end you get the message: </para>
+
+<para>Output:</para>
+<screen>
+-------------------------------------------------------------------
+For a proper NFS-root environment, some device nodes are essential.
+In order to create them root privileges are required.
+-------------------------------------------------------------------
+
+(Please press enter to start 'sudo' to gain root privileges.)
+
+
+WARNING: NFS-root might not be working correctly!</screen>
+
+<para>If you missed it you can build the bsp again with:</para>
+<screen>
+bmk rm_bsp_go
+bmk bsp_go</screen>
+
+<para>Output:</para>
+<screen>
+-------------------------------------------------------------------
+For a proper NFS-root environment, some device nodes are essential.
+In order to create them root privileges are required.
+-------------------------------------------------------------------
+
+(Please press enter to start 'sudo' to gain root privileges.)</screen>
+
+<para>Press enter.</para>
+<para>Output:</para>
+<screen>
+Password: </screen>
+
+<para>Enter the root password. Output:</para>
+<screen>
+creating device node: platform-phyBOARD-WEGA-AM335x/root/dev/null
+creating device node: platform-phyBOARD-WEGA-AM335x/root/dev/zero
+creating device node: platform-phyBOARD-WEGA-AM335x/root/dev/console
+creating device node: platform-phyBOARD-WEGA-AM335x/root-debug/dev/null
+creating device node: platform-phyBOARD-WEGA-AM335x/root-debug/dev/zero
+creating device node: platform-phyBOARD-WEGA-AM335x/root-debug/dev/console</screen>
+
+<para>Create images for BSP with ptxdist </para>
+<screen>
+bmk bsp_images</screen>
+
+<para>All binaries for the target have been created now. </para>
+</sect2>
+<sect2>
+<title>Use Binary Versions of Phytec Linux - First Time</title>
+
+<para>This chapter shows how to download the binary images of the bootloader, Linux kernel and the root file system and boot the device in different ways. </para>
+<sect3>
+<title>Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</title>
+
+<para>Save barebox image, kernel image and device tree in image folder. </para>
+<screen>
+bmk kernel_01</screen>
+
+<para>overwrite image area on SD-card with zeros , format SD-card, create binary image</para>
+<screen>
+bmk  parted_sdcard_01 cp_archive_sdcard_01 cp_file_sdcard_01</screen>
+</sect3>
+<sect3>
+<title>Update Bootloader in NAND</title>
+
+<para>You can update the bootloader in NAND:</para>
+<itemizedlist>
+<listitem>
+<para>by copying the images from SD-Card or </para></listitem>
+<listitem>
+<para>by downloading the images from an TFTP server. </para></listitem>
+</itemizedlist>
+<sect4>
+<title>Use images from SD-Card</title>
+
+<para>You can copy the images from an SD-card :</para>
+<itemizedlist>
+<listitem>
+<para>after booting from the SD-Card or</para></listitem>
+<listitem>
+<para>after mounting the SD-Card manually. </para></listitem>
+</itemizedlist>
+<sect5>
+<title>Boot from SD-Card</title>
+
+<para>When you boot from SD-card, the card is already mounted at /boot.</para>
+
+<para>Check which devices are known</para>
+<screen>
+devinfo</screen>
+
+<para>Check which images are on the SD-card</para>
+<screen>
+ls /boot</screen>
+
+<para>Output:</para>
+<screen>
+MLO            barebox.bin    barebox.env    linuximage    </screen>
+
+<para>Update x-loader MLO</para>
+<screen>
+erase /dev/nand0.xload.bb
+cp /boot/MLO /dev/nand0.xload.bb</screen>
+
+<para>Update barebox</para>
+<screen>
+erase /dev/nand0.barebox.bb
+cp /boot/barebox.bin /dev/nand0.barebox.bb</screen>
+
+<para>When the bootloader has changed significantly, it is also necessary to erase the barebox environment:</para>
+<screen>
+erase /dev/nand0.bareboxenv</screen>
+</sect5>
+<sect5>
+<title>Mount SD-Card</title>
+
+<para>Further information is available in L-775e_3.pdf on page 22. </para>
+
+<para>Insert SD-Card and mount it. </para>
+
+<para>Check which devices are known</para>
+<screen>
+devinfo</screen>
+
+<para>Mount the SD-card, if it is not already mounted:</para>
+<screen>
+mci0.probe=1
+ls /mnt
+mkdir /mnt/disk
+mount /dev/disk0.0 /mnt/disk</screen>
+
+<para>Check which images are on the SD-card</para>
+<screen>
+ls /mnt/disk</screen>
+
+<para>Output:</para>
+<screen>
+MLO            barebox.bin    linuximage    </screen>
+
+<para>Update x-loader MLO</para>
+<screen>
+erase /dev/nand0.xload.bb
+cp /mnt/disk/MLO /dev/nand0.xload.bb</screen>
+
+<para>Update barebox</para>
+<screen>
+erase /dev/nand0.barebox.bb
+cp /mnt/disk/barebox.bin /dev/nand0.barebox.bb</screen>
+
+<para>When the bootloader has changed significantly, it is also necessary to erase the barebox environment:</para>
+<screen>
+erase /dev/nand0.bareboxenv</screen>
+</sect5>
+</sect4>
+<sect4>
+<title>Download images from TFTP Server</title>
+
+<para>Copy barebox image of boot_nand into images folder</para>
+<screen>
+bmk cp_barebox_boot_nand</screen>
+
+<para>Copy barebox from images folder into tftp folder</para>
+<screen>
+bmk tftpboot_barebox</screen>
+
+<para>Update barebox via TFTP</para>
+<screen>
+bmk update_barebox</screen>
+</sect4>
+</sect3>
+<sect3>
+<title>Boot via NAND</title>
+
+<para>copy kernel image for boot_tftp_nfs and boot_nand into images folder</para>
+<screen>
+bmk kernel_boot_tftp_nfs</screen>
+
+<para>Copy kernel into tftp folder</para>
+<screen>
+bmk tftpboot_kernel</screen>
+
+<para>Copy the ubi image of boot_nand</para>
+<screen>
+bmk cp_image_boot_nand</screen>
+
+<para>Copy root.ubi into tftp folder</para>
+<screen>
+bmk tftpboot_root_ubi</screen>
+
+<para>Update kernel and root on target for boot_nand</para>
+<screen>
+bmk update_target_boot_nand</screen>
+</sect3>
+<sect3>
+<title>Boot via TFTP and NFS</title>
+<sect4>
+<title>Prepare tftp config</title>
+
+<para>cp env into images. Copy the prepared tftpboot files into the images folder</para>
+<screen>
+bmk archive_barebox_env</screen>
+
+<para>Barebox config files are copied into the real folder tftpboot, which is used by the tftp server. Do it only once. Default settings are to boot from NAND. </para>
+<screen>
+bmk cp_barebox_config</screen>
+
+<para>Because the config files contain dummy ip addresses, it is important to set the correct ip addresses.</para>
+<screen>
+bmk set_ip_barebox_config</screen>
+</sect4>
+<sect4>
+<title>Copy init files to the Target </title>
+
+<para>Copy <code>env/boot/net-02</code> and some other files to the target.</para>
+<screen>
+bmk cp_init_board</screen>
+
+<para>The output of this make command describes how to download files to the target. Follow the instructions.</para>
+<para>When barebox is restarted, <code>/env/network/eth0</code> is used to configure the Ethernet port. When you call </para>
+<screen>
+boot net-02</screen>
+
+<para> you can boot the board via TFTP and NFS. The file <code>/env/boot/net-02</code> is executed and loads the file <code>/env/bin/net-03</code> from the TFTP server. This file is also executed. </para>
+<para><emphasis role="strong">Note: </emphasis>It is very important that you copy the init files to the target. Some commands in the makefile are changing the config file in the tftpboot folder on the host.</para>
+</sect4>
+<sect4>
+<title>Setup barebox config to boot via tftp and nfs </title>
+
+<para>Adjust boot.default in env/config to boot from TFTP and NFS</para>
+<screen>
+bmk tftpboot_config_loc_boot_tftp_nfs</screen>
+</sect4>
+<sect4>
+<title>Prepare kernel and rootfs for boot via TFTP and NFS </title>
+
+<para>Build BSP with ptxdist </para>
+<screen>
+bmk bsp_go</screen>
+
+<para>Create images for BSP with ptxdist </para>
+<screen>
+bmk bsp_images</screen>
+
+<para>copy kernel image for boot_tftp_nfs into images folder</para>
+<screen>
+bmk kernel_boot_tftp_nfs</screen>
+
+<para>Copy kernel from images into tftp folder</para>
+<screen>
+bmk tftpboot_kernel</screen>
+
+<para>Copy RootFS Archive of boot_tftp_nfs into images</para>
+<screen>
+bmk cp_image_boot_tftp_nfs</screen>
+
+<para>Create root file system, which can be mounted via NFS. </para>
+<screen>
+bmk create_rootfs_boot_tftp_nfs</screen>
+
+<para>Setup NFS, add rootfs to /etc/exports</para>
+<screen>
+bmk export_rootfs</screen>
+
+<para>exportfs -r</para>
+<screen>
+bmk export_refresh</screen>
+
+<para>remove fingerprint in .ssh/known_hosts</para>
+<screen>
+bmk ssh_fingerprint</screen>
+
+<para>Adjust nfsroot in env/config</para>
+<screen>
+bmk tftpboot_config</screen>
+
+<para>show command for netconsole</para>
+<screen>
+bmk netconsole</screen>
+</sect4>
+<sect4>
+<title>Switching between booting from NAND and via TFTP and NFS</title>
+
+<para>You have just configured the board to boot via TFTP and NFS. If you want to switch back to booting from NAND, you can use the following command. </para>
+<para>Adjust boot.default in env/config to boot from NAND</para>
+<screen>
+bmk tftpboot_config_loc_boot_nand</screen>
+
+<para>If you want to switch again to booting via TFTP and NFS, you can use again the following command. </para>
+<para>Adjust boot.default in env/config to boot from TFTP and NFS</para>
+<screen>
+bmk rm_tftpboot_config_loc_boot_tftp_nfs
+bmk tftpboot_config_loc_boot_tftp_nfs</screen>
+</sect4>
+</sect3>
+<sect3>
+<title>Boot the board</title>
+
+<para>Check if you have the correct hardware versions:</para>
+<itemizedlist>
+<listitem>
+<para>phyBOARD-WEGA-AM335x with carrier board 1405.0 or 1405.1</para></listitem>
+<listitem>
+<para>HDMI Adapter PEB-AV-01 1406.0 or 1406.1</para></listitem>
+<listitem>
+<para>Eval Module PEB-EVAL-01 1413.0 or 1413.1</para></listitem>
+</itemizedlist>
+
+<para>By default the board tries to boot from NAND at first. Without any valid bootloader in NAND, the board will try to boot from SD-card next.</para>
+<para>You can force the board to try to boot from SD-card at first. This allows you to test the bootloader on the SD-card without changing anything in NAND.</para>
+<para>If you have the carrier board 1405.0:</para>
+
+<para>You can force the board to boot from SD-card by connecting X_LCD_D2 (pin 8 at X70) to a high-level (e.g. VCC3V3 – pin13 at X71) during the power-up sequence.</para>
+<para>If you have the carrier board 1405.1: </para>
+
+<para>Take off the expansion board PEB-AV-01 or PEB-AV-02. Move the DIP switch to ON, to force booting from SD-card. When you have moved the switch in direction of the SD-card slot, the switch is in position ON. </para>
+<para>The description how to boot from SD-card can be found in L-792e_0.pdf on page 77 and in <ulink url="http://www.phytec.de/de/support/faq/faq-phyboard-wega.html"/>. </para>
+<para>Connect the board to the host, network and display: </para>
+<itemizedlist>
+<listitem>
+<para>Connect a serial cable (one-to-one) to the DB9 connector on PEB-EVAL-01. Set the speed to 115200 8N1 in your terminal application on the host. </para></listitem>
+<listitem>
+<para>Connect an ethernet cable to the port X16 on the carrier board. This is the ethernet port next to the USB port. </para></listitem>
+<listitem>
+<para>If you want to work with an SD-card, insert the SD-card into carrier board. </para></listitem>
+<listitem>
+<para>You can connect also a display to the HDMI port on PEB-AV-01. </para></listitem>
+</itemizedlist>
+
+<para>Boot the board again. </para>
+</sect3>
+<sect3>
+<title>Summary</title>
+
+<para>Create images for SD-card</para>
+<screen>
+bmk  \
+	kernel_01 \
+	parted_sdcard_01 \
+	cp_archive_sdcard_01 \
+	cp_file_sdcard_01</screen>
+
+<para>update barebox, kernel and root file system in NAND</para>
+<screen>
+bmk  \
+	cp_barebox_boot_nand \
+	tftpboot_barebox \
+	update_barebox \
+	cp_image_boot_nand \
+	tftpboot_root_ubi \
+	kernel_boot_tftp_nfs \
+	tftpboot_kernel \
+	update_target_boot_nand</screen>
+
+<para>update kernel and root file system in NAND</para>
+<screen>
+bmk  \
+	cp_image_boot_nand \
+	tftpboot_root_ubi \
+	kernel_boot_tftp_nfs \
+	tftpboot_kernel \
+	update_target_boot_nand</screen>
+
+<para>Prepare tftp config for boot via tftp and nfs</para>
+<screen>
+bmk  \
+	archive_barebox_env \
+	cp_barebox_config \
+	set_ip_barebox_config \
+	cp_init_board \
+	tftpboot_config_loc_boot_tftp_nfs</screen>
+
+<para>Prepare kernel and rootfs for boot via TFTP and NFS </para>
+<screen>
+bmk  \
+	bsp_go \
+	bsp_images \
+	kernel_boot_tftp_nfs \
+	cp_image_boot_tftp_nfs \
+	tftpboot_kernel \
+	create_rootfs_boot_tftp_nfs \
+	export_rootfs \
+	export_refresh \
+	ssh_fingerprint \
+	tftpboot_config \
+	netconsole</screen>
+
+<para>Switch back to boot from NAND. Adjust boot.default in env/config to boot from NAND</para>
+<screen>
+bmk  \
+	tftpboot_config_loc_boot_nand</screen>
+
+<para>Switch again to boot via TFTP and NFS. Adjust boot.default in env/config to boot from TFTP and NFS</para>
+<screen>
+bmk  \
+	rm_tftpboot_config_loc_boot_tftp_nfs
+bmk  \
+	tftpboot_config_loc_boot_tftp_nfs</screen>
+</sect3>
+</sect2>
+<sect2>
+<title>Test or Debug</title>
+
+<para>dmesg over ssh</para>
+<screen>
+bmk ssh_dmesg</screen>
+</sect2>
+</sect1>
+<sect1 id="Develop_Source_1">
+<title>Development: Use and Change the Source Code of Phytec Linux</title>
+
+<para>Install the tools and the BSP and create the binaries from scratch. </para>
+<sect2>
+<title>Install Tools and BSP for Phytec Linux - First Time</title>
+
+<para>This chapter shows how to install the tool ptxdist, the toolchain and the BSP on the host.</para>
+<sect3>
+<title>Download Docs</title>
+
+<para>download docs for bsp</para>
+<screen>
+bmk doc_download</screen>
+</sect3>
+<sect3>
+<title>Ptxdist</title>
+
+<para>download files for ptxdist</para>
+<screen>
+bmk ptxdist_download</screen>
+
+<para>Extract ptxdist</para>
+<screen>
+bmk ptxdist_extract</screen>
+
+<para>This creates a new and empty local repository for ptxdist, if it doesn&apos;t exist already. </para>
+<screen>
+bmk create_new_git_ptxdist_local</screen>
+
+<para>Create new repository of current ptxdist and add source code to it. This creates a new work repository, adds the current source code to it and pushes it to the local repository. </para>
+<screen>
+bmk create_new_git_ptxdist_work</screen>
+
+<para>Push changes in  ptxdist_work to local repository. If you have changed the work repository, push changes to the local repository. When you have just extracted the archive i.e. you have not done any changes, you can skip this command.</para>
+<screen>
+bmk push_git_ptxdist_work</screen>
+
+<para>Install ptxdist</para>
+<screen>
+bmk ptxdist_install</screen>
+
+<para>Select <code>${MY_DOWNLOAD_SRC}</code> as common source directory, where all the archives are downloaded, only missing archives are downloaded. All archives which will be downloaded when building the toolchain or the bsp are downloaded in this folder. </para>
+<screen>
+bmk ptxdist_setup_srcdir</screen>
+</sect3>
+<sect3>
+<title>Toolchain</title>
+
+<para>download files for toolchain</para>
+<screen>
+bmk toolchain_download</screen>
+
+<para>Extract Toolchain</para>
+<screen>
+bmk toolchain_extract</screen>
+
+<para>This creates a new and empty local repository for toolchain, if it doesn&apos;t exist already. </para>
+<screen>
+bmk create_new_git_toolchain_local</screen>
+
+<para>Create new repository of current toolchain and add source code to it. This creates a new work repository, adds the current source code to it and pushes it to the local repository. </para>
+<screen>
+bmk create_new_git_toolchain_work</screen>
+
+<para>Push changes in  toolchain_work to local repository. If you have changed the work repository, push changes to the local repository. When you have just extracted the archive i.e. you have not done any changes, you can skip this command.</para>
+<screen>
+bmk push_git_toolchain_work</screen>
+
+<para>This describes the usage of <code>ptxdist</code> for building the toolchain. You don&apos;t need to call any of the commands, which are shown in the output, to install the toolchain right now. If you run into problems building the toolchain, you will need to call ptxdist directly. At the moment the output is only for your info: </para>
+<screen>
+bmk toolchain_ptxdist</screen>
+
+<para>Set prefix for toolchain folder. The default is /opt. Here a local folder is selected in order not to interfere with other toolchains. </para>
+<screen>
+bmk toolchain_prefix</screen>
+
+<para>select the toolchain</para>
+<screen>
+bmk toolchain_select</screen>
+
+<para>migrate the config file to a new ptxdist version</para>
+<screen>
+bmk toolchain_migrate</screen>
+
+<para>check PTXCONF_SETUP_SRCDIR in ptxdistrc for toolchain</para>
+<screen>
+bmk toolchain_check_srcdir</screen>
+
+<para>build the toolchain from scratch</para>
+<screen>
+bmk toolchain_build</screen>
+
+<para>remove temporary files of toolchain in order to save disk space</para>
+<screen>
+bmk toolchain_clean_build</screen>
+</sect3>
+<sect3>
+<title>BSP</title>
+
+<para>download files for bsp</para>
+<screen>
+bmk bsp_download</screen>
+
+<para>Preparations for installing the BSP</para>
+<screen>
+bmk bsp_prepare</screen>
+
+<para>Extract BSP</para>
+<screen>
+bmk bsp_extract</screen>
+
+<para>This creates a new and empty local repository for bsp, if it doesn&apos;t exist already. </para>
+<screen>
+bmk create_new_git_bsp_local</screen>
+
+<para>Create new repository of current bsp and add source code to it.This creates a new work repository, adds the current source code to it and pushes it to the local repository. </para>
+<screen>
+bmk create_new_git_bsp_work</screen>
+
+<para>Push changes in bsp_work to local repository. If you have changed the work repository, push changes to the local repository. When you have just extracted the archive i.e. you have not done any changes, you can skip this command.</para>
+<screen>
+bmk push_git_bsp_work</screen>
+
+<para>Select the configuration files</para>
+<screen>
+bmk bsp_config</screen>
+
+<para>The compiler is searched in the /opt folder. If it is found a link is created. Select the compiler, which you have just built. </para>
+<screen>
+bmk bsp_compiler</screen>
+
+<para>Check PTXCONF_SETUP_SRCDIR in ptxdistrc for bsp</para>
+<screen>
+bmk bsp_check_srcdir</screen>
+</sect3>
+<sect3>
+<title>Barebox environment for tftpboot folder</title>
+
+<para>Create Repository of local repository of tftpboot</para>
+<screen>
+bmk create_git_tftpboot_local</screen>
+
+<para>Create new git repositories of current tftpboot and checkout files in new source folder for existing remote repositories </para>
+<screen>
+bmk create_co_git_tftpboot_work</screen>
+
+<para>cp env into images. Copy the prepared tftpboot files into the images folder</para>
+<screen>
+bmk archive_barebox_env</screen>
+</sect3>
+<sect3>
+<title>Summary</title>
+
+<para>Install Tools and BSP</para>
+<screen>
+bmk  \
+	doc_download \
+	ptxdist_download \
+	ptxdist_extract \
+	create_new_git_ptxdist_local \
+	create_new_git_ptxdist_work \
+	ptxdist_install \
+	ptxdist_setup_srcdir \
+	toolchain_download \
+	toolchain_extract \
+	create_new_git_toolchain_local \
+	create_new_git_toolchain_work \
+	toolchain_ptxdist \
+	toolchain_prefix \
+	toolchain_select \
+	toolchain_migrate \
+	toolchain_check_srcdir \
+	toolchain_build \
+	toolchain_clean_build \
+	bsp_download \
+	bsp_prepare \
+	bsp_extract \
+	create_new_git_bsp_local \
+	create_new_git_bsp_work \
+	bsp_config \
+	bsp_compiler \
+	bsp_check_srcdir \
+	create_git_tftpboot_local \
+	create_co_git_tftpboot_work \
+	archive_barebox_env</screen>
+
+<para>Push changes in work folder to local repository</para>
+<screen>
+bmk  \
+	push_git_ptxdist_work \
+	push_git_toolchain_work \
+	push_git_bsp_work</screen>
+</sect3>
+</sect2>
+<sect2>
+<title>Install Tools and BSP for Phytec Linux - Again</title>
+
+<para>When you want to install the tools and the bsp on the host again, you have to remove the make states before you can use the make targets. The additional commands are shown. </para>
+<para>You have to understand what the commands are doing. Perhaps you have do remove some files or folders before you can use the make targets. </para>
+<para>This chapter shows how to install the tool ptxdist, the toolchain and the BSP on the host.</para>
+<sect3>
+<title>Download Docs</title>
+
+<para>download docs for bsp</para>
+<screen>
+bmk rm_doc_download
+bmk doc_download</screen>
+</sect3>
+<sect3>
+<title>Ptxdist</title>
+
+<para>download files for ptxdist</para>
+<screen>
+bmk rm_ptxdist_download
+bmk ptxdist_download</screen>
+
+<para>Extract ptxdist</para>
+<screen>
+bmk rm_ptxdist_extract
+bmk ptxdist_extract</screen>
+
+<para>This creates a new and empty local repository for ptxdist, if it doesn&apos;t exist already. </para>
+<screen>
+bmk rm_create_new_git_ptxdist_local
+bmk create_new_git_ptxdist_local</screen>
+
+<para>Create new repository of current ptxdist and add source code to it. This creates a new work repository, adds the current source code to it and pushes it to the local repository. </para>
+<screen>
+bmk rm_create_new_git_ptxdist_work
+bmk create_new_git_ptxdist_work</screen>
+
+<para>Push changes in  ptxdist_work to local repository. If you have changed the work repository, push changes to the local repository. When you have just extracted the archive i.e. you have not done any changes, you can skip this command.</para>
+<screen>
+bmk rm_push_git_ptxdist_work
+bmk push_git_ptxdist_work</screen>
+
+<para>Install ptxdist</para>
+<screen>
+bmk rm_ptxdist_install
+bmk ptxdist_install</screen>
+
+<para>Select <code>${MY_DOWNLOAD_SRC}</code> as common source directory, where all the archives are downloaded, only missing archives are downloaded. All archives which will be downloaded when building the toolchain or the bsp are downloaded in this folder. </para>
+<screen>
+bmk rm_ptxdist_setup_srcdir
+bmk ptxdist_setup_srcdir</screen>
+</sect3>
+<sect3>
+<title>Toolchain</title>
+
+<para>download files for toolchain</para>
+<screen>
+bmk rm_toolchain_download
+bmk toolchain_download</screen>
+
+<para>Extract Toolchain</para>
+<screen>
+bmk rm_toolchain_extract
+bmk toolchain_extract</screen>
+
+<para>This creates a new and empty local repository for toolchain, if it doesn&apos;t exist already. </para>
+<screen>
+bmk rm_create_new_git_toolchain_local
+bmk create_new_git_toolchain_local</screen>
+
+<para>Create new repository of current toolchain and add source code to it. This creates a new work repository, adds the current source code to it and pushes it to the local repository. </para>
+<screen>
+bmk rm_create_new_git_toolchain_work
+bmk create_new_git_toolchain_work</screen>
+
+<para>Push changes in  toolchain_work to local repository. If you have changed the work repository, push changes to the local repository. When you have just extracted the archive i.e. you have not done any changes, you can skip this command.</para>
+<screen>
+bmk rm_push_git_toolchain_work
+bmk push_git_toolchain_work</screen>
+
+<para>This describes the usage of <code>ptxdist</code> for building the toolchain. You don&apos;t need to call any of the commands, which are shown in the output, to install the toolchain right now. If you run into problems building the toolchain, you will need to call ptxdist directly. At the moment the output is only for your info: </para>
+<screen>
+bmk toolchain_ptxdist</screen>
+
+<para>Set prefix for toolchain folder. The default is /opt. Here a local folder is selected in order not to interfere with other toolchains. </para>
+<screen>
+bmk rm_toolchain_prefix
+bmk toolchain_prefix</screen>
+
+<para>select the toolchain</para>
+<screen>
+bmk rm_toolchain_select
+bmk toolchain_select</screen>
+
+<para>migrate the config file to a new ptxdist version</para>
+<screen>
+bmk rm_toolchain_migrate
+bmk toolchain_migrate</screen>
+
+<para>check PTXCONF_SETUP_SRCDIR in ptxdistrc for toolchain</para>
+<screen>
+bmk rm_toolchain_check_srcdir
+bmk toolchain_check_srcdir</screen>
+
+<para>build the toolchain from scratch</para>
+<screen>
+bmk rm_toolchain_build
+bmk toolchain_build</screen>
+
+<para>remove temporary files of toolchain in order to save disk space</para>
+<screen>
+bmk rm_toolchain_clean_build
+bmk toolchain_clean_build</screen>
+</sect3>
+<sect3>
+<title>BSP</title>
+
+<para>download files for bsp</para>
+<screen>
+bmk rm_bsp_download
+bmk bsp_download</screen>
+
+<para>Preparations for installing the BSP</para>
+<screen>
+bmk bsp_prepare</screen>
+
+<para>Extract BSP</para>
+<screen>
+bmk rm_bsp_extract
+bmk bsp_extract</screen>
+
+<para>This creates a new and empty local repository for bsp, if it doesn&apos;t exist already. </para>
+<screen>
+bmk rm_create_new_git_bsp_local
+bmk create_new_git_bsp_local</screen>
+
+<para>Create new repository of current bsp and add source code to it.This creates a new work repository, adds the current source code to it and pushes it to the local repository. </para>
+<screen>
+bmk rm_create_new_git_bsp_work
+bmk create_new_git_bsp_work</screen>
+
+<para>Push changes in bsp_work to local repository. If you have changed the work repository, push changes to the local repository. When you have just extracted the archive i.e. you have not done any changes, you can skip this command.</para>
+<screen>
+bmk rm_push_git_bsp_work
+bmk push_git_bsp_work</screen>
+
+<para>Select the configuration files</para>
+<screen>
+bmk rm_bsp_config
+bmk bsp_config</screen>
+
+<para>The compiler is searched in the /opt folder. If it is found a link is created. Select the compiler, which you have just built. </para>
+<screen>
+bmk rm_bsp_compiler
+bmk bsp_compiler</screen>
+
+<para>Check PTXCONF_SETUP_SRCDIR in ptxdistrc for bsp</para>
+<screen>
+bmk rm_bsp_check_srcdir
+bmk bsp_check_srcdir</screen>
+</sect3>
+<sect3>
+<title>Barebox environment for tftpboot folder</title>
+
+<para>Create Repository of local repository of tftpboot</para>
+<screen>
+bmk rm_create_git_tftpboot_local
+bmk create_git_tftpboot_local</screen>
+
+<para>Create new git repositories of current tftpboot and checkout files in new source folder for existing remote repositories </para>
+<screen>
+bmk rm_create_co_git_tftpboot_work
+bmk create_co_git_tftpboot_work</screen>
+
+<para>cp env into images. Copy the prepared tftpboot files into the images folder</para>
+<screen>
+bmk rm_archive_barebox_env
+bmk archive_barebox_env</screen>
+</sect3>
+<sect3>
+<title>Summary</title>
+
+<para>Install Tools and BSP</para>
+<screen>
+bmk  \
+	rm_doc_download \
+	rm_ptxdist_download \
+	rm_ptxdist_extract \
+	rm_create_new_git_ptxdist_local \
+	rm_create_new_git_ptxdist_work \
+	rm_ptxdist_install \
+	rm_ptxdist_setup_srcdir \
+	rm_toolchain_download \
+	rm_toolchain_extract \
+	rm_create_new_git_toolchain_local \
+	rm_create_new_git_toolchain_work \
+	rm_toolchain_prefix \
+	rm_toolchain_select \
+	rm_toolchain_migrate \
+	rm_toolchain_check_srcdir \
+	rm_toolchain_build \
+	rm_toolchain_clean_build \
+	rm_bsp_download \
+	rm_bsp_extract \
+	rm_create_new_git_bsp_local \
+	rm_create_new_git_bsp_work \
+	rm_bsp_config \
+	rm_bsp_compiler \
+	rm_bsp_check_srcdir \
+	rm_create_git_tftpboot_local \
+	rm_create_co_git_tftpboot_work \
+	rm_archive_barebox_env
+bmk  \
+	doc_download \
+	ptxdist_download \
+	ptxdist_extract \
+	create_new_git_ptxdist_local \
+	create_new_git_ptxdist_work \
+	ptxdist_install \
+	ptxdist_setup_srcdir \
+	toolchain_download \
+	toolchain_extract \
+	create_new_git_toolchain_local \
+	create_new_git_toolchain_work \
+	toolchain_ptxdist \
+	toolchain_prefix \
+	toolchain_select \
+	toolchain_migrate \
+	toolchain_check_srcdir \
+	toolchain_build \
+	toolchain_clean_build \
+	bsp_download \
+	bsp_prepare \
+	bsp_extract \
+	create_new_git_bsp_local \
+	create_new_git_bsp_work \
+	bsp_config \
+	bsp_compiler \
+	bsp_check_srcdir \
+	create_git_tftpboot_local \
+	create_co_git_tftpboot_work \
+	archive_barebox_env</screen>
+
+<para>Push changes in work folder to local repository</para>
+<screen>
+bmk  \
+	rm_push_git_ptxdist_work \
+	rm_push_git_toolchain_work \
+	rm_push_git_bsp_work
+bmk  \
+	push_git_ptxdist_work \
+	push_git_toolchain_work \
+	push_git_bsp_work</screen>
+</sect3>
+</sect2>
+<sect2>
+<title>Build BSP for Phytec Linux - First Time</title>
+
+<para>This chapter shows how to build the BSP on the host.</para>
+<para>Build BSP with ptxdist </para>
+<screen>
+bmk bsp_go</screen>
+
+<para>At the end you get the message: </para>
+
+<para>Output:</para>
+<screen>
+-------------------------------------------------------------------
+For a proper NFS-root environment, some device nodes are essential.
+In order to create them root privileges are required.
+-------------------------------------------------------------------
+
+(Please press enter to start 'sudo' to gain root privileges.)
+
+
+WARNING: NFS-root might not be working correctly!</screen>
+
+<para>If you missed it you can build the bsp again with:</para>
+<screen>
+bmk rm_bsp_go
+bmk bsp_go</screen>
+
+<para>Output:</para>
+<screen>
+-------------------------------------------------------------------
+For a proper NFS-root environment, some device nodes are essential.
+In order to create them root privileges are required.
+-------------------------------------------------------------------
+
+(Please press enter to start 'sudo' to gain root privileges.)</screen>
+
+<para>Press enter.</para>
+<para>Output:</para>
+<screen>
+Password: </screen>
+
+<para>Enter the root password. Output:</para>
+<screen>
+creating device node: platform-phyBOARD-WEGA-AM335x/root/dev/null
+creating device node: platform-phyBOARD-WEGA-AM335x/root/dev/zero
+creating device node: platform-phyBOARD-WEGA-AM335x/root/dev/console
+creating device node: platform-phyBOARD-WEGA-AM335x/root-debug/dev/null
+creating device node: platform-phyBOARD-WEGA-AM335x/root-debug/dev/zero
+creating device node: platform-phyBOARD-WEGA-AM335x/root-debug/dev/console</screen>
+
+<para>Create images for BSP with ptxdist </para>
+<screen>
+bmk bsp_images</screen>
+
+<para>All binaries for the target have been created now. </para>
+</sect2>
+<sect2>
+<title>Develop BSP Phytec Linux - First Time</title>
+
+<para>This chapter shows how to change the source code for some packages.</para>
+<para></para>
+<sect3>
+<title>Call the ptxdist command directly</title>
+
+<para>This describes the usage of <code>ptxdist</code> for developing and building the BSP:</para>
+<screen>
+bmk bsp_ptxdist</screen>
+
+<para>You can create an environment setup file for using ptxdist and git on the commandline. </para>
+<screen>
+bmk setup_env_git_bsp_work</screen>
+
+<para>The output of this make command describes the usage of the setup-env file. Follow the instructions.</para>
+<para>Show examples for applying patches to bsp_work. </para>
+<screen>
+bmk apply_patches_git_bsp_work</screen>
+
+<para>The output of this make command describes the usage of git to apply patches to the BSP. Follow the instructions.</para>
+</sect3>
+<sect3>
+<title>Development of the Kernel</title>
+<sect4>
+<title>Kernel config</title>
+
+<para>Call menuconfig for kernel</para>
+<screen>
+bmk bsp_kernelconfig</screen>
+
+<para>The kernel config file is saved in the BSP. Check the changed kernel config file into the repository bsp_work. </para>
+<screen>
+bmk gui_git_bsp_work</screen>
+</sect4>
+<sect4>
+<title>Kernel source</title>
+
+<para>Create new repository of local repository of linux</para>
+<screen>
+bmk create_new_git_linux_local</screen>
+
+<para>Create new repository of current linux with <code>ptxdist --git extract kernel</code>. </para>
+<para><emphasis role="strong">Note: </emphasis>ptxdist clean kernel will be called. The source code folder will be deleted!</para>
+
+<screen>
+bmk create_new_git_ptxdist_linux_work</screen>
+
+<para>Now you have a repository of the current linux which contains all the patches which have been shipped with the BSP. </para>
+<para>You can create an environment setup file when you want to enter some git commands on the commandline.</para>
+<screen>
+bmk setup_env_git_linux_work</screen>
+
+<para>The output of this make command describes the usage of the setup-env file. Follow the instructions.</para>
+<para>Show examples for applying patches to linux_work. </para>
+<screen>
+bmk apply_patches_git_linux_work</screen>
+
+<para>The output of this make command describes the usage of git to apply patches to the linux source. </para>
+<para>After changing the source code of the kernel, you can compile it again. The kernel is built only with one make thread. If there is an error in the source code, it is easier to find. </para>
+<screen>
+bmk kernel-compile</screen>
+
+<para>Check the changes of the source code into the repository linux_work. You can do it with the help of a GUI. </para>
+<screen>
+bmk gui_git_linux_work</screen>
+
+<para>Create new patches for the BSP patches folder for Linux. </para>
+<screen>
+bmk create_ptx_patches_git_linux_work</screen>
+
+<para>Now the patches for the Linux kernel have been saved in the BSP and you may remove the kernel source. </para>
+<para>Clean kernel: you can remove all software parts of the kernel and force a complete rebuilt. If you have changed the source code of the kernel, you have to create the patches for it before you clean the kernel software. Otherwise all your changes are lost. </para>
+<screen>
+bmk kernel-clean</screen>
+</sect4>
+</sect3>
+<sect3>
+<title>Development of barebox</title>
+<sect4>
+<title>Barebox source</title>
+
+<para>Create new repository of local repository of barebox</para>
+<screen>
+bmk create_new_git_barebox_local</screen>
+
+<para>Create new repository of current barebox with <code>ptxdist --git extract barebox</code>. </para>
+<para><emphasis role="strong">Note: </emphasis>ptxdist clean barebox will be called. The source code folder will be deleted!</para>
+
+<screen>
+bmk create_new_git_ptxdist_barebox_work</screen>
+
+<para>Now you have a repository of the current barebox which contains all the patches which have been shipped with the BSP. </para>
+<para>You can create an environment setup file when you want to enter some git commands on the commandline.</para>
+<screen>
+bmk setup_env_git_barebox_work</screen>
+
+<para>The output of this make command describes the usage of the setup-env file. Follow the instructions.</para>
+<para>Show examples for applying patches to barebox_work. </para>
+<screen>
+bmk apply_patches_git_barebox_work</screen>
+
+<para>The output of this make command describes the usage of git to apply patches to the barebox source. </para>
+<para>After changing the source code of barebox, you can compile it again. </para>
+<screen>
+bmk barebox-compile</screen>
+
+<para>Check the changes of the source code into the repository barebox_work. You can do it with the help of a GUI. </para>
+<screen>
+bmk gui_git_barebox_work</screen>
+
+<para>Create new patches for the BSP patches folder for Barebox. </para>
+<screen>
+bmk create_ptx_patches_git_barebox_work</screen>
+
+<para>Now the patches for barebox have been saved in the BSP and you may remove barebox source. </para>
+<para>Clean barebox: you can remove all software parts of barebox and force a complete rebuilt. If you have changed the source code of barebox, you have to create the patches for it before you clean barebox software. Otherwise all your changes are lost. </para>
+<screen>
+bmk barebox-clean</screen>
+</sect4>
+<sect4>
+<title>After changes in tftpboot environment</title>
+
+<para>Compare new env in folder tftpboot with current env</para>
+<screen>
+bmk compare_barebox_env</screen>
+
+<para>cp env into images. Copy the prepared tftpboot files into the images folder</para>
+<screen>
+bmk archive_barebox_env</screen>
+
+<para>Copy barebox config files into tftp folder. Now the files are copied into the real folder tftpboot, which is used by the tftp server. </para>
+<screen>
+bmk cp_barebox_config</screen>
+</sect4>
+</sect3>
+</sect2>
+<sect2>
+<title>Develop BSP for Phytec Linux - Again</title>
+
+<para>When you want to change the source code of some packages and build the BSP again, you have to remove the make states before you can use the make targets. The additional commands are shown. </para>
+<para>This chapter shows how to change the source code for some packages.</para>
+<para></para>
+<sect3>
+<title>Call the ptxdist command directly</title>
+
+<para>This describes the usage of <code>ptxdist</code> for developing and building the BSP:</para>
+<screen>
+bmk bsp_ptxdist</screen>
+
+<para>You can create an environment setup file for using ptxdist and git on the commandline. </para>
+<screen>
+bmk rm_setup_env_git_bsp_work
+bmk setup_env_git_bsp_work</screen>
+
+<para>The output of this make command describes the usage of the setup-env file. Follow the instructions.</para>
+<para>Show examples for applying patches to bsp_work. </para>
+<screen>
+bmk apply_patches_git_bsp_work</screen>
+
+<para>The output of this make command describes the usage of git to apply patches to the BSP. Follow the instructions.</para>
+</sect3>
+<sect3>
+<title>Development of the Kernel</title>
+<sect4>
+<title>Kernel config</title>
+
+<para>Call menuconfig for kernel</para>
+<screen>
+bmk bsp_kernelconfig</screen>
+
+<para>The kernel config file is saved in the BSP. Check the changed kernel config file into the repository bsp_work. </para>
+<screen>
+bmk gui_git_bsp_work</screen>
+</sect4>
+<sect4>
+<title>Kernel source</title>
+
+<para>Create new repository of local repository of linux</para>
+<screen>
+bmk rm_create_new_git_linux_local
+bmk create_new_git_linux_local</screen>
+
+<para>Create new repository of current linux with <code>ptxdist --git extract kernel</code>. </para>
+<para><emphasis role="strong">Note: </emphasis>ptxdist clean kernel will be called. The source code folder will be deleted!</para>
+
+<screen>
+bmk rm_create_new_git_ptxdist_linux_work
+bmk create_new_git_ptxdist_linux_work</screen>
+
+<para>Now you have a repository of the current linux which contains all the patches which have been shipped with the BSP. </para>
+<para>You can create an environment setup file when you want to enter some git commands on the commandline.</para>
+<screen>
+bmk rm_setup_env_git_linux_work
+bmk setup_env_git_linux_work</screen>
+
+<para>The output of this make command describes the usage of the setup-env file. Follow the instructions.</para>
+<para>Show examples for applying patches to linux_work. </para>
+<screen>
+bmk apply_patches_git_linux_work</screen>
+
+<para>The output of this make command describes the usage of git to apply patches to the linux source. </para>
+<para>After changing the source code of the kernel, you can compile it again. The kernel is built only with one make thread. If there is an error in the source code, it is easier to find. </para>
+<screen>
+bmk rm_kernel-compile
+bmk kernel-compile</screen>
+
+<para>Check the changes of the source code into the repository linux_work. You can do it with the help of a GUI. </para>
+<screen>
+bmk gui_git_linux_work</screen>
+
+<para>Create new patches for the BSP patches folder for Linux. </para>
+<screen>
+bmk rm_create_ptx_patches_git_linux_work
+bmk create_ptx_patches_git_linux_work</screen>
+
+<para>Now the patches for the Linux kernel have been saved in the BSP and you may remove the kernel source. </para>
+<para>Clean kernel: you can remove all software parts of the kernel and force a complete rebuilt. If you have changed the source code of the kernel, you have to create the patches for it before you clean the kernel software. Otherwise all your changes are lost. </para>
+<screen>
+bmk rm_kernel-clean
+bmk kernel-clean</screen>
+</sect4>
+</sect3>
+<sect3>
+<title>Development of barebox</title>
+<sect4>
+<title>Barebox source</title>
+
+<para>Create new repository of local repository of barebox</para>
+<screen>
+bmk rm_create_new_git_barebox_local
+bmk create_new_git_barebox_local</screen>
+
+<para>Create new repository of current barebox with <code>ptxdist --git extract barebox</code>. </para>
+<para><emphasis role="strong">Note: </emphasis>ptxdist clean barebox will be called. The source code folder will be deleted!</para>
+
+<screen>
+bmk rm_create_new_git_ptxdist_barebox_work
+bmk create_new_git_ptxdist_barebox_work</screen>
+
+<para>Now you have a repository of the current barebox which contains all the patches which have been shipped with the BSP. </para>
+<para>You can create an environment setup file when you want to enter some git commands on the commandline.</para>
+<screen>
+bmk rm_setup_env_git_barebox_work
+bmk setup_env_git_barebox_work</screen>
+
+<para>The output of this make command describes the usage of the setup-env file. Follow the instructions.</para>
+<para>Show examples for applying patches to barebox_work. </para>
+<screen>
+bmk apply_patches_git_barebox_work</screen>
+
+<para>The output of this make command describes the usage of git to apply patches to the barebox source. </para>
+<para>After changing the source code of barebox, you can compile it again. </para>
+<screen>
+bmk rm_barebox-compile
+bmk barebox-compile</screen>
+
+<para>Check the changes of the source code into the repository barebox_work. You can do it with the help of a GUI. </para>
+<screen>
+bmk gui_git_barebox_work</screen>
+
+<para>Create new patches for the BSP patches folder for Barebox. </para>
+<screen>
+bmk rm_create_ptx_patches_git_barebox_work
+bmk create_ptx_patches_git_barebox_work</screen>
+
+<para>Now the patches for barebox have been saved in the BSP and you may remove barebox source. </para>
+<para>Clean barebox: you can remove all software parts of barebox and force a complete rebuilt. If you have changed the source code of barebox, you have to create the patches for it before you clean barebox software. Otherwise all your changes are lost. </para>
+<screen>
+bmk rm_barebox-clean
+bmk barebox-clean</screen>
+</sect4>
+<sect4>
+<title>After changes in tftpboot environment</title>
+
+<para>Compare new env in folder tftpboot with current env</para>
+<screen>
+bmk compare_barebox_env</screen>
+
+<para>cp env into images. Copy the prepared tftpboot files into the images folder</para>
+<screen>
+bmk rm_archive_barebox_env
+bmk archive_barebox_env</screen>
+
+<para>Copy barebox config files into tftp folder. Now the files are copied into the real folder tftpboot, which is used by the tftp server. </para>
+<screen>
+bmk rm_cp_barebox_config
+bmk cp_barebox_config</screen>
+</sect4>
+</sect3>
+</sect2>
+<sect2>
+<title>Build BSP for Phytec Linux - Again</title>
+
+<para>When you want to install the tools and the bsp on the host again, you have to remove the make states before you can use the make targets. The additional commands are shown. </para>
+<para>You have to understand what the commands are doing. Perhaps you have do remove some files or folders before you can use the make targets. </para>
+<para>This chapter shows how to build the BSP on the host.</para>
+<para>Build BSP with ptxdist </para>
+<screen>
+bmk rm_bsp_go
+bmk bsp_go</screen>
+
+<para>Create images for BSP with ptxdist </para>
+<screen>
+bmk rm_bsp_images
+bmk bsp_images</screen>
+
+<para>All binaries for the target have been created now. </para>
+</sect2>
+<sect2>
+<title>Use Binary Versions of Phytec Linux - First Time</title>
+
+<para>This chapter shows how to download the binary images of the bootloader, Linux kernel and the root file system and boot the device in different ways. </para>
+<sect3>
+<title>Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</title>
+
+<para>Save barebox image, kernel image and device tree in image folder. </para>
+<screen>
+bmk kernel_01</screen>
+
+<para>overwrite image area on SD-card with zeros , format SD-card, create binary image</para>
+<screen>
+bmk  parted_sdcard_01 cp_archive_sdcard_01 cp_file_sdcard_01</screen>
+</sect3>
+<sect3>
+<title>Update Bootloader in NAND</title>
+
+<para>You can update the bootloader in NAND:</para>
+<itemizedlist>
+<listitem>
+<para>by copying the images from SD-Card or </para></listitem>
+<listitem>
+<para>by downloading the images from an TFTP server. </para></listitem>
+</itemizedlist>
+<sect4>
+<title>Use images from SD-Card</title>
+
+<para>You can copy the images from an SD-card :</para>
+<itemizedlist>
+<listitem>
+<para>after booting from the SD-Card or</para></listitem>
+<listitem>
+<para>after mounting the SD-Card manually. </para></listitem>
+</itemizedlist>
+<sect5>
+<title>Boot from SD-Card</title>
+
+<para>When you boot from SD-card, the card is already mounted at /boot.</para>
+
+<para>Check which devices are known</para>
+<screen>
+devinfo</screen>
+
+<para>Check which images are on the SD-card</para>
+<screen>
+ls /boot</screen>
+
+<para>Output:</para>
+<screen>
+MLO            barebox.bin    barebox.env    linuximage    </screen>
+
+<para>Update x-loader MLO</para>
+<screen>
+erase /dev/nand0.xload.bb
+cp /boot/MLO /dev/nand0.xload.bb</screen>
+
+<para>Update barebox</para>
+<screen>
+erase /dev/nand0.barebox.bb
+cp /boot/barebox.bin /dev/nand0.barebox.bb</screen>
+
+<para>When the bootloader has changed significantly, it is also necessary to erase the barebox environment:</para>
+<screen>
+erase /dev/nand0.bareboxenv</screen>
+</sect5>
+<sect5>
+<title>Mount SD-Card</title>
+
+<para>Further information is available in L-775e_3.pdf on page 22. </para>
+
+<para>Insert SD-Card and mount it. </para>
+
+<para>Check which devices are known</para>
+<screen>
+devinfo</screen>
+
+<para>Mount the SD-card, if it is not already mounted:</para>
+<screen>
+mci0.probe=1
+ls /mnt
+mkdir /mnt/disk
+mount /dev/disk0.0 /mnt/disk</screen>
+
+<para>Check which images are on the SD-card</para>
+<screen>
+ls /mnt/disk</screen>
+
+<para>Output:</para>
+<screen>
+MLO            barebox.bin    linuximage    </screen>
+
+<para>Update x-loader MLO</para>
+<screen>
+erase /dev/nand0.xload.bb
+cp /mnt/disk/MLO /dev/nand0.xload.bb</screen>
+
+<para>Update barebox</para>
+<screen>
+erase /dev/nand0.barebox.bb
+cp /mnt/disk/barebox.bin /dev/nand0.barebox.bb</screen>
+
+<para>When the bootloader has changed significantly, it is also necessary to erase the barebox environment:</para>
+<screen>
+erase /dev/nand0.bareboxenv</screen>
+</sect5>
+</sect4>
+<sect4>
+<title>Download images from TFTP Server</title>
+
+<para>Copy barebox image of boot_nand into images folder</para>
+<screen>
+bmk cp_barebox_boot_nand</screen>
+
+<para>Copy barebox from images folder into tftp folder</para>
+<screen>
+bmk tftpboot_barebox</screen>
+
+<para>Update barebox via TFTP</para>
+<screen>
+bmk update_barebox</screen>
+</sect4>
+</sect3>
+<sect3>
+<title>Boot via NAND</title>
+
+<para>copy kernel image for boot_tftp_nfs and boot_nand into images folder</para>
+<screen>
+bmk kernel_boot_tftp_nfs</screen>
+
+<para>Copy kernel into tftp folder</para>
+<screen>
+bmk tftpboot_kernel</screen>
+
+<para>Copy the ubi image of boot_nand</para>
+<screen>
+bmk cp_image_boot_nand</screen>
+
+<para>Copy root.ubi into tftp folder</para>
+<screen>
+bmk tftpboot_root_ubi</screen>
+
+<para>Update kernel and root on target for boot_nand</para>
+<screen>
+bmk update_target_boot_nand</screen>
+</sect3>
+<sect3 id="Boot_via_TFTP_and_NFS">
+<title>Boot via TFTP and NFS</title>
+<sect4>
+<title>Prepare tftp config</title>
+
+<para>cp env into images. Copy the prepared tftpboot files into the images folder</para>
+<screen>
+bmk archive_barebox_env</screen>
+
+<para>Barebox config files are copied into the real folder tftpboot, which is used by the tftp server. Do it only once. Default settings are to boot from NAND. </para>
+<screen>
+bmk cp_barebox_config</screen>
+
+<para>Because the config files contain dummy ip addresses, it is important to set the correct ip addresses.</para>
+<screen>
+bmk set_ip_barebox_config</screen>
+</sect4>
+<sect4>
+<title>Copy init files to the Target </title>
+
+<para>Copy <code>env/boot/net-02</code> and some other files to the target.</para>
+<screen>
+bmk cp_init_board</screen>
+
+<para>The output of this make command describes how to download files to the target. Follow the instructions.</para>
+<para>When barebox is restarted, <code>/env/network/eth0</code> is used to configure the Ethernet port. When you call </para>
+<screen>
+boot net-02</screen>
+
+<para> you can boot the board via TFTP and NFS. The file <code>/env/boot/net-02</code> is executed and loads the file <code>/env/bin/net-03</code> from the TFTP server. This file is also executed. </para>
+<para><emphasis role="strong">Note: </emphasis>It is very important that you copy the init files to the target. Some commands in the makefile are changing the config file in the tftpboot folder on the host.</para>
+</sect4>
+<sect4>
+<title>Setup barebox config to boot via tftp and nfs </title>
+
+<para>Adjust boot.default in env/config to boot from TFTP and NFS</para>
+<screen>
+bmk tftpboot_config_loc_boot_tftp_nfs</screen>
+</sect4>
+<sect4>
+<title>Prepare kernel and rootfs for boot via TFTP and NFS </title>
+
+<para>Build BSP with ptxdist </para>
+<screen>
+bmk bsp_go</screen>
+
+<para>Create images for BSP with ptxdist </para>
+<screen>
+bmk bsp_images</screen>
+
+<para>copy kernel image for boot_tftp_nfs into images folder</para>
+<screen>
+bmk kernel_boot_tftp_nfs</screen>
+
+<para>Copy kernel from images into tftp folder</para>
+<screen>
+bmk tftpboot_kernel</screen>
+
+<para>Copy RootFS Archive of boot_tftp_nfs into images</para>
+<screen>
+bmk cp_image_boot_tftp_nfs</screen>
+
+<para>Create root file system, which can be mounted via NFS. </para>
+<screen>
+bmk create_rootfs_boot_tftp_nfs</screen>
+
+<para>Setup NFS, add rootfs to /etc/exports</para>
+<screen>
+bmk export_rootfs</screen>
+
+<para>exportfs -r</para>
+<screen>
+bmk export_refresh</screen>
+
+<para>remove fingerprint in .ssh/known_hosts</para>
+<screen>
+bmk ssh_fingerprint</screen>
+
+<para>Adjust nfsroot in env/config</para>
+<screen>
+bmk tftpboot_config</screen>
+
+<para>show command for netconsole</para>
+<screen>
+bmk netconsole</screen>
+</sect4>
+<sect4>
+<title>Switching between booting from NAND and via TFTP and NFS</title>
+
+<para>You have just configured the board to boot via TFTP and NFS. If you want to switch back to booting from NAND, you can use the following command. </para>
+<para>Adjust boot.default in env/config to boot from NAND</para>
+<screen>
+bmk tftpboot_config_loc_boot_nand</screen>
+
+<para>If you want to switch again to booting via TFTP and NFS, you can use again the following command. </para>
+<para>Adjust boot.default in env/config to boot from TFTP and NFS</para>
+<screen>
+bmk rm_tftpboot_config_loc_boot_tftp_nfs
+bmk tftpboot_config_loc_boot_tftp_nfs</screen>
+</sect4>
+</sect3>
+<sect3>
+<title>Boot the board</title>
+
+<para>Check if you have the correct hardware versions:</para>
+<itemizedlist>
+<listitem>
+<para>phyBOARD-WEGA-AM335x with carrier board 1405.0 or 1405.1</para></listitem>
+<listitem>
+<para>HDMI Adapter PEB-AV-01 1406.0 or 1406.1</para></listitem>
+<listitem>
+<para>Eval Module PEB-EVAL-01 1413.0 or 1413.1</para></listitem>
+</itemizedlist>
+
+<para>By default the board tries to boot from NAND at first. Without any valid bootloader in NAND, the board will try to boot from SD-card next.</para>
+<para>You can force the board to try to boot from SD-card at first. This allows you to test the bootloader on the SD-card without changing anything in NAND.</para>
+<para>If you have the carrier board 1405.0:</para>
+
+<para>You can force the board to boot from SD-card by connecting X_LCD_D2 (pin 8 at X70) to a high-level (e.g. VCC3V3 – pin13 at X71) during the power-up sequence.</para>
+<para>If you have the carrier board 1405.1: </para>
+
+<para>Take off the expansion board PEB-AV-01 or PEB-AV-02. Move the DIP switch to ON, to force booting from SD-card. When you have moved the switch in direction of the SD-card slot, the switch is in position ON. </para>
+<para>The description how to boot from SD-card can be found in L-792e_0.pdf on page 77 and in <ulink url="http://www.phytec.de/de/support/faq/faq-phyboard-wega.html"/>. </para>
+<para>Connect the board to the host, network and display: </para>
+<itemizedlist>
+<listitem>
+<para>Connect a serial cable (one-to-one) to the DB9 connector on PEB-EVAL-01. Set the speed to 115200 8N1 in your terminal application on the host. </para></listitem>
+<listitem>
+<para>Connect an ethernet cable to the port X16 on the carrier board. This is the ethernet port next to the USB port. </para></listitem>
+<listitem>
+<para>If you want to work with an SD-card, insert the SD-card into carrier board. </para></listitem>
+<listitem>
+<para>You can connect also a display to the HDMI port on PEB-AV-01. </para></listitem>
+</itemizedlist>
+
+<para>Boot the board again. </para>
+</sect3>
+<sect3>
+<title>Summary</title>
+
+<para>Create images for SD-card</para>
+<screen>
+bmk  \
+	kernel_01 \
+	parted_sdcard_01 \
+	cp_archive_sdcard_01 \
+	cp_file_sdcard_01</screen>
+
+<para>update barebox, kernel and root file system in NAND</para>
+<screen>
+bmk  \
+	cp_barebox_boot_nand \
+	tftpboot_barebox \
+	update_barebox \
+	cp_image_boot_nand \
+	tftpboot_root_ubi \
+	kernel_boot_tftp_nfs \
+	tftpboot_kernel \
+	update_target_boot_nand</screen>
+
+<para>update kernel and root file system in NAND</para>
+<screen>
+bmk  \
+	cp_image_boot_nand \
+	tftpboot_root_ubi \
+	kernel_boot_tftp_nfs \
+	tftpboot_kernel \
+	update_target_boot_nand</screen>
+
+<para>Prepare tftp config for boot via tftp and nfs</para>
+<screen>
+bmk  \
+	archive_barebox_env \
+	cp_barebox_config \
+	set_ip_barebox_config \
+	cp_init_board \
+	tftpboot_config_loc_boot_tftp_nfs</screen>
+
+<para>Prepare kernel and rootfs for boot via TFTP and NFS </para>
+<screen>
+bmk  \
+	bsp_go \
+	bsp_images \
+	kernel_boot_tftp_nfs \
+	cp_image_boot_tftp_nfs \
+	tftpboot_kernel \
+	create_rootfs_boot_tftp_nfs \
+	export_rootfs \
+	export_refresh \
+	ssh_fingerprint \
+	tftpboot_config \
+	netconsole</screen>
+
+<para>Switch back to boot from NAND. Adjust boot.default in env/config to boot from NAND</para>
+<screen>
+bmk  \
+	tftpboot_config_loc_boot_nand</screen>
+
+<para>Switch again to boot via TFTP and NFS. Adjust boot.default in env/config to boot from TFTP and NFS</para>
+<screen>
+bmk  \
+	rm_tftpboot_config_loc_boot_tftp_nfs
+bmk  \
+	tftpboot_config_loc_boot_tftp_nfs</screen>
+</sect3>
+</sect2>
+<sect2>
+<title>Use Binary Versions of Phytec Linux - Again</title>
+
+<para>When you want to install the binary images in the internal flash again, you have to remove the make states before you can use the make targets. The additional commands are shown. </para>
+<para>This chapter shows how to download the binary images of the bootloader, Linux kernel and the root file system and boot the device in different ways. </para>
+<sect3>
+<title>Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</title>
+
+<para>Build Phytec Linux BSP, if you have not already done it.Build BSP with ptxdist </para>
+<screen>
+bmk rm_bsp_go
+bmk bsp_go</screen>
+
+<para>Create images for BSP with ptxdist </para>
+<screen>
+bmk rm_bsp_images
+bmk bsp_images</screen>
+
+<para>Save barebox image, kernel image and device tree in image folder. </para>
+<para><emphasis role="strong">Note: </emphasis>You only have to do this again, when the image has been rebuilt. </para>
+
+<screen>
+bmk rm_kernel_01 rm_kernel_boot_tftp_nfs rm_cp_image_boot_tftp_nfs
+bmk kernel_01</screen>
+
+<para>overwrite image area on SD-card with zeros , format SD-card, create binary image</para>
+<screen>
+bmk  rm_parted_sdcard_01
+bmk  parted_sdcard_01 cp_archive_sdcard_01 cp_file_sdcard_01</screen>
+</sect3>
+<sect3>
+<title>Update Bootloader in NAND</title>
+
+<para>You can update the bootloader in NAND:</para>
+<itemizedlist>
+<listitem>
+<para>by copying the images from SD-Card or </para></listitem>
+<listitem>
+<para>by downloading the images from an TFTP server. </para></listitem>
+</itemizedlist>
+<sect4>
+<title>Use images from SD-Card</title>
+
+<para>You can copy the images from an SD-card :</para>
+<itemizedlist>
+<listitem>
+<para>after booting from the SD-Card or</para></listitem>
+<listitem>
+<para>after mounting the SD-Card manually. </para></listitem>
+</itemizedlist>
+<sect5>
+<title>Boot from SD-Card</title>
+
+<para>When you boot from SD-card, the card is already mounted at /boot.</para>
+
+<para>Check which devices are known</para>
+<screen>
+devinfo</screen>
+
+<para>Check which images are on the SD-card</para>
+<screen>
+ls /boot</screen>
+
+<para>Output:</para>
+<screen>
+MLO            barebox.bin    barebox.env    linuximage    </screen>
+
+<para>Update x-loader MLO</para>
+<screen>
+erase /dev/nand0.xload.bb
+cp /boot/MLO /dev/nand0.xload.bb</screen>
+
+<para>Update barebox</para>
+<screen>
+erase /dev/nand0.barebox.bb
+cp /boot/barebox.bin /dev/nand0.barebox.bb</screen>
+
+<para>When the bootloader has changed significantly, it is also necessary to erase the barebox environment:</para>
+<screen>
+erase /dev/nand0.bareboxenv</screen>
+</sect5>
+<sect5>
+<title>Mount SD-Card</title>
+
+<para>Further information is available in L-775e_3.pdf on page 22. </para>
+
+<para>Insert SD-Card and mount it. </para>
+
+<para>Check which devices are known</para>
+<screen>
+devinfo</screen>
+
+<para>Mount the SD-card, if it is not already mounted:</para>
+<screen>
+mci0.probe=1
+ls /mnt
+mkdir /mnt/disk
+mount /dev/disk0.0 /mnt/disk</screen>
+
+<para>Check which images are on the SD-card</para>
+<screen>
+ls /mnt/disk</screen>
+
+<para>Output:</para>
+<screen>
+MLO            barebox.bin    linuximage    </screen>
+
+<para>Update x-loader MLO</para>
+<screen>
+erase /dev/nand0.xload.bb
+cp /mnt/disk/MLO /dev/nand0.xload.bb</screen>
+
+<para>Update barebox</para>
+<screen>
+erase /dev/nand0.barebox.bb
+cp /mnt/disk/barebox.bin /dev/nand0.barebox.bb</screen>
+
+<para>When the bootloader has changed significantly, it is also necessary to erase the barebox environment:</para>
+<screen>
+erase /dev/nand0.bareboxenv</screen>
+</sect5>
+</sect4>
+<sect4>
+<title>Download images from TFTP Server</title>
+
+<para>Copy barebox image of boot_nand into images folder</para>
+<screen>
+bmk rm_cp_barebox_boot_nand
+bmk cp_barebox_boot_nand</screen>
+
+<para>Copy barebox from images folder into tftp folder</para>
+<screen>
+bmk rm_tftpboot_barebox
+bmk tftpboot_barebox</screen>
+
+<para>Update barebox via TFTP</para>
+<screen>
+bmk rm_update_barebox
+bmk update_barebox</screen>
+</sect4>
+</sect3>
+<sect3>
+<title>Boot via NAND</title>
+
+<para>copy kernel image for boot_tftp_nfs and boot_nand into images folder</para>
+<screen>
+bmk rm_kernel_boot_tftp_nfs
+bmk kernel_boot_tftp_nfs</screen>
+
+<para>Copy kernel into tftp folder</para>
+<screen>
+bmk rm_tftpboot_kernel
+bmk tftpboot_kernel</screen>
+
+<para>Copy the ubi image of boot_nand</para>
+<screen>
+bmk rm_cp_image_boot_nand
+bmk cp_image_boot_nand</screen>
+
+<para>Copy root.ubi into tftp folder</para>
+<screen>
+bmk rm_tftpboot_root_ubi
+bmk tftpboot_root_ubi</screen>
+
+<para>Update kernel and root on target for boot_nand</para>
+<screen>
+bmk update_target_boot_nand</screen>
+</sect3>
+<sect3>
+<title>Boot via TFTP and NFS</title>
+<sect4>
+<title>Copy init files to the Target </title>
+
+<para>Copy <code>env/boot/net-02</code> and some other files to the target.</para>
+<screen>
+bmk rm_cp_init_board
+bmk cp_init_board</screen>
+
+<para>The output of this make command describes how to download files to the target. Follow the instructions.</para>
+<para>When barebox is restarted, <code>/env/network/eth0</code> is used to configure the Ethernet port. When you call </para>
+<screen>
+boot net-02</screen>
+
+<para> you can boot the board via TFTP and NFS. The file <code>/env/boot/net-02</code> is executed and loads the file <code>/env/bin/net-03</code> from the TFTP server. This file is also executed. </para>
+<para><emphasis role="strong">Note: </emphasis>It is very important that you copy the init files to the target. Some commands in the makefile are changing the config file in the tftpboot folder on the host.</para>
+</sect4>
+<sect4>
+<title>Setup barebox config to boot via tftp and nfs </title>
+
+<para>Adjust boot.default in env/config to boot from TFTP and NFS</para>
+<screen>
+bmk rm_tftpboot_config_loc_boot_tftp_nfs
+bmk tftpboot_config_loc_boot_tftp_nfs</screen>
+</sect4>
+<sect4>
+<title>Prepare kernel and rootfs for boot via TFTP and NFS </title>
+
+<para>Build BSP with ptxdist </para>
+<screen>
+bmk rm_bsp_go
+bmk bsp_go</screen>
+
+<para>Create images for BSP with ptxdist </para>
+<screen>
+bmk rm_bsp_images
+bmk bsp_images</screen>
+
+<para>copy kernel image for boot_tftp_nfs into images folder</para>
+<screen>
+bmk rm_kernel_boot_tftp_nfs
+bmk kernel_boot_tftp_nfs</screen>
+
+<para>Copy kernel from images into tftp folder</para>
+<screen>
+bmk rm_tftpboot_kernel
+bmk tftpboot_kernel</screen>
+
+<para>Copy RootFS Archive of boot_tftp_nfs into images</para>
+<screen>
+bmk rm_cp_image_boot_tftp_nfs
+bmk cp_image_boot_tftp_nfs</screen>
+
+<para>Remove root file system, which can be mounted via NFS. </para>
+<screen>
+bmk rm_remove_rootfs_boot_tftp_nfs
+bmk remove_rootfs_boot_tftp_nfs -n
+bmk remove_rootfs_boot_tftp_nfs</screen>
+
+<para>Create root file system, which can be mounted via NFS. </para>
+<screen>
+bmk rm_create_rootfs_boot_tftp_nfs
+bmk create_rootfs_boot_tftp_nfs</screen>
+
+<para>exportfs -r</para>
+<screen>
+bmk export_refresh</screen>
+
+<para>remove fingerprint in .ssh/known_hosts</para>
+<screen>
+bmk rm_ssh_fingerprint
+bmk ssh_fingerprint</screen>
+
+<para>show command for netconsole</para>
+<screen>
+bmk rm_netconsole
+bmk netconsole</screen>
+</sect4>
+<sect4>
+<title>Switching between booting from NAND and via TFTP and NFS</title>
+
+<para>You have just configured the board to boot via TFTP and NFS. If you want to switch back to booting from NAND, you can use the following command. </para>
+<para>Adjust boot.default in env/config to boot from NAND</para>
+<screen>
+bmk rm_tftpboot_config_loc_boot_nand
+bmk tftpboot_config_loc_boot_nand</screen>
+
+<para>If you want to switch again to booting via TFTP and NFS, you can use again the following command. </para>
+<para>Adjust boot.default in env/config to boot from TFTP and NFS</para>
+<screen>
+bmk rm_tftpboot_config_loc_boot_tftp_nfs
+bmk tftpboot_config_loc_boot_tftp_nfs</screen>
+</sect4>
+</sect3>
+<sect3>
+<title>Boot the board</title>
+
+<para>Check if you have the correct hardware versions:</para>
+<itemizedlist>
+<listitem>
+<para>phyBOARD-WEGA-AM335x with carrier board 1405.0 or 1405.1</para></listitem>
+<listitem>
+<para>HDMI Adapter PEB-AV-01 1406.0 or 1406.1</para></listitem>
+<listitem>
+<para>Eval Module PEB-EVAL-01 1413.0 or 1413.1</para></listitem>
+</itemizedlist>
+
+<para>By default the board tries to boot from NAND at first. Without any valid bootloader in NAND, the board will try to boot from SD-card next.</para>
+<para>You can force the board to try to boot from SD-card at first. This allows you to test the bootloader on the SD-card without changing anything in NAND.</para>
+<para>If you have the carrier board 1405.0:</para>
+
+<para>You can force the board to boot from SD-card by connecting X_LCD_D2 (pin 8 at X70) to a high-level (e.g. VCC3V3 – pin13 at X71) during the power-up sequence.</para>
+<para>If you have the carrier board 1405.1: </para>
+
+<para>Take off the expansion board PEB-AV-01 or PEB-AV-02. Move the DIP switch to ON, to force booting from SD-card. When you have moved the switch in direction of the SD-card slot, the switch is in position ON. </para>
+<para>The description how to boot from SD-card can be found in L-792e_0.pdf on page 77 and in <ulink url="http://www.phytec.de/de/support/faq/faq-phyboard-wega.html"/>. </para>
+<para>Connect the board to the host, network and display: </para>
+<itemizedlist>
+<listitem>
+<para>Connect a serial cable (one-to-one) to the DB9 connector on PEB-EVAL-01. Set the speed to 115200 8N1 in your terminal application on the host. </para></listitem>
+<listitem>
+<para>Connect an ethernet cable to the port X16 on the carrier board. This is the ethernet port next to the USB port. </para></listitem>
+<listitem>
+<para>If you want to work with an SD-card, insert the SD-card into carrier board. </para></listitem>
+<listitem>
+<para>You can connect also a display to the HDMI port on PEB-AV-01. </para></listitem>
+</itemizedlist>
+
+<para>Boot the board again. </para>
+</sect3>
+<sect3>
+<title>Summary</title>
+
+<para>Create images for SD-card</para>
+<screen>
+bmk  \
+	rm_bsp_go \
+	rm_bsp_images \
+	rm_kernel_01 \
+	rm_kernel_boot_tftp_nfs \
+	rm_cp_image_boot_tftp_nfs
+bmk  \
+	bsp_go \
+	bsp_images \
+	kernel_01</screen>
+
+<screen>
+bmk  \
+	rm_parted_sdcard_01
+bmk  \
+	parted_sdcard_01 \
+	cp_archive_sdcard_01 \
+	cp_file_sdcard_01</screen>
+
+<para>update barebox, kernel and root file system in NAND</para>
+<screen>
+bmk  \
+	rm_cp_barebox_boot_nand \
+	rm_tftpboot_barebox \
+	rm_update_barebox \
+	rm_cp_image_boot_nand \
+	rm_tftpboot_root_ubi \
+	rm_kernel_boot_tftp_nfs \
+	rm_tftpboot_kernel
+bmk  \
+	cp_barebox_boot_nand \
+	tftpboot_barebox \
+	update_barebox \
+	cp_image_boot_nand \
+	tftpboot_root_ubi \
+	kernel_boot_tftp_nfs \
+	tftpboot_kernel \
+	update_target_boot_nand</screen>
+
+<para>update kernel and root file system in NAND</para>
+<screen>
+bmk  \
+	rm_cp_image_boot_nand \
+	rm_tftpboot_root_ubi \
+	rm_kernel_boot_tftp_nfs \
+	rm_tftpboot_kernel
+bmk  \
+	cp_image_boot_nand \
+	tftpboot_root_ubi \
+	kernel_boot_tftp_nfs \
+	tftpboot_kernel \
+	update_target_boot_nand</screen>
+
+<para>Prepare tftp config for boot via tftp and nfs</para>
+<screen>
+bmk  \
+	rm_set_ip_barebox_config \
+	rm_cp_init_board \
+	rm_tftpboot_config_loc_boot_tftp_nfs
+bmk  \
+	set_ip_barebox_config \
+	cp_init_board \
+	tftpboot_config_loc_boot_tftp_nfs</screen>
+
+<para>Prepare kernel and rootfs for boot via TFTP and NFS </para>
+<screen>
+bmk  \
+	rm_bsp_go \
+	rm_bsp_images \
+	rm_kernel_boot_tftp_nfs \
+	rm_cp_image_boot_tftp_nfs \
+	rm_tftpboot_kernel \
+	rm_remove_rootfs_boot_tftp_nfs \
+	rm_create_rootfs_boot_tftp_nfs \
+	rm_ssh_fingerprint
+bmk  \
+	bsp_go \
+	bsp_images \
+	kernel_boot_tftp_nfs \
+	cp_image_boot_tftp_nfs \
+	tftpboot_kernel \
+	remove_rootfs_boot_tftp_nfs \
+	create_rootfs_boot_tftp_nfs \
+	export_refresh \
+	ssh_fingerprint \
+	netconsole</screen>
+
+<para>Switch back to boot from NAND. Adjust boot.default in env/config to boot from NAND</para>
+<screen>
+bmk  \
+	rm_tftpboot_config_loc_boot_nand
+bmk  \
+	tftpboot_config_loc_boot_nand</screen>
+
+<para>Switch again to boot via TFTP and NFS. Adjust boot.default in env/config to boot from TFTP and NFS</para>
+<screen>
+bmk  \
+	rm_tftpboot_config_loc_boot_tftp_nfs
+bmk  \
+	tftpboot_config_loc_boot_tftp_nfs</screen>
+
+<para>This is usually used only once, but may be reused: Copy barebox config files into tftp folder and adjust all the settings to boot via TFTP and NFS.</para>
+<screen>
+bmk  \
+	rm_cp_barebox_config \
+	rm_set_ip_barebox_config \
+	rm_tftpboot_config \
+	rm_tftpboot_config_loc_boot_tftp_nfs
+bmk  \
+	cp_barebox_config \
+	set_ip_barebox_config \
+	tftpboot_config \
+	tftpboot_config_loc_boot_tftp_nfs</screen>
+
+<para>This is usually used only once, but may be reused: Adjust nfsroot in env/config</para>
+<screen>
+bmk  \
+	rm_tftpboot_config
+bmk  \
+	tftpboot_config</screen>
+
+<para>This is usually used only once, but may be reused: Setup NFS, add rootfs to /etc/exports</para>
+<screen>
+bmk  \
+	rm_export_rootfs
+bmk  \
+	export_rootfs</screen>
+</sect3>
+</sect2>
+</sect1>
+<sect1>
+<title>Test or Debug</title>
+
+<para>Remove fingerprint in .ssh/known_hosts</para>
+<screen>
+bmk rm_ssh_fingerprint
+bmk ssh_fingerprint</screen>
+
+<para>show command for netconsole</para>
+<screen>
+bmk netconsole</screen>
+
+<para>dmesg over ssh</para>
+<screen>
+bmk ssh_dmesg</screen>
+</sect1>
+<sect1>
+<title>Version Control with Git</title>
+
+<para>Create and manage git repositories for the source code of the BSP and its software packages. </para>
+<para>If you want to learn more about git, there is a book on git : <ulink url="http://www.git-scm.com/book">Pro Git</ulink></para>
+<para>There are many more make targets in the makefile <code>${DISTRIB_IN}/install/scripts/pd_src_git.mk</code> which have not been described so far. You can list most of the make targets with the following command:</para>
+<screen>
+bmk | grep git</screen>
+
+<para>You can look at the contents of the file <code>${DISTRIB_IN}/install/scripts/pd_src_git.mk</code></para>
+<screen>
+more ${DISTRIB_IN}/install/scripts/pd_src_git.mk</screen>
+
+<para>In this tutorial and the accompanying makefile some specific names are used for the repositories:</para>
+<itemizedlist>
+<listitem>
+<para>A repository is called <emphasis>work</emphasis>, when it is used to checkout and edit the current version of the source code. </para></listitem>
+<listitem>
+<para>A repository is called <emphasis>local</emphasis>, when it is used to save the current state of the source code on your computer. You push your changes from the <emphasis>work</emphasis> repository to the <emphasis>local</emphasis> repository, to save it there. This is a bare repository. </para></listitem>
+<listitem>
+<para>A <emphasis>remote</emphasis> repository is used to create or update the <emphasis>local</emphasis> repository. Usually you don&apos;t have write access to the <emphasis>remote</emphasis> repository. </para></listitem>
+</itemizedlist>
+
+<para>In the following chapters some useful commands are shown.</para>
+<sect2>
+<title>Create environment setup files</title>
+
+<para>For the work with repositories of some source code folders you need to define an environment.</para>
+<para>Create environment setup file for barebox_work</para>
+<screen>
+bmk rm_setup_env_git_barebox_work
+bmk setup_env_git_barebox_work</screen>
+
+<para>The output of this make command describes the usage of the setup-env file. Follow the instructions.</para>
+<para>Create environment setup file for linux_work</para>
+<screen>
+bmk rm_setup_env_git_linux_work
+bmk setup_env_git_linux_work</screen>
+
+<para>The output of this make command describes the usage of the setup-env file. Follow the instructions.</para>
+<para>Create environment setup file for gcc-linaro_work</para>
+<screen>
+bmk rm_setup_env_git_gcc-linaro_work
+bmk setup_env_git_gcc-linaro_work</screen>
+
+<para>The output of this make command describes the usage of the setup-env file. Follow the instructions.</para>
+<para></para>
+</sect2>
+<sect2>
+<title>Start Tools with GUI for Repositories</title>
+
+<para>Start tools with GUI like <code>git gui</code> and <code>gitk</code>. </para>
+<para>start git gui or gitk  for bsp_local</para>
+<screen>
+bmk gui_git_bsp_local</screen>
+
+<para>start git gui or gitk  for bsp_work</para>
+<screen>
+bmk gui_git_bsp_work</screen>
+
+<para>start git gui or gitk  for ptxdist_local</para>
+<screen>
+bmk gui_git_ptxdist_local</screen>
+
+<para>start git gui or gitk  for ptxdist_work</para>
+<screen>
+bmk gui_git_ptxdist_work</screen>
+
+<para>start git gui or gitk  for barebox_local</para>
+<screen>
+bmk gui_git_barebox_local</screen>
+
+<para>start git gui or gitk  for barebox_work</para>
+<screen>
+bmk gui_git_barebox_work</screen>
+
+<para>start git gui or gitk  for linux_local</para>
+<screen>
+bmk gui_git_linux_local</screen>
+
+<para>start git gui or gitk  for linux_work</para>
+<screen>
+bmk gui_git_linux_work</screen>
+
+<para>start git gui or gitk  for toolchain_local</para>
+<screen>
+bmk gui_git_toolchain_local</screen>
+
+<para>start git gui or gitk  for toolchain_work</para>
+<screen>
+bmk gui_git_toolchain_work</screen>
+
+<para>start git gui or gitk  for gcc-linaro_local</para>
+<screen>
+bmk gui_git_gcc-linaro_local</screen>
+
+<para>start git gui or gitk  for gcc-linaro_work</para>
+<screen>
+bmk gui_git_gcc-linaro_work</screen>
+
+<para>start git gui or gitk  for tftpboot_local</para>
+<screen>
+bmk gui_git_tftpboot_local</screen>
+
+<para>start git gui or gitk  for tftpboot_work</para>
+<screen>
+bmk gui_git_tftpboot_work</screen>
+</sect2>
+<sect2>
+<title>Show and Check Repositories</title>
+
+<para>Show and check current state of the git repositories.  </para>
+<para>show branches and HEAD of all repositories</para>
+<screen>
+bmk show_branch_git</screen>
+
+<para>check branch and HEAD of all repositories</para>
+<screen>
+bmk check_branch_git</screen>
+
+<para>show commit id of release branch</para>
+<screen>
+bmk show_release_git</screen>
+</sect2>
+<sect2>
+<title>Summary</title>
+
+<para>Create environment setup files</para>
+<screen>
+bmk  \
+	rm_setup_env_git_barebox_work \
+	rm_setup_env_git_linux_work \
+	rm_setup_env_git_gcc-linaro_work
+bmk  \
+	setup_env_git_barebox_work \
+	setup_env_git_linux_work \
+	setup_env_git_gcc-linaro_work</screen>
+
+<para>Show and check current state of the git repositories.</para>
+<screen>
+bmk  \
+	show_branch_git \
+	check_branch_git \
+	show_release_git</screen>
+</sect2>
+</sect1>
+</article>

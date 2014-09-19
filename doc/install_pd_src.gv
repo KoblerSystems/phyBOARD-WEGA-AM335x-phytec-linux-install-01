@@ -1,0 +1,613 @@
+digraph g {
+node [
+fontsize = "8"
+];
+Start[shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+bsp_go[label="bsp go" ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+boot_sdcard[label="Boot target\nfrom SD-Card" shape=circle style=filled ];
+boot_sdcard_kernel_rootfs[label="Load\nkernel and rootfs\nfrom SD-Card" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_mmc_02[label="boot mmc-02" ];
+boot_sdcard_kernel_rootfs[label="Load\nkernel and rootfs\nfrom SD-Card" shape=circle style=filled ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+boot_sdcard_kernel_rootfs[label="Load\nkernel and rootfs\nfrom SD-Card" shape=circle style=filled ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+mount_sd_card[label="Mount SD-Card" ];
+update_x_loader_MLO[label="Update x-loader\nMLO" ];
+update_barebox_sdcard[label="Update\nbarebox" ];
+new_booloader_NAND[label="New bootloader\nin NAND" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_nand_kernel_rootfs[label="Load\nkernel and rootfs\nfrom Nand" shape=circle style=filled ];
+boot_sdcard[label="Boot target\nfrom SD-Card" shape=circle style=filled ];
+update_x_loader_MLO[label="Update x-loader\nMLO" ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+mount_sd_card[label="Mount SD-Card" ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+new_booloader_NAND[label="New bootloader\nin NAND" shape=circle style=filled ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+new_ubifs_NAND[label="New\nkernel and rootfs\nin NAND" shape=circle style=filled ];
+new_ubifs_NAND[label="New\nkernel and rootfs\nin NAND" shape=circle style=filled ];
+boot_nand_kernel_rootfs[label="Load\nkernel and rootfs\nfrom Nand" shape=circle style=filled ];
+tftp_env_prepared[label="TFTP\nbootloader env\nprepared" shape=circle style=filled ];
+tftp_env_prepared[label="TFTP\nbootloader env\nprepared" shape=circle style=filled ];
+tftp_nfs_prepared[label="TFTP/NFS\nprepared" shape=circle style=filled ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_net_02[label="boot net-02" ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+tftp_nfs_prepared[label="TFTP/NFS\nprepared" shape=circle style=filled ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+Start[shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+Start[shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+bsp_go[label="bsp go" ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+tools_installed[label="Tools\ninstalled" shape=circle style=filled ];
+source_ready[label="Source code\nready" shape=circle style=filled ];
+bsp_go[label="bsp go" ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+boot_sdcard[label="Boot target\nfrom SD-Card" shape=circle style=filled ];
+boot_sdcard_kernel_rootfs[label="Load\nkernel and rootfs\nfrom SD-Card" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_mmc_02[label="boot mmc-02" ];
+boot_sdcard_kernel_rootfs[label="Load\nkernel and rootfs\nfrom SD-Card" shape=circle style=filled ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+boot_sdcard_kernel_rootfs[label="Load\nkernel and rootfs\nfrom SD-Card" shape=circle style=filled ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+mount_sd_card[label="Mount SD-Card" ];
+update_x_loader_MLO[label="Update x-loader\nMLO" ];
+update_barebox_sdcard[label="Update\nbarebox" ];
+new_booloader_NAND[label="New bootloader\nin NAND" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_nand_kernel_rootfs[label="Load\nkernel and rootfs\nfrom Nand" shape=circle style=filled ];
+boot_sdcard[label="Boot target\nfrom SD-Card" shape=circle style=filled ];
+update_x_loader_MLO[label="Update x-loader\nMLO" ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+mount_sd_card[label="Mount SD-Card" ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+new_booloader_NAND[label="New bootloader\nin NAND" shape=circle style=filled ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+new_ubifs_NAND[label="New\nkernel and rootfs\nin NAND" shape=circle style=filled ];
+new_ubifs_NAND[label="New\nkernel and rootfs\nin NAND" shape=circle style=filled ];
+boot_nand_kernel_rootfs[label="Load\nkernel and rootfs\nfrom Nand" shape=circle style=filled ];
+tftp_env_prepared[label="TFTP\nbootloader env\nprepared" shape=circle style=filled ];
+tftp_env_prepared[label="TFTP\nbootloader env\nprepared" shape=circle style=filled ];
+tftp_nfs_prepared[label="TFTP/NFS\nprepared" shape=circle style=filled ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_net_02[label="boot net-02" ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+tftp_nfs_prepared[label="TFTP/NFS\nprepared" shape=circle style=filled ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+boot_sdcard[label="Boot target\nfrom SD-Card" shape=circle style=filled ];
+boot_sdcard_kernel_rootfs[label="Load\nkernel and rootfs\nfrom SD-Card" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_mmc_02[label="boot mmc-02" ];
+boot_sdcard_kernel_rootfs[label="Load\nkernel and rootfs\nfrom SD-Card" shape=circle style=filled ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+boot_sdcard_kernel_rootfs[label="Load\nkernel and rootfs\nfrom SD-Card" shape=circle style=filled ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+mount_sd_card[label="Mount SD-Card" ];
+update_x_loader_MLO[label="Update x-loader\nMLO" ];
+update_barebox_sdcard[label="Update\nbarebox" ];
+new_booloader_NAND[label="New bootloader\nin NAND" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_nand_kernel_rootfs[label="Load\nkernel and rootfs\nfrom Nand" shape=circle style=filled ];
+boot_sdcard[label="Boot target\nfrom SD-Card" shape=circle style=filled ];
+update_x_loader_MLO[label="Update x-loader\nMLO" ];
+sdcard_prepared[label="SD-Card prepared" shape=circle style=filled ];
+mount_sd_card[label="Mount SD-Card" ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+new_booloader_NAND[label="New bootloader\nin NAND" shape=circle style=filled ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+new_ubifs_NAND[label="New\nkernel and rootfs\nin NAND" shape=circle style=filled ];
+new_ubifs_NAND[label="New\nkernel and rootfs\nin NAND" shape=circle style=filled ];
+boot_nand_kernel_rootfs[label="Load\nkernel and rootfs\nfrom Nand" shape=circle style=filled ];
+tftp_env_prepared[label="TFTP\nbootloader env\nprepared" shape=circle style=filled ];
+tftp_env_prepared[label="TFTP\nbootloader env\nprepared" shape=circle style=filled ];
+tftp_nfs_prepared[label="TFTP/NFS\nprepared" shape=circle style=filled ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_net_02[label="boot net-02" ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+images_built[label="Images\nbuilt" shape=circle style=filled ];
+tftp_nfs_prepared[label="TFTP/NFS\nprepared" shape=circle style=filled ];
+boot_tftp_nfs[label="Load\nkernel via TFTP\nrootfs via NFS" shape=circle style=filled ];
+boot_nand[label="Boot\ntarget\nfrom NAND" shape=circle style=filled ];
+
+Start->doc_download->ptxdist_download
+subgraph cluster_ptxdist {
+label="ptxdist"
+color=grey;
+ptxdist_download->ptxdist_extract->ptxdist_install->ptxdist_setup_srcdir
+
+}
+
+ptxdist_setup_srcdir->toolchain_download
+subgraph cluster_Toolchain {
+label="Toolchain"
+color=grey;
+toolchain_download->toolchain_extract->toolchain_ptxdist->toolchain_prefix->toolchain_select->toolchain_migrate->toolchain_check_srcdir->toolchain_build->toolchain_clean_build
+
+}
+
+toolchain_clean_build->bsp_download
+subgraph cluster_install_bsp {
+label="Install\nBSP"
+color=grey;
+bsp_download->bsp_prepare->bsp_extract->bsp_config->bsp_compiler->bsp_check_srcdir
+
+}
+
+bsp_check_srcdir->tools_installed->create_git_tftpboot_local
+subgraph cluster_barebox_env {
+label="Barebox\nEnvironment"
+color=grey;
+create_git_tftpboot_local->create_co_git_tftpboot_work->archive_barebox_env
+
+}
+
+
+tools_installed->source_ready->bsp_go
+subgraph cluster_build_bsp {
+label="Build\nBSP"
+color=grey;
+bsp_go->bsp_images
+
+}
+
+bsp_images->images_built
+
+sdcard_prepared->boot_sdcard->boot_sdcard_kernel_rootfs
+
+boot_nand->boot_mmc_02->boot_sdcard_kernel_rootfs
+
+sdcard_prepared->boot_sdcard_kernel_rootfs[style=dashed ]
+
+images_built->kernel_01
+subgraph cluster_sd_card_fs {
+label="SD-Card"
+color=grey;
+kernel_01->parted_sdcard_01->cp_archive_sdcard_01->cp_file_sdcard_01
+
+}
+
+cp_file_sdcard_01->sdcard_prepared
+
+boot_nand->mount_sd_card
+subgraph cluster_NAND_update {
+label="NAND"
+color=grey;
+mount_sd_card->update_x_loader_MLO->update_barebox_sdcard
+
+}
+
+update_barebox_sdcard->new_booloader_NAND->boot_nand->boot_nand_kernel_rootfs
+
+boot_sdcard->update_x_loader_MLO
+
+sdcard_prepared->mount_sd_card[style=dashed ]
+
+images_built->cp_barebox_boot_nand
+subgraph cluster_tftp_update_nand {
+label="TFTP"
+color=grey;
+cp_barebox_boot_nand->tftpboot_barebox->update_barebox
+
+}
+
+update_barebox->new_booloader_NAND
+
+images_built->kernel_boot_tftp_nfs
+subgraph cluster_tftp_kernel_prepare {
+label="TFTP\nbootloader and kernel"
+color=grey;
+kernel_boot_tftp_nfs->tftpboot_kernel
+
+}
+
+tftpboot_kernel->cp_image_boot_nand
+subgraph cluster_tftp_update_ubifs {
+label="TFTP"
+color=grey;
+cp_image_boot_nand->tftpboot_root_ubi->update_target_boot_nand
+
+}
+
+update_target_boot_nand->new_ubifs_NAND
+
+new_ubifs_NAND->boot_nand_kernel_rootfs[style=dashed ]
+
+
+subgraph cluster_tftp_env {
+label="TFTP\nBarebox\nenvironment"
+color=grey;
+archive_barebox_env->cp_barebox_config->set_ip_barebox_config->cp_init_board
+
+}
+
+cp_init_board->tftp_env_prepared
+
+tftp_env_prepared->tftp_nfs_prepared->boot_tftp_nfs[style=dashed ]
+
+boot_nand->boot_net_02->boot_tftp_nfs
+
+boot_nand->tftpboot_config_loc_boot_tftp_nfs->boot_tftp_nfs
+
+images_built
+subgraph cluster_tftp_nfs {
+label="TFTP/NFS"
+color=grey;
+kernel_boot_tftp_nfs tftpboot_kernel->cp_image_boot_tftp_nfs->create_rootfs_boot_tftp_nfs->export_rootfs->export_refresh->ssh_fingerprint->tftpboot_config->netconsole
+
+}
+
+netconsole->tftp_nfs_prepared
+
+boot_tftp_nfs->tftpboot_config_loc_boot_nand->boot_nand
+
+Start doc_download
+subgraph cluster_ptxdist {
+label="ptxdist"
+color=grey;
+ptxdist_download ptxdist_extract->create_new_git_ptxdist_local->create_new_git_ptxdist_work->push_git_ptxdist_work->ptxdist_install ptxdist_setup_srcdir
+
+}
+
+subgraph cluster_Toolchain {
+label="Toolchain"
+color=grey;
+toolchain_download toolchain_extract->create_new_git_toolchain_local->create_new_git_toolchain_work->push_git_toolchain_work->toolchain_ptxdist toolchain_prefix toolchain_select toolchain_migrate toolchain_check_srcdir toolchain_build toolchain_clean_build
+
+}
+
+subgraph cluster_install_bsp {
+label="Install\nBSP"
+color=grey;
+bsp_download bsp_prepare bsp_extract->create_new_git_bsp_local->create_new_git_bsp_work->push_git_bsp_work->bsp_config bsp_compiler bsp_check_srcdir
+
+}
+ tools_installed
+subgraph cluster_barebox_env {
+label="Barebox\nEnvironment"
+color=grey;
+create_git_tftpboot_local create_co_git_tftpboot_work archive_barebox_env
+
+}
+
+
+Start doc_download
+subgraph cluster_ptxdist {
+label="ptxdist"
+color=grey;
+ptxdist_download ptxdist_extract create_new_git_ptxdist_local create_new_git_ptxdist_work push_git_ptxdist_work ptxdist_install ptxdist_setup_srcdir
+
+}
+
+subgraph cluster_Toolchain {
+label="Toolchain"
+color=grey;
+toolchain_download toolchain_extract create_new_git_toolchain_local create_new_git_toolchain_work push_git_toolchain_work toolchain_ptxdist toolchain_prefix toolchain_select toolchain_migrate toolchain_check_srcdir toolchain_build toolchain_clean_build
+
+}
+
+subgraph cluster_install_bsp {
+label="Install\nBSP"
+color=grey;
+bsp_download bsp_prepare bsp_extract create_new_git_bsp_local create_new_git_bsp_work push_git_bsp_work bsp_config bsp_compiler bsp_check_srcdir
+
+}
+ tools_installed
+subgraph cluster_barebox_env {
+label="Barebox\nEnvironment"
+color=grey;
+create_git_tftpboot_local create_co_git_tftpboot_work archive_barebox_env
+
+}
+
+
+tools_installed source_ready
+subgraph cluster_build_bsp {
+label="Build\nBSP"
+color=grey;
+bsp_go bsp_images
+
+}
+ images_built
+
+tools_installed->bsp_kernelconfig[style=dashed ]
+
+
+subgraph cluster_kernel_config {
+label="kernel config"
+color=grey;
+bsp_kernelconfig->gui_git_bsp_work
+
+}
+
+
+tools_installed->create_new_git_linux_local[style=dashed ]
+
+
+subgraph cluster_kernel_source {
+label="kernel source"
+color=grey;
+create_new_git_linux_local->create_new_git_ptxdist_linux_work->setup_env_git_linux_work->apply_patches_git_linux_work->kernel_compile->gui_git_linux_work->create_ptx_patches_git_linux_work->kernel_clean
+
+}
+
+kernel_clean->source_ready
+
+bsp_kernelconfig->source_ready
+
+kernel_compile->source_ready
+
+tools_installed->create_new_git_barebox_local[style=dashed ]
+
+
+subgraph cluster_barebox_source {
+label="barebox source"
+color=grey;
+create_new_git_barebox_local->create_new_git_ptxdist_barebox_work->setup_env_git_barebox_work->apply_patches_git_barebox_work->barebox_compile->gui_git_barebox_work->create_ptx_patches_git_barebox_work->barebox_clean
+
+}
+
+barebox_clean->source_ready
+
+barebox_compile->source_ready
+
+tools_installed bsp_kernelconfig
+
+
+subgraph cluster_kernel_config {
+label="kernel config"
+color=grey;
+bsp_kernelconfig gui_git_bsp_work
+
+}
+
+
+tools_installed create_new_git_linux_local
+
+
+subgraph cluster_kernel_source {
+label="kernel source"
+color=grey;
+create_new_git_linux_local create_new_git_ptxdist_linux_work setup_env_git_linux_work apply_patches_git_linux_work kernel_compile gui_git_linux_work create_ptx_patches_git_linux_work kernel_clean
+
+}
+ source_ready
+
+bsp_kernelconfig source_ready
+
+kernel_compile source_ready
+
+tools_installed create_new_git_barebox_local
+
+
+subgraph cluster_barebox_source {
+label="barebox source"
+color=grey;
+create_new_git_barebox_local create_new_git_ptxdist_barebox_work setup_env_git_barebox_work apply_patches_git_barebox_work barebox_compile gui_git_barebox_work create_ptx_patches_git_barebox_work barebox_clean
+
+}
+ source_ready
+
+barebox_compile source_ready
+
+tools_installed source_ready
+subgraph cluster_build_bsp {
+label="Build\nBSP"
+color=grey;
+bsp_go bsp_images
+
+}
+ images_built
+
+sdcard_prepared boot_sdcard boot_sdcard_kernel_rootfs
+
+boot_nand boot_mmc_02 boot_sdcard_kernel_rootfs
+
+sdcard_prepared boot_sdcard_kernel_rootfs
+
+images_built
+subgraph cluster_sd_card_fs {
+label="SD-Card"
+color=grey;
+kernel_01 parted_sdcard_01 cp_archive_sdcard_01 cp_file_sdcard_01
+
+}
+ sdcard_prepared
+
+boot_nand
+subgraph cluster_NAND_update {
+label="NAND"
+color=grey;
+mount_sd_card update_x_loader_MLO update_barebox_sdcard
+
+}
+ new_booloader_NAND boot_nand boot_nand_kernel_rootfs
+
+boot_sdcard update_x_loader_MLO
+
+sdcard_prepared mount_sd_card
+
+images_built
+subgraph cluster_tftp_update_nand {
+label="TFTP"
+color=grey;
+cp_barebox_boot_nand tftpboot_barebox update_barebox
+
+}
+ new_booloader_NAND
+
+images_built
+subgraph cluster_tftp_kernel_prepare {
+label="TFTP\nbootloader and kernel"
+color=grey;
+kernel_boot_tftp_nfs tftpboot_kernel
+
+}
+
+subgraph cluster_tftp_update_ubifs {
+label="TFTP"
+color=grey;
+cp_image_boot_nand tftpboot_root_ubi update_target_boot_nand
+
+}
+ new_ubifs_NAND
+
+new_ubifs_NAND boot_nand_kernel_rootfs
+
+
+subgraph cluster_tftp_env {
+label="TFTP\nBarebox\nenvironment"
+color=grey;
+archive_barebox_env cp_barebox_config set_ip_barebox_config cp_init_board
+
+}
+ tftp_env_prepared
+
+tftp_env_prepared tftp_nfs_prepared boot_tftp_nfs
+
+boot_nand boot_net_02 boot_tftp_nfs
+
+boot_nand tftpboot_config_loc_boot_tftp_nfs boot_tftp_nfs
+
+images_built
+subgraph cluster_tftp_nfs {
+label="TFTP/NFS"
+color=grey;
+kernel_boot_tftp_nfs tftpboot_kernel cp_image_boot_tftp_nfs create_rootfs_boot_tftp_nfs export_rootfs export_refresh ssh_fingerprint tftpboot_config netconsole
+
+}
+ tftp_nfs_prepared
+
+boot_tftp_nfs tftpboot_config_loc_boot_nand boot_nand
+
+sdcard_prepared boot_sdcard boot_sdcard_kernel_rootfs
+
+boot_nand boot_mmc_02 boot_sdcard_kernel_rootfs
+
+sdcard_prepared boot_sdcard_kernel_rootfs
+
+images_built
+subgraph cluster_sd_card_fs {
+label="SD-Card"
+color=grey;
+kernel_01 parted_sdcard_01 cp_archive_sdcard_01 cp_file_sdcard_01
+
+}
+ sdcard_prepared
+
+boot_nand
+subgraph cluster_NAND_update {
+label="NAND"
+color=grey;
+mount_sd_card update_x_loader_MLO update_barebox_sdcard
+
+}
+ new_booloader_NAND boot_nand boot_nand_kernel_rootfs
+
+boot_sdcard update_x_loader_MLO
+
+sdcard_prepared mount_sd_card
+
+images_built
+subgraph cluster_tftp_update_nand {
+label="TFTP"
+color=grey;
+cp_barebox_boot_nand tftpboot_barebox update_barebox
+
+}
+ new_booloader_NAND
+
+images_built
+subgraph cluster_tftp_kernel_prepare {
+label="TFTP\nbootloader and kernel"
+color=grey;
+kernel_boot_tftp_nfs tftpboot_kernel
+
+}
+
+subgraph cluster_tftp_update_ubifs {
+label="TFTP"
+color=grey;
+cp_image_boot_nand tftpboot_root_ubi update_target_boot_nand
+
+}
+ new_ubifs_NAND
+
+new_ubifs_NAND boot_nand_kernel_rootfs
+
+
+subgraph cluster_tftp_env {
+label="TFTP\nBarebox\nenvironment"
+color=grey;
+cp_init_board
+
+}
+ tftp_env_prepared
+
+tftp_env_prepared tftp_nfs_prepared boot_tftp_nfs
+
+boot_nand boot_net_02 boot_tftp_nfs
+
+boot_nand tftpboot_config_loc_boot_tftp_nfs boot_tftp_nfs
+
+images_built
+subgraph cluster_tftp_nfs {
+label="TFTP/NFS"
+color=grey;
+kernel_boot_tftp_nfs tftpboot_kernel cp_image_boot_tftp_nfs->remove_rootfs_boot_tftp_nfs->create_rootfs_boot_tftp_nfs->export_refresh ssh_fingerprint->netconsole
+
+}
+ tftp_nfs_prepared
+
+boot_tftp_nfs tftpboot_config_loc_boot_nand boot_nand
+
+
+
+}
