@@ -2431,10 +2431,10 @@ $(STATE_DIR)/download_bundle_git_tftpboot_local:
 		echo "If you want to download  $(GIT_REPO_DIR_tftpboot_remote_url) again, remove at first $(GIT_REPO_DIR_tftpboot_remote)."; \
 		exit 0;  \
 	fi 
-	mkdir -p $$(dirname $(GIT_REPO_DIR_tftpboot_remote)) ;
-	if [ -e $(GIT_REPO_DIR_tftpboot_remote_url) ] ; then  \
-		cp $(GIT_REPO_DIR_tftpboot_remote_url) $(GIT_REPO_DIR_tftpboot_remote); \
-	else 
+	@mkdir -p $$(dirname $(GIT_REPO_DIR_tftpboot_remote)) ;
+	@if [ -e $(GIT_REPO_DIR_tftpboot_remote_url) ] ; then  \
+		cp -v $(GIT_REPO_DIR_tftpboot_remote_url) $(GIT_REPO_DIR_tftpboot_remote); \
+	else \
 		wget -O $(GIT_REPO_DIR_tftpboot_remote) $(GIT_REPO_DIR_tftpboot_remote_url); \
 	fi ;
 	@mkdir -p $(STATE_DIR); touch $@
