@@ -38,7 +38,7 @@ bsp_check_srcdir:
 		echo "ptxdist settings are in '$${PTXDIST_PTXRC}'";\
 	fi;\
 	if [ "$${PTXCONF_SETUP_SRCDIR}" != "$(MY_DOWNLOAD_SRC)" ]; then \
-		echo "Wrong value for PTXCONF_SETUP_SRCDIR '$${PTXCONF_SETUP_SRCDIR}' instead of MY_DOWNLOAD_SRC:=/MyDevelop/distfiles";\
+		echo "Wrong value for PTXCONF_SETUP_SRCDIR '$${PTXCONF_SETUP_SRCDIR}' instead of MY_DOWNLOAD_SRC:=$(MY_DOWNLOAD_SRC)/";\
 		echo "Use make target ptxdist_setup_srcdir to change it"; \
 		exit -1;\
 	else \
@@ -1441,7 +1441,7 @@ toolchain_check_srcdir:
 		echo "ptxdist settings are in '$${PTXDIST_PTXRC}'";\
 	fi;\
 	if [ "$${PTXCONF_SETUP_SRCDIR}" != "$(MY_DOWNLOAD_SRC)" ]; then \
-		echo "Wrong value for PTXCONF_SETUP_SRCDIR '$${PTXCONF_SETUP_SRCDIR}' instead of MY_DOWNLOAD_SRC:=/MyDevelop/distfiles";\
+		echo "Wrong value for PTXCONF_SETUP_SRCDIR '$${PTXCONF_SETUP_SRCDIR}' instead of MY_DOWNLOAD_SRC:=$(MY_DOWNLOAD_SRC)/";\
 		echo "Use make target ptxdist_setup_srcdir to change it"; \
 		exit -1;\
 	else \
