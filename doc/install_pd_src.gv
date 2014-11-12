@@ -181,11 +181,11 @@ bsp_download->bsp_prepare->bsp_extract->bsp_config->bsp_compiler->bsp_check_srcd
 
 }
 
-bsp_check_srcdir->tools_installed->create_git_tftpboot_local
+bsp_check_srcdir->tools_installed->download_bundle_git_tftpboot_local
 subgraph cluster_barebox_env {
 label="Barebox\nEnvironment"
 color=grey;
-create_git_tftpboot_local->create_co_git_tftpboot_work->archive_barebox_env
+download_bundle_git_tftpboot_local->create_git_tftpboot_local->create_co_git_tftpboot_work->archive_barebox_env
 
 }
 
@@ -313,7 +313,7 @@ bsp_download bsp_prepare bsp_extract->create_new_git_bsp_local->create_new_git_b
 subgraph cluster_barebox_env {
 label="Barebox\nEnvironment"
 color=grey;
-create_git_tftpboot_local create_co_git_tftpboot_work archive_barebox_env
+download_bundle_git_tftpboot_local create_git_tftpboot_local create_co_git_tftpboot_work archive_barebox_env
 
 }
 
@@ -343,7 +343,7 @@ bsp_download bsp_prepare bsp_extract create_new_git_bsp_local create_new_git_bsp
 subgraph cluster_barebox_env {
 label="Barebox\nEnvironment"
 color=grey;
-create_git_tftpboot_local create_co_git_tftpboot_work archive_barebox_env
+download_bundle_git_tftpboot_local create_git_tftpboot_local create_co_git_tftpboot_work archive_barebox_env
 
 }
 
