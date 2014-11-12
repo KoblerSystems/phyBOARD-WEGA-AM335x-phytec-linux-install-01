@@ -115,7 +115,7 @@ GIT_REV_NAME_gcc-linaro:=master
 GIT_REV_ID_gcc-linaro:=00000000
 GIT_REV_ID_gcc-linaro_start:=000000000
 GIT_START_NUMBER_gcc-linaro:=400
-GIT_REV_NAME_tftpboot:=master
+GIT_REV_NAME_tftpboot:=phyBOARD-WEGA-13.0.0-01
 GIT_REV_ID_tftpboot:=7f123cdf7aa7a2a4a2a58af3edfcd7c11b5541ae
 
 #################################################
