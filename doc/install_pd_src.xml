@@ -495,11 +495,15 @@ bmk bsp_check_srcdir</screen>
 <sect4>
 <title>Barebox environment for tftpboot folder</title>
 
-<para>Create Repository of local repository of tftpboot</para>
+<para>Download bundle of tftpboot_local</para>
+<screen>
+bmk download_bundle_git_tftpboot_local</screen>
+
+<para>Create repository of local repository of tftpboot</para>
 <screen>
 bmk create_git_tftpboot_local</screen>
 
-<para>Create new git repositories of current tftpboot and checkout files in new source folder for existing remote repositories </para>
+<para>Create new git work repository of current tftpboot and checkout files in new source folder for existing local repositories </para>
 <screen>
 bmk create_co_git_tftpboot_work</screen>
 
@@ -533,6 +537,7 @@ bmk  \
 	bsp_config \
 	bsp_compiler \
 	bsp_check_srcdir \
+	download_bundle_git_tftpboot_local \
 	create_git_tftpboot_local \
 	create_co_git_tftpboot_work \
 	archive_barebox_env</screen>
@@ -1094,11 +1099,15 @@ bmk bsp_check_srcdir</screen>
 <sect3>
 <title>Barebox environment for tftpboot folder</title>
 
-<para>Create Repository of local repository of tftpboot</para>
+<para>Download bundle of tftpboot_local</para>
+<screen>
+bmk download_bundle_git_tftpboot_local</screen>
+
+<para>Create repository of local repository of tftpboot</para>
 <screen>
 bmk create_git_tftpboot_local</screen>
 
-<para>Create new git repositories of current tftpboot and checkout files in new source folder for existing remote repositories </para>
+<para>Create new git work repository of current tftpboot and checkout files in new source folder for existing local repositories </para>
 <screen>
 bmk create_co_git_tftpboot_work</screen>
 
@@ -1138,6 +1147,7 @@ bmk  \
 	bsp_config \
 	bsp_compiler \
 	bsp_check_srcdir \
+	download_bundle_git_tftpboot_local \
 	create_git_tftpboot_local \
 	create_co_git_tftpboot_work \
 	archive_barebox_env</screen>
@@ -1314,12 +1324,17 @@ bmk bsp_check_srcdir</screen>
 <sect3>
 <title>Barebox environment for tftpboot folder</title>
 
-<para>Create Repository of local repository of tftpboot</para>
+<para>Download bundle of tftpboot_local</para>
+<screen>
+bmk rm_download_bundle_git_tftpboot_local
+bmk download_bundle_git_tftpboot_local</screen>
+
+<para>Create repository of local repository of tftpboot</para>
 <screen>
 bmk rm_create_git_tftpboot_local
 bmk create_git_tftpboot_local</screen>
 
-<para>Create new git repositories of current tftpboot and checkout files in new source folder for existing remote repositories </para>
+<para>Create new git work repository of current tftpboot and checkout files in new source folder for existing local repositories </para>
 <screen>
 bmk rm_create_co_git_tftpboot_work
 bmk create_co_git_tftpboot_work</screen>
@@ -1359,6 +1374,7 @@ bmk  \
 	rm_bsp_config \
 	rm_bsp_compiler \
 	rm_bsp_check_srcdir \
+	rm_download_bundle_git_tftpboot_local \
 	rm_create_git_tftpboot_local \
 	rm_create_co_git_tftpboot_work \
 	rm_archive_barebox_env
@@ -1389,6 +1405,7 @@ bmk  \
 	bsp_config \
 	bsp_compiler \
 	bsp_check_srcdir \
+	download_bundle_git_tftpboot_local \
 	create_git_tftpboot_local \
 	create_co_git_tftpboot_work \
 	archive_barebox_env</screen>
