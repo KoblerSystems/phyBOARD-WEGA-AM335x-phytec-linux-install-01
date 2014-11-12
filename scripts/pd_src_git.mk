@@ -2428,7 +2428,8 @@ $(STATE_DIR)/download_bundle_git_tftpboot_local:
 	# Download bundles from remote server
 	@if [ -e $(GIT_REPO_DIR_tftpboot_remote) ] ; then  \
 		echo "File $(GIT_REPO_DIR_tftpboot_remote) already exists!! "; \
-		exit 1;  \
+		echo "If you want to download  $(GIT_REPO_DIR_tftpboot_remote_url) again, remove at first $(GIT_REPO_DIR_tftpboot_remote)."; \
+		exit 0;  \
 	fi 
 	mkdir -p $$(dirname $(GIT_REPO_DIR_tftpboot_remote))  && \
 	wget -O $(GIT_REPO_DIR_tftpboot_remote) $(GIT_REPO_DIR_tftpboot_remote_url); 
