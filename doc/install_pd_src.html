@@ -1,13 +1,13 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Build and Use Phytec Linux BSP on Phytec phyBOARD-WEGA-AM335x</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.0"><style type="text/css">pre.screen {  background-color: #FFFF99 ;  border: 1px solid #006600 ;}pre.screen { padding: 1em; border: 1px dashed rgb(47, 111, 171); color: black; background-color: rgb(249, 249, 249); line-height: 1.1em; }code.code {  color: darkgreen;   font-weight: bold;   font-family: monospace;}</style></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div lang="en" class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idm140169412561888"></a>Build and Use Phytec Linux BSP on Phytec phyBOARD-WEGA-AM335x</h2></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="#idm140169412552304">1. License</a></span></dt><dt><span class="sect1"><a href="#idm140169412545744">2. About this manual</a></span></dt><dt><span class="sect1"><a href="#idm140169412488928">3. Folder, Filenames and Macros</a></span></dt><dt><span class="sect1"><a href="#idm140169412483264">4. Environment</a></span></dt><dt><span class="sect1"><a href="#idm140169412479728">5. Install Software on the host</a></span></dt><dd><dl><dt><span class="sect2"><a href="#idm140169412476720">5.1. Install third party software on the host</a></span></dt><dt><span class="sect2"><a href="#idm140169412476240">5.2. Install Phytec software on the host</a></span></dt></dl></dd><dt><span class="sect1"><a href="#idm140169412462256">6. Barebox configuration</a></span></dt><dd><dl><dt><span class="sect2"><a href="#idm140169412460000">6.1. Edit barebox files on the target</a></span></dt><dt><span class="sect2"><a href="#idm140169412456240">6.2. Default settings</a></span></dt></dl></dd><dt><span class="sect1"><a href="#idm140169412454224">7. Makefile</a></span></dt><dt><span class="sect1"><a href="#Quick_Start_Source_1">8. Quick Start: Use the Source Code of Phytec Linux Without Changing It</a></span></dt><dd><dl><dt><span class="sect2"><a href="#idm140169412421136">8.1. Install Tools and BSP</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm140169412420432">8.1.1. Install Tools and BSP for Phytec Linux - First Time</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm140169412418800">8.1.1.1. Download Docs</a></span></dt><dt><span class="sect4"><a href="#idm140169412417136">8.1.1.2. Ptxdist</a></span></dt><dt><span class="sect4"><a href="#idm140169412411920">8.1.1.3. Toolchain</a></span></dt><dt><span class="sect4"><a href="#idm140169412411760">8.1.1.4. BSP</a></span></dt><dt><span class="sect4"><a href="#idm140169412401664">8.1.1.5. Barebox environment for tftpboot folder</a></span></dt><dt><span class="sect4"><a href="#idm140169412395312">8.1.1.6. Summary</a></span></dt></dl></dd></dl></dd><dt><span class="sect2"><a href="#idm140169412388224">8.2. Build BSP for Phytec Linux - First Time</a></span></dt><dt><span class="sect2"><a href="#idm140169412388064">8.3. Use Binary Versions of Phytec Linux - First Time</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm140169412376816">8.3.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</a></span></dt><dt><span class="sect3"><a href="#idm140169412373792">8.3.2. Update Bootloader in NAND</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm140169412370272">8.3.2.1. Use images from SD-Card</a></span></dt><dd><dl><dt><span class="sect5"><a href="#idm140169412366992">8.3.2.1.1. Boot from SD-Card</a></span></dt><dt><span class="sect5"><a href="#idm140169412366704">8.3.2.1.2. Mount SD-Card</a></span></dt></dl></dd><dt><span class="sect4"><a href="#idm140169412359760">8.3.2.2. Download images from TFTP Server</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm140169412347728">8.3.3. Boot via NAND</a></span></dt><dt><span class="sect3"><a href="#idm140169412342560">8.3.4. Boot via TFTP and NFS</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm140169412341376">8.3.4.1. Prepare tftp config</a></span></dt><dt><span class="sect4"><a href="#idm140169412337392">8.3.4.2. Copy init files to the Target </a></span></dt><dt><span class="sect4"><a href="#idm140169412330368">8.3.4.3. Setup barebox config to boot via tftp and nfs </a></span></dt><dt><span class="sect4"><a href="#idm140169412328512">8.3.4.4. Prepare kernel and rootfs for boot via TFTP and NFS </a></span></dt><dt><span class="sect4"><a href="#idm140169412328384">8.3.4.5. Switching between booting from NAND and via TFTP and NFS</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm140169412313600">8.3.5. Boot the board</a></span></dt><dt><span class="sect3"><a href="#idm140169412313344">8.3.6. Summary</a></span></dt></dl></dd><dt><span class="sect2"><a href="#idm140169412291888">8.4. Test or Debug</a></span></dt></dl></dd><dt><span class="sect1"><a href="#Develop_Source_1">9. Development: Use and Change the Source Code of Phytec Linux</a></span></dt><dd><dl><dt><span class="sect2"><a href="#idm140169412288512">9.1. Install Tools and BSP for Phytec Linux - First Time</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm140169412286912">9.1.1. Download Docs</a></span></dt><dt><span class="sect3"><a href="#idm140169412285024">9.1.2. Ptxdist</a></span></dt><dt><span class="sect3"><a href="#idm140169412284768">9.1.3. Toolchain</a></span></dt><dt><span class="sect3"><a href="#idm140169412276704">9.1.4. BSP</a></span></dt><dt><span class="sect3"><a href="#idm140169412276576">9.1.5. Barebox environment for tftpboot folder</a></span></dt><dt><span class="sect3"><a href="#idm140169412276416">9.1.6. Summary</a></span></dt></dl></dd><dt><span class="sect2"><a href="#idm140169412246192">9.2. Install Tools and BSP for Phytec Linux - Again</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm140169412243216">9.2.1. Download Docs</a></span></dt><dt><span class="sect3"><a href="#idm140169412241328">9.2.2. Ptxdist</a></span></dt><dt><span class="sect3"><a href="#idm140169412241008">9.2.3. Toolchain</a></span></dt><dt><span class="sect3"><a href="#idm140169412232416">9.2.4. BSP</a></span></dt><dt><span class="sect3"><a href="#idm140169412209536">9.2.5. Barebox environment for tftpboot folder</a></span></dt><dt><span class="sect3"><a href="#idm140169412204608">9.2.6. Summary</a></span></dt></dl></dd><dt><span class="sect2"><a href="#idm140169412245840">9.3. Build BSP for Phytec Linux - First Time</a></span></dt><dt><span class="sect2"><a href="#idm140169412200160">9.4. Develop BSP Phytec Linux - First Time</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm140169412188672">9.4.1. Call the ptxdist command directly</a></span></dt><dt><span class="sect3"><a href="#idm140169412183312">9.4.2. Development of the Kernel</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm140169412182448">9.4.2.1. Kernel config</a></span></dt><dt><span class="sect4"><a href="#idm140169412179632">9.4.2.2. Kernel source</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm140169412179088">9.4.3. Development of barebox</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm140169412165952">9.4.3.1. Barebox source</a></span></dt><dt><span class="sect4"><a href="#idm140169412165664">9.4.3.2. After changes in tftpboot environment</a></span></dt></dl></dd></dl></dd><dt><span class="sect2"><a href="#idm140169412149808">9.5. Develop BSP for Phytec Linux - Again</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm140169412147456">9.5.1. Call the ptxdist command directly</a></span></dt><dt><span class="sect3"><a href="#idm140169412142176">9.5.2. Development of the Kernel</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm140169412141472">9.5.2.1. Kernel config</a></span></dt><dt><span class="sect4"><a href="#idm140169412138512">9.5.2.2. Kernel source</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm140169412138128">9.5.3. Development of barebox</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm140169412124816">9.5.3.1. Barebox source</a></span></dt><dt><span class="sect4"><a href="#idm140169412124080">9.5.3.2. After changes in tftpboot environment</a></span></dt></dl></dd></dl></dd><dt><span class="sect2"><a href="#idm140169412108176">9.6. Build BSP for Phytec Linux - Again</a></span></dt><dt><span class="sect2"><a href="#idm140169412103424">9.7. Use Binary Versions of Phytec Linux - First Time</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm140169412101824">9.7.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</a></span></dt><dt><span class="sect3"><a href="#idm140169412098864">9.7.2. Update Bootloader in NAND</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm140169412095392">9.7.2.1. Use images from SD-Card</a></span></dt><dd><dl><dt><span class="sect5"><a href="#idm140169412092016">9.7.2.1.1. Boot from SD-Card</a></span></dt><dt><span class="sect5"><a href="#idm140169412091760">9.7.2.1.2. Mount SD-Card</a></span></dt></dl></dd><dt><span class="sect4"><a href="#idm140169412084720">9.7.2.2. Download images from TFTP Server</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm140169412072944">9.7.3. Boot via NAND</a></span></dt><dt><span class="sect3"><a href="#Boot_via_TFTP_and_NFS">9.7.4. Boot via TFTP and NFS</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm140169412066048">9.7.4.1. Prepare tftp config</a></span></dt><dt><span class="sect4"><a href="#idm140169412062192">9.7.4.2. Copy init files to the Target </a></span></dt><dt><span class="sect4"><a href="#idm140169412055232">9.7.4.3. Setup barebox config to boot via tftp and nfs </a></span></dt><dt><span class="sect4"><a href="#idm140169412053376">9.7.4.4. Prepare kernel and rootfs for boot via TFTP and NFS </a></span></dt><dt><span class="sect4"><a href="#idm140169412053248">9.7.4.5. Switching between booting from NAND and via TFTP and NFS</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm140169412038512">9.7.5. Boot the board</a></span></dt><dt><span class="sect3"><a href="#idm140169412038256">9.7.6. Summary</a></span></dt></dl></dd><dt><span class="sect2"><a href="#idm140169412016800">9.8. Use Binary Versions of Phytec Linux - Again</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm140169412014672">9.8.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</a></span></dt><dt><span class="sect3"><a href="#idm140169412009392">9.8.2. Update Bootloader in NAND</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm140169412014416">9.8.2.1. Use images from SD-Card</a></span></dt><dd><dl><dt><span class="sect5"><a href="#idm140169412002224">9.8.2.1.1. Boot from SD-Card</a></span></dt><dt><span class="sect5"><a href="#idm140169412001968">9.8.2.1.2. Mount SD-Card</a></span></dt></dl></dd><dt><span class="sect4"><a href="#idm140169411994944">9.8.2.2. Download images from TFTP Server</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm140169411982976">9.8.3. Boot via NAND</a></span></dt><dt><span class="sect3"><a href="#idm140169411982656">9.8.4. Boot via TFTP and NFS</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm140169411976576">9.8.4.1. Copy init files to the Target </a></span></dt><dt><span class="sect4"><a href="#idm140169411969408">9.8.4.2. Setup barebox config to boot via tftp and nfs </a></span></dt><dt><span class="sect4"><a href="#idm140169411967776">9.8.4.3. Prepare kernel and rootfs for boot via TFTP and NFS </a></span></dt><dt><span class="sect4"><a href="#idm140169411967520">9.8.4.4. Switching between booting from NAND and via TFTP and NFS</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm140169411953168">9.8.5. Boot the board</a></span></dt><dt><span class="sect3"><a href="#idm140169411952912">9.8.6. Summary</a></span></dt></dl></dd></dl></dd><dt><span class="sect1"><a href="#idm140169412289648">10. Test or Debug</a></span></dt><dt><span class="sect1"><a href="#idm140169411923760">11. Version Control with Git</a></span></dt><dd><dl><dt><span class="sect2"><a href="#idm140169411910816">11.1. Create environment setup files</a></span></dt><dt><span class="sect2"><a href="#idm140169411910560">11.2. Start Tools with GUI for Repositories</a></span></dt><dt><span class="sect2"><a href="#idm140169411904144">11.3. Show and Check Repositories</a></span></dt><dt><span class="sect2"><a href="#idm140169411885424">11.4. Summary</a></span></dt></dl></dd></dl></div>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Build and Use Phytec Linux BSP on Phytec phyBOARD-WEGA-AM335x</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.0"><style type="text/css">pre.screen {  background-color: #FFFF99 ;  border: 1px solid #006600 ;}pre.screen { padding: 1em; border: 1px dashed rgb(47, 111, 171); color: black; background-color: rgb(249, 249, 249); line-height: 1.1em; }code.code {  color: darkgreen;   font-weight: bold;   font-family: monospace;}</style></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div lang="en" class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idm139738877596304"></a>Build and Use Phytec Linux BSP on Phytec phyBOARD-WEGA-AM335x</h2></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="#idm139738876307472">1. License</a></span></dt><dt><span class="sect1"><a href="#idm139738876311712">2. About this manual</a></span></dt><dt><span class="sect1"><a href="#idm139738875948880">3. Folder, Filenames and Macros</a></span></dt><dt><span class="sect1"><a href="#idm139738875908784">4. Environment</a></span></dt><dt><span class="sect1"><a href="#idm139738875905936">5. Install Software on the host</a></span></dt><dd><dl><dt><span class="sect2"><a href="#idm139738875903312">5.1. Install third party software on the host</a></span></dt><dt><span class="sect2"><a href="#idm139738875903056">5.2. Install Phytec software on the host</a></span></dt></dl></dd><dt><span class="sect1"><a href="#idm139738875890880">6. Barebox configuration</a></span></dt><dd><dl><dt><span class="sect2"><a href="#idm139738875888928">6.1. Edit barebox files on the target</a></span></dt><dt><span class="sect2"><a href="#idm139738875885552">6.2. Default settings</a></span></dt></dl></dd><dt><span class="sect1"><a href="#idm139738875883824">7. Makefile</a></span></dt><dt><span class="sect1"><a href="#Quick_Start_Source_1">8. Quick Start: Use the Source Code of Phytec Linux Without Changing It</a></span></dt><dd><dl><dt><span class="sect2"><a href="#idm139738875854080">8.1. Install Tools and BSP</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm139738875853440">8.1.1. Install Tools and BSP for Phytec Linux - First Time</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm139738875852128">8.1.1.1. Download Docs</a></span></dt><dt><span class="sect4"><a href="#idm139738875850592">8.1.1.2. Ptxdist</a></span></dt><dt><span class="sect4"><a href="#idm139738875846096">8.1.1.3. Toolchain</a></span></dt><dt><span class="sect4"><a href="#idm139738875845840">8.1.1.4. BSP</a></span></dt><dt><span class="sect4"><a href="#idm139738875837264">8.1.1.5. Barebox environment for tftpboot folder</a></span></dt><dt><span class="sect4"><a href="#idm139738875827888">8.1.1.6. Summary</a></span></dt></dl></dd></dl></dd><dt><span class="sect2"><a href="#idm139738875825600">8.2. Build BSP for Phytec Linux - First Time</a></span></dt><dt><span class="sect2"><a href="#idm139738875825344">8.3. Use Binary Versions of Phytec Linux - First Time</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm139738875815328">8.3.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</a></span></dt><dt><span class="sect3"><a href="#idm139738875812976">8.3.2. Update Bootloader in NAND</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm139738875810016">8.3.2.1. Use images from SD-Card</a></span></dt><dd><dl><dt><span class="sect5"><a href="#idm139738875807152">8.3.2.1.1. Boot from SD-Card</a></span></dt><dt><span class="sect5"><a href="#idm139738875806896">8.3.2.1.2. Mount SD-Card</a></span></dt></dl></dd><dt><span class="sect4"><a href="#idm139738875800864">8.3.2.2. Download images from TFTP Server</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm139738875790640">8.3.3. Boot via NAND</a></span></dt><dt><span class="sect3"><a href="#idm139738875790384">8.3.4. Boot via TFTP and NFS</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm139738875785136">8.3.4.1. Prepare tftp config</a></span></dt><dt><span class="sect4"><a href="#idm139738875781632">8.3.4.2. Copy init files to the Target </a></span></dt><dt><span class="sect4"><a href="#idm139738875775536">8.3.4.3. Setup barebox config to boot via tftp and nfs </a></span></dt><dt><span class="sect4"><a href="#idm139738875776512">8.3.4.4. Prepare kernel and rootfs for boot via TFTP and NFS </a></span></dt><dt><span class="sect4"><a href="#idm139738875773872">8.3.4.5. Switching between booting from NAND and via TFTP and NFS</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm139738875761424">8.3.5. Boot the board</a></span></dt><dt><span class="sect3"><a href="#idm139738875761072">8.3.6. Summary</a></span></dt></dl></dd><dt><span class="sect2"><a href="#idm139738875741824">8.4. Test or Debug</a></span></dt></dl></dd><dt><span class="sect1"><a href="#Develop_Source_1">9. Development: Use and Change the Source Code of Phytec Linux</a></span></dt><dd><dl><dt><span class="sect2"><a href="#idm139738875738768">9.1. Install Tools and BSP for Phytec Linux - First Time</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm139738875737456">9.1.1. Download Docs</a></span></dt><dt><span class="sect3"><a href="#idm139738875735920">9.1.2. Ptxdist</a></span></dt><dt><span class="sect3"><a href="#idm139738875735664">9.1.3. Toolchain</a></span></dt><dt><span class="sect3"><a href="#idm139738875728400">9.1.4. BSP</a></span></dt><dt><span class="sect3"><a href="#idm139738875728272">9.1.5. Barebox environment for tftpboot folder</a></span></dt><dt><span class="sect3"><a href="#idm139738875728112">9.1.6. Summary</a></span></dt></dl></dd><dt><span class="sect2"><a href="#idm139738875699152">9.2. Install Tools and BSP for Phytec Linux - Again</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm139738875696384">9.2.1. Download Docs</a></span></dt><dt><span class="sect3"><a href="#idm139738875694496">9.2.2. Ptxdist</a></span></dt><dt><span class="sect3"><a href="#idm139738875694176">9.2.3. Toolchain</a></span></dt><dt><span class="sect3"><a href="#idm139738875685568">9.2.4. BSP</a></span></dt><dt><span class="sect3"><a href="#idm139738875662688">9.2.5. Barebox environment for tftpboot folder</a></span></dt><dt><span class="sect3"><a href="#idm139738875657744">9.2.6. Summary</a></span></dt></dl></dd><dt><span class="sect2"><a href="#idm139738875698896">9.3. Build BSP for Phytec Linux - First Time</a></span></dt><dt><span class="sect2"><a href="#idm139738875653136">9.4. Develop BSP Phytec Linux - First Time</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm139738875641776">9.4.1. Call the ptxdist command directly</a></span></dt><dt><span class="sect3"><a href="#idm139738875636432">9.4.2. Development of the Kernel</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm139738875635600">9.4.2.1. Kernel config</a></span></dt><dt><span class="sect4"><a href="#idm139738875632784">9.4.2.2. Kernel source</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm139738875631760">9.4.3. Development of barebox</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm139738875619088">9.4.3.1. Barebox source</a></span></dt><dt><span class="sect4"><a href="#idm139738875618800">9.4.3.2. After changes in tftpboot environment</a></span></dt></dl></dd></dl></dd><dt><span class="sect2"><a href="#idm139738875602944">9.5. Develop BSP for Phytec Linux - Again</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm139738875600592">9.5.1. Call the ptxdist command directly</a></span></dt><dt><span class="sect3"><a href="#idm139738875595312">9.5.2. Development of the Kernel</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm139738875594544">9.5.2.1. Kernel config</a></span></dt><dt><span class="sect4"><a href="#idm139738875591728">9.5.2.2. Kernel source</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm139738875591216">9.5.3. Development of barebox</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm139738875578128">9.5.3.1. Barebox source</a></span></dt><dt><span class="sect4"><a href="#idm139738875577296">9.5.3.2. After changes in tftpboot environment</a></span></dt></dl></dd></dl></dd><dt><span class="sect2"><a href="#idm139738875561360">9.6. Build BSP for Phytec Linux - Again</a></span></dt><dt><span class="sect2"><a href="#idm139738875556608">9.7. Use Binary Versions of Phytec Linux - First Time</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm139738875555008">9.7.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</a></span></dt><dt><span class="sect3"><a href="#idm139738875552048">9.7.2. Update Bootloader in NAND</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm139738875548576">9.7.2.1. Use images from SD-Card</a></span></dt><dd><dl><dt><span class="sect5"><a href="#idm139738875545200">9.7.2.1.1. Boot from SD-Card</a></span></dt><dt><span class="sect5"><a href="#idm139738875544944">9.7.2.1.2. Mount SD-Card</a></span></dt></dl></dd><dt><span class="sect4"><a href="#idm139738875537904">9.7.2.2. Download images from TFTP Server</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm139738875526128">9.7.3. Boot via NAND</a></span></dt><dt><span class="sect3"><a href="#Boot_via_TFTP_and_NFS">9.7.4. Boot via TFTP and NFS</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm139738875519296">9.7.4.1. Prepare tftp config</a></span></dt><dt><span class="sect4"><a href="#idm139738875515472">9.7.4.2. Copy init files to the Target </a></span></dt><dt><span class="sect4"><a href="#idm139738875508432">9.7.4.3. Setup barebox config to boot via tftp and nfs </a></span></dt><dt><span class="sect4"><a href="#idm139738875506672">9.7.4.4. Prepare kernel and rootfs for boot via TFTP and NFS </a></span></dt><dt><span class="sect4"><a href="#idm139738875506544">9.7.4.5. Switching between booting from NAND and via TFTP and NFS</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm139738875491664">9.7.5. Boot the board</a></span></dt><dt><span class="sect3"><a href="#idm139738875491408">9.7.6. Summary</a></span></dt></dl></dd><dt><span class="sect2"><a href="#idm139738875469984">9.8. Use Binary Versions of Phytec Linux - Again</a></span></dt><dd><dl><dt><span class="sect3"><a href="#idm139738875467856">9.8.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</a></span></dt><dt><span class="sect3"><a href="#idm139738875461968">9.8.2. Update Bootloader in NAND</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm139738875458512">9.8.2.1. Use images from SD-Card</a></span></dt><dd><dl><dt><span class="sect5"><a href="#idm139738875455104">9.8.2.1.1. Boot from SD-Card</a></span></dt><dt><span class="sect5"><a href="#idm139738875454848">9.8.2.1.2. Mount SD-Card</a></span></dt></dl></dd><dt><span class="sect4"><a href="#idm139738875447872">9.8.2.2. Download images from TFTP Server</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm139738875435984">9.8.3. Boot via NAND</a></span></dt><dt><span class="sect3"><a href="#idm139738875435696">9.8.4. Boot via TFTP and NFS</a></span></dt><dd><dl><dt><span class="sect4"><a href="#idm139738875429632">9.8.4.1. Copy init files to the Target </a></span></dt><dt><span class="sect4"><a href="#idm139738875422592">9.8.4.2. Setup barebox config to boot via tftp and nfs </a></span></dt><dt><span class="sect4"><a href="#idm139738875420960">9.8.4.3. Prepare kernel and rootfs for boot via TFTP and NFS </a></span></dt><dt><span class="sect4"><a href="#idm139738875420704">9.8.4.4. Switching between booting from NAND and via TFTP and NFS</a></span></dt></dl></dd><dt><span class="sect3"><a href="#idm139738875406352">9.8.5. Boot the board</a></span></dt><dt><span class="sect3"><a href="#idm139738875406096">9.8.6. Summary</a></span></dt></dl></dd></dl></dd><dt><span class="sect1"><a href="#idm139738875739872">10. Test or Debug</a></span></dt><dt><span class="sect1"><a href="#idm139738875377024">11. Version Control with Git</a></span></dt><dd><dl><dt><span class="sect2"><a href="#idm139738875364096">11.1. Create environment setup files</a></span></dt><dt><span class="sect2"><a href="#idm139738875363840">11.2. Start Tools with GUI for Repositories</a></span></dt><dt><span class="sect2"><a href="#idm139738875357616">11.3. Show and Check Repositories</a></span></dt><dt><span class="sect2"><a href="#idm139738875338752">11.4. Summary</a></span></dt></dl></dd></dl></div>
 
-<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm140169412552304"></a>1. License</h2></div></div></div>
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm139738876307472"></a>1. License</h2></div></div></div>
 
 
 <p>Author: Jan Kobler, Kobler Systems GmbH, email: eng1@koblersystems.de</p>
 <p>This work by <a class="ulink" href="http://www.koblersystems.de" target="_top">Kobler Systems GmbH</a> is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit <a class="ulink" href="http://creativecommons.org/licenses/by/4.0/" target="_top">http://creativecommons.org/licenses/by/4.0/</a>.</p>
 <p></p>
 </div>
-<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm140169412545744"></a>2. About this manual</h2></div></div></div>
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm139738876311712"></a>2. About this manual</h2></div></div></div>
 
 
 <p>This manual shows how to </p>
@@ -76,7 +76,7 @@
 </div></div><br class="figure-break">
 
 </div>
-<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm140169412488928"></a>3. Folder, Filenames and Macros</h2></div></div></div>
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm139738875948880"></a>3. Folder, Filenames and Macros</h2></div></div></div>
 
 
 <p>Folders:</p>
@@ -91,7 +91,7 @@
 
 <p>Version Identifier <code class="code">${MY_VERSION}</code></p>
 </div>
-<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm140169412483264"></a>4. Environment</h2></div></div></div>
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm139738875908784"></a>4. Environment</h2></div></div></div>
 
 
 <p>Define environment variables:</p>
@@ -102,13 +102,13 @@ export DISTRIB_IN=${MY_DEVELOP}/distrib/test-${MY_VERSION}</pre>
 
 <p>Please adjust the value of <code class="code">MY_DEVELOP</code> to your needs. Use the same value also in the makefile <code class="code">${BSP_MK}</code>. </p>
 </div>
-<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm140169412479728"></a>5. Install Software on the host</h2></div></div></div>
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm139738875905936"></a>5. Install Software on the host</h2></div></div></div>
 
 
 <p>This section describes how to install Phytec and third party software on the host. </p>
 <p>The commands in this tutorial have been tested on a system running <a class="ulink" href="http://www.gentoo.org" target="_top">Gentoo Linux</a>. Most commands should be the same on other Linux systems.</p>
 <p></p>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412476720"></a>5.1. Install third party software on the host</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875903312"></a>5.1. Install third party software on the host</h3></div></div></div>
 
 
 <p>For building the Linux BSP from source you need the tools: <code class="code">wget, expect, sudo, fakeroot</code></p>
@@ -133,26 +133,26 @@ emerge --ask -v tftp-hpa nfs-utils minicom taylor-uucp</pre>
 <p><code class="code">make</code> is usally used in the commands in this manual. </p>
 <p>Install missing software on the host. </p>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412476240"></a>5.2. Install Phytec software on the host</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875903056"></a>5.2. Install Phytec software on the host</h3></div></div></div>
 
 
 <p>Phytec software for Linux for phyBOARD-WEGA-AM335x is shipped in several parts. The first part is shipped  as git bundle. </p>
 <p>Please install the software into the folder <code class="code">${DISTRIB_IN}</code></p>
 <pre class="screen">
 mkdir -p $(dirname ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle)  &amp;&amp; \
-wget -O ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle http://www.koblersystems.de/bsp-doc/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle; 
+wget -O ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle http://www.koblersystems.de/distrib/20141113-1/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle; 
 mkdir -p ${DISTRIB_IN}/install
 git clone --branch phyBOARD-WEGA-13.0.0-01 ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle ${DISTRIB_IN}/install</pre>
 
 <p>So far only a small part of the software has been installed into the folder <code class="code">${DISTRIB_IN}</code>. The rest of the Phytec software is downloaded later. </p>
 </div>
 </div>
-<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm140169412462256"></a>6. Barebox configuration</h2></div></div></div>
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm139738875890880"></a>6. Barebox configuration</h2></div></div></div>
 
 
 <p>This section describes how to edit the config files of the bootloader barebox on the target and how to return to the default environment.</p>
 <p>When you follow the instructions in this manual, you usually don't need to edit files on the target, because the files are edited instead on the host and downloaded via tftp to the target. </p>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412460000"></a>6.1. Edit barebox files on the target</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875888928"></a>6.1. Edit barebox files on the target</h3></div></div></div>
 
 
 <p>When you need to edit a file on the target e.g. <code class="code">/env/network/eth0</code>, you can use the command <code class="code">edit</code></p>
@@ -164,7 +164,7 @@ edit /env/network/eth0</pre>
 <pre class="screen">
 saveenv</pre>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412456240"></a>6.2. Default settings</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875885552"></a>6.2. Default settings</h3></div></div></div>
 
 
 <p>When you want to return to the default settings, erase all your changes.</p>
@@ -172,7 +172,7 @@ saveenv</pre>
 erase /dev/nand0.bareboxenv</pre>
 </div>
 </div>
-<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm140169412454224"></a>7. Makefile</h2></div></div></div>
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm139738875883824"></a>7. Makefile</h2></div></div></div>
 
 
 <p>The makefile <code class="code">${BSP_MK}</code> contains the code to install and use Phytec Linux for phyBOARD-WEGA-AM335x. </p>
@@ -339,20 +339,20 @@ bmk doc_download</pre>
 
 <p>for the first time. </p>
 <p>In other parts of this document more commands are shown, which can help you with working with the BSP and developing software. Also if you run into problems when executing the commands in this quick start chapter, you should find some solutions in the rest of this document. </p>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412421136"></a>8.1. Install Tools and BSP</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875854080"></a>8.1. Install Tools and BSP</h3></div></div></div>
 
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412420432"></a>8.1.1. Install Tools and BSP for Phytec Linux - First Time</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875853440"></a>8.1.1. Install Tools and BSP for Phytec Linux - First Time</h4></div></div></div>
 
 
 <p>This chapter shows how to install the tool ptxdist, the toolchain and the BSP on the host.</p>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412418800"></a>8.1.1.1. Download Docs</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875852128"></a>8.1.1.1. Download Docs</h5></div></div></div>
 
 
 <p>download docs for bsp</p>
 <pre class="screen">
 bmk doc_download</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412417136"></a>8.1.1.2. Ptxdist</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875850592"></a>8.1.1.2. Ptxdist</h5></div></div></div>
 
 
 <p>download files for ptxdist</p>
@@ -371,7 +371,7 @@ bmk ptxdist_install</pre>
 <pre class="screen">
 bmk ptxdist_setup_srcdir</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412411920"></a>8.1.1.3. Toolchain</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875846096"></a>8.1.1.3. Toolchain</h5></div></div></div>
 
 
 <p>download files for toolchain</p>
@@ -410,7 +410,7 @@ bmk toolchain_build</pre>
 <pre class="screen">
 bmk toolchain_clean_build</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412411760"></a>8.1.1.4. BSP</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875845840"></a>8.1.1.4. BSP</h5></div></div></div>
 
 
 <p>download files for bsp</p>
@@ -437,7 +437,7 @@ bmk bsp_compiler</pre>
 <pre class="screen">
 bmk bsp_check_srcdir</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412401664"></a>8.1.1.5. Barebox environment for tftpboot folder</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875837264"></a>8.1.1.5. Barebox environment for tftpboot folder</h5></div></div></div>
 
 
 <p>Download bundle of tftpboot_local</p>
@@ -456,7 +456,7 @@ bmk create_co_git_tftpboot_work</pre>
 <pre class="screen">
 bmk archive_barebox_env</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412395312"></a>8.1.1.6. Summary</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875827888"></a>8.1.1.6. Summary</h5></div></div></div>
 
 
 <p>Install Tools and BSP</p>
@@ -489,7 +489,7 @@ bmk  \
 </div>
 </div>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412388224"></a>8.2. Build BSP for Phytec Linux - First Time</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875825600"></a>8.2. Build BSP for Phytec Linux - First Time</h3></div></div></div>
 
 
 <p>This chapter shows how to build the BSP on the host.</p>
@@ -545,11 +545,11 @@ bmk bsp_images</pre>
 
 <p>All binaries for the target have been created now. </p>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412388064"></a>8.3. Use Binary Versions of Phytec Linux - First Time</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875825344"></a>8.3. Use Binary Versions of Phytec Linux - First Time</h3></div></div></div>
 
 
 <p>This chapter shows how to download the binary images of the bootloader, Linux kernel and the root file system and boot the device in different ways. </p>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412376816"></a>8.3.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875815328"></a>8.3.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</h4></div></div></div>
 
 
 <p>Save barebox image, kernel image and device tree in image folder. </p>
@@ -560,21 +560,21 @@ bmk kernel_01</pre>
 <pre class="screen">
 bmk  parted_sdcard_01 cp_archive_sdcard_01 cp_file_sdcard_01</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412373792"></a>8.3.2. Update Bootloader in NAND</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875812976"></a>8.3.2. Update Bootloader in NAND</h4></div></div></div>
 
 
 <p>You can update the bootloader in NAND:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <p>by copying the images from SD-Card or </p></li><li class="listitem">
 <p>by downloading the images from an TFTP server. </p></li></ul></div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412370272"></a>8.3.2.1. Use images from SD-Card</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875810016"></a>8.3.2.1. Use images from SD-Card</h5></div></div></div>
 
 
 <p>You can copy the images from an SD-card :</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <p>after booting from the SD-Card or</p></li><li class="listitem">
 <p>after mounting the SD-Card manually. </p></li></ul></div>
-<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm140169412366992"></a>8.3.2.1.1. Boot from SD-Card</h6></div></div></div>
+<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm139738875807152"></a>8.3.2.1.1. Boot from SD-Card</h6></div></div></div>
 
 
 <p>When you boot from SD-card, the card is already mounted at /boot.</p>
@@ -605,7 +605,7 @@ cp /boot/barebox.bin /dev/nand0.barebox.bb</pre>
 <pre class="screen">
 erase /dev/nand0.bareboxenv</pre>
 </div>
-<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm140169412366704"></a>8.3.2.1.2. Mount SD-Card</h6></div></div></div>
+<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm139738875806896"></a>8.3.2.1.2. Mount SD-Card</h6></div></div></div>
 
 
 <p>Further information is available in L-775e_3.pdf on page 22. </p>
@@ -646,7 +646,7 @@ cp /mnt/disk/barebox.bin /dev/nand0.barebox.bb</pre>
 erase /dev/nand0.bareboxenv</pre>
 </div>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412359760"></a>8.3.2.2. Download images from TFTP Server</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875800864"></a>8.3.2.2. Download images from TFTP Server</h5></div></div></div>
 
 
 <p>Copy barebox image of boot_nand into images folder</p>
@@ -662,7 +662,7 @@ bmk tftpboot_barebox</pre>
 bmk update_barebox</pre>
 </div>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412347728"></a>8.3.3. Boot via NAND</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875790640"></a>8.3.3. Boot via NAND</h4></div></div></div>
 
 
 <p>copy kernel image for boot_tftp_nfs and boot_nand into images folder</p>
@@ -685,9 +685,9 @@ bmk tftpboot_root_ubi</pre>
 <pre class="screen">
 bmk update_target_boot_nand</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412342560"></a>8.3.4. Boot via TFTP and NFS</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875790384"></a>8.3.4. Boot via TFTP and NFS</h4></div></div></div>
 
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412341376"></a>8.3.4.1. Prepare tftp config</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875785136"></a>8.3.4.1. Prepare tftp config</h5></div></div></div>
 
 
 <p>cp env into images. Copy the prepared tftpboot files into the images folder</p>
@@ -702,7 +702,7 @@ bmk cp_barebox_config</pre>
 <pre class="screen">
 bmk set_ip_barebox_config</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412337392"></a>8.3.4.2. Copy init files to the Target </h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875781632"></a>8.3.4.2. Copy init files to the Target </h5></div></div></div>
 
 
 <p>Copy <code class="code">env/boot/net-02</code> and some other files to the target.</p>
@@ -717,14 +717,14 @@ boot net-02</pre>
 <p> you can boot the board via TFTP and NFS. The file <code class="code">/env/boot/net-02</code> is executed and loads the file <code class="code">/env/bin/net-03</code> from the TFTP server. This file is also executed. </p>
 <p><span class="strong"><strong>Note: </strong></span>It is very important that you copy the init files to the target. Some commands in the makefile are changing the config file in the tftpboot folder on the host.</p>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412330368"></a>8.3.4.3. Setup barebox config to boot via tftp and nfs </h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875775536"></a>8.3.4.3. Setup barebox config to boot via tftp and nfs </h5></div></div></div>
 
 
 <p>Adjust boot.default in env/config to boot from TFTP and NFS</p>
 <pre class="screen">
 bmk tftpboot_config_loc_boot_tftp_nfs</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412328512"></a>8.3.4.4. Prepare kernel and rootfs for boot via TFTP and NFS </h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875776512"></a>8.3.4.4. Prepare kernel and rootfs for boot via TFTP and NFS </h5></div></div></div>
 
 
 <p>Build BSP with ptxdist </p>
@@ -771,7 +771,7 @@ bmk tftpboot_config</pre>
 <pre class="screen">
 bmk netconsole</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412328384"></a>8.3.4.5. Switching between booting from NAND and via TFTP and NFS</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875773872"></a>8.3.4.5. Switching between booting from NAND and via TFTP and NFS</h5></div></div></div>
 
 
 <p>You have just configured the board to boot via TFTP and NFS. If you want to switch back to booting from NAND, you can use the following command. </p>
@@ -786,7 +786,7 @@ bmk rm_tftpboot_config_loc_boot_tftp_nfs
 bmk tftpboot_config_loc_boot_tftp_nfs</pre>
 </div>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412313600"></a>8.3.5. Boot the board</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875761424"></a>8.3.5. Boot the board</h4></div></div></div>
 
 
 <p>Check if you have the correct hardware versions:</p>
@@ -813,7 +813,7 @@ bmk tftpboot_config_loc_boot_tftp_nfs</pre>
 
 <p>Boot the board again. </p>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412313344"></a>8.3.6. Summary</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875761072"></a>8.3.6. Summary</h4></div></div></div>
 
 
 <p>Create images for SD-card</p>
@@ -882,7 +882,7 @@ bmk  \
 	tftpboot_config_loc_boot_tftp_nfs</pre>
 </div>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412291888"></a>8.4. Test or Debug</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875741824"></a>8.4. Test or Debug</h3></div></div></div>
 
 
 <p>dmesg over ssh</p>
@@ -894,18 +894,18 @@ bmk ssh_dmesg</pre>
 
 
 <p>Install the tools and the BSP and create the binaries from scratch. </p>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412288512"></a>9.1. Install Tools and BSP for Phytec Linux - First Time</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875738768"></a>9.1. Install Tools and BSP for Phytec Linux - First Time</h3></div></div></div>
 
 
 <p>This chapter shows how to install the tool ptxdist, the toolchain and the BSP on the host.</p>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412286912"></a>9.1.1. Download Docs</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875737456"></a>9.1.1. Download Docs</h4></div></div></div>
 
 
 <p>download docs for bsp</p>
 <pre class="screen">
 bmk doc_download</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412285024"></a>9.1.2. Ptxdist</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875735920"></a>9.1.2. Ptxdist</h4></div></div></div>
 
 
 <p>download files for ptxdist</p>
@@ -936,7 +936,7 @@ bmk ptxdist_install</pre>
 <pre class="screen">
 bmk ptxdist_setup_srcdir</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412284768"></a>9.1.3. Toolchain</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875735664"></a>9.1.3. Toolchain</h4></div></div></div>
 
 
 <p>download files for toolchain</p>
@@ -987,7 +987,7 @@ bmk toolchain_build</pre>
 <pre class="screen">
 bmk toolchain_clean_build</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412276704"></a>9.1.4. BSP</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875728400"></a>9.1.4. BSP</h4></div></div></div>
 
 
 <p>download files for bsp</p>
@@ -1026,7 +1026,7 @@ bmk bsp_compiler</pre>
 <pre class="screen">
 bmk bsp_check_srcdir</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412276576"></a>9.1.5. Barebox environment for tftpboot folder</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875728272"></a>9.1.5. Barebox environment for tftpboot folder</h4></div></div></div>
 
 
 <p>Download bundle of tftpboot_local</p>
@@ -1045,7 +1045,7 @@ bmk create_co_git_tftpboot_work</pre>
 <pre class="screen">
 bmk archive_barebox_env</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412276416"></a>9.1.6. Summary</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875728112"></a>9.1.6. Summary</h4></div></div></div>
 
 
 <p>Install Tools and BSP</p>
@@ -1090,13 +1090,13 @@ bmk  \
 	push_git_bsp_work</pre>
 </div>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412246192"></a>9.2. Install Tools and BSP for Phytec Linux - Again</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875699152"></a>9.2. Install Tools and BSP for Phytec Linux - Again</h3></div></div></div>
 
 
 <p>When you want to install the tools and the bsp on the host again, you have to remove the make states before you can use the make targets. The additional commands are shown. </p>
 <p>You have to understand what the commands are doing. Perhaps you have do remove some files or folders before you can use the make targets. </p>
 <p>This chapter shows how to install the tool ptxdist, the toolchain and the BSP on the host.</p>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412243216"></a>9.2.1. Download Docs</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875696384"></a>9.2.1. Download Docs</h4></div></div></div>
 
 
 <p>download docs for bsp</p>
@@ -1104,7 +1104,7 @@ bmk  \
 bmk rm_doc_download
 bmk doc_download</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412241328"></a>9.2.2. Ptxdist</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875694496"></a>9.2.2. Ptxdist</h4></div></div></div>
 
 
 <p>download files for ptxdist</p>
@@ -1142,7 +1142,7 @@ bmk ptxdist_install</pre>
 bmk rm_ptxdist_setup_srcdir
 bmk ptxdist_setup_srcdir</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412241008"></a>9.2.3. Toolchain</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875694176"></a>9.2.3. Toolchain</h4></div></div></div>
 
 
 <p>download files for toolchain</p>
@@ -1204,7 +1204,7 @@ bmk toolchain_build</pre>
 bmk rm_toolchain_clean_build
 bmk toolchain_clean_build</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412232416"></a>9.2.4. BSP</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875685568"></a>9.2.4. BSP</h4></div></div></div>
 
 
 <p>download files for bsp</p>
@@ -1251,7 +1251,7 @@ bmk bsp_compiler</pre>
 bmk rm_bsp_check_srcdir
 bmk bsp_check_srcdir</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412209536"></a>9.2.5. Barebox environment for tftpboot folder</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875662688"></a>9.2.5. Barebox environment for tftpboot folder</h4></div></div></div>
 
 
 <p>Download bundle of tftpboot_local</p>
@@ -1274,7 +1274,7 @@ bmk create_co_git_tftpboot_work</pre>
 bmk rm_archive_barebox_env
 bmk archive_barebox_env</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412204608"></a>9.2.6. Summary</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875657744"></a>9.2.6. Summary</h4></div></div></div>
 
 
 <p>Install Tools and BSP</p>
@@ -1352,7 +1352,7 @@ bmk  \
 	push_git_bsp_work</pre>
 </div>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412245840"></a>9.3. Build BSP for Phytec Linux - First Time</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875698896"></a>9.3. Build BSP for Phytec Linux - First Time</h3></div></div></div>
 
 
 <p>This chapter shows how to build the BSP on the host.</p>
@@ -1408,12 +1408,12 @@ bmk bsp_images</pre>
 
 <p>All binaries for the target have been created now. </p>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412200160"></a>9.4. Develop BSP Phytec Linux - First Time</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875653136"></a>9.4. Develop BSP Phytec Linux - First Time</h3></div></div></div>
 
 
 <p>This chapter shows how to change the source code for some packages.</p>
 <p></p>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412188672"></a>9.4.1. Call the ptxdist command directly</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875641776"></a>9.4.1. Call the ptxdist command directly</h4></div></div></div>
 
 
 <p>This describes the usage of <code class="code">ptxdist</code> for developing and building the BSP:</p>
@@ -1431,9 +1431,9 @@ bmk apply_patches_git_bsp_work</pre>
 
 <p>The output of this make command describes the usage of git to apply patches to the BSP. Follow the instructions.</p>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412183312"></a>9.4.2. Development of the Kernel</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875636432"></a>9.4.2. Development of the Kernel</h4></div></div></div>
 
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412182448"></a>9.4.2.1. Kernel config</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875635600"></a>9.4.2.1. Kernel config</h5></div></div></div>
 
 
 <p>Call menuconfig for kernel</p>
@@ -1444,7 +1444,7 @@ bmk bsp_kernelconfig</pre>
 <pre class="screen">
 bmk gui_git_bsp_work</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412179632"></a>9.4.2.2. Kernel source</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875632784"></a>9.4.2.2. Kernel source</h5></div></div></div>
 
 
 <p>Create new repository of local repository of linux</p>
@@ -1486,9 +1486,9 @@ bmk create_ptx_patches_git_linux_work</pre>
 bmk kernel-clean</pre>
 </div>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412179088"></a>9.4.3. Development of barebox</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875631760"></a>9.4.3. Development of barebox</h4></div></div></div>
 
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412165952"></a>9.4.3.1. Barebox source</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875619088"></a>9.4.3.1. Barebox source</h5></div></div></div>
 
 
 <p>Create new repository of local repository of barebox</p>
@@ -1529,7 +1529,7 @@ bmk create_ptx_patches_git_barebox_work</pre>
 <pre class="screen">
 bmk barebox-clean</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412165664"></a>9.4.3.2. After changes in tftpboot environment</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875618800"></a>9.4.3.2. After changes in tftpboot environment</h5></div></div></div>
 
 
 <p>Compare new env in folder tftpboot with current env</p>
@@ -1546,13 +1546,13 @@ bmk cp_barebox_config</pre>
 </div>
 </div>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412149808"></a>9.5. Develop BSP for Phytec Linux - Again</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875602944"></a>9.5. Develop BSP for Phytec Linux - Again</h3></div></div></div>
 
 
 <p>When you want to change the source code of some packages and build the BSP again, you have to remove the make states before you can use the make targets. The additional commands are shown. </p>
 <p>This chapter shows how to change the source code for some packages.</p>
 <p></p>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412147456"></a>9.5.1. Call the ptxdist command directly</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875600592"></a>9.5.1. Call the ptxdist command directly</h4></div></div></div>
 
 
 <p>This describes the usage of <code class="code">ptxdist</code> for developing and building the BSP:</p>
@@ -1571,9 +1571,9 @@ bmk apply_patches_git_bsp_work</pre>
 
 <p>The output of this make command describes the usage of git to apply patches to the BSP. Follow the instructions.</p>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412142176"></a>9.5.2. Development of the Kernel</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875595312"></a>9.5.2. Development of the Kernel</h4></div></div></div>
 
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412141472"></a>9.5.2.1. Kernel config</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875594544"></a>9.5.2.1. Kernel config</h5></div></div></div>
 
 
 <p>Call menuconfig for kernel</p>
@@ -1584,7 +1584,7 @@ bmk bsp_kernelconfig</pre>
 <pre class="screen">
 bmk gui_git_bsp_work</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412138512"></a>9.5.2.2. Kernel source</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875591728"></a>9.5.2.2. Kernel source</h5></div></div></div>
 
 
 <p>Create new repository of local repository of linux</p>
@@ -1632,9 +1632,9 @@ bmk rm_kernel-clean
 bmk kernel-clean</pre>
 </div>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412138128"></a>9.5.3. Development of barebox</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875591216"></a>9.5.3. Development of barebox</h4></div></div></div>
 
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412124816"></a>9.5.3.1. Barebox source</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875578128"></a>9.5.3.1. Barebox source</h5></div></div></div>
 
 
 <p>Create new repository of local repository of barebox</p>
@@ -1681,7 +1681,7 @@ bmk create_ptx_patches_git_barebox_work</pre>
 bmk rm_barebox-clean
 bmk barebox-clean</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412124080"></a>9.5.3.2. After changes in tftpboot environment</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875577296"></a>9.5.3.2. After changes in tftpboot environment</h5></div></div></div>
 
 
 <p>Compare new env in folder tftpboot with current env</p>
@@ -1700,7 +1700,7 @@ bmk cp_barebox_config</pre>
 </div>
 </div>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412108176"></a>9.6. Build BSP for Phytec Linux - Again</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875561360"></a>9.6. Build BSP for Phytec Linux - Again</h3></div></div></div>
 
 
 <p>When you want to install the tools and the bsp on the host again, you have to remove the make states before you can use the make targets. The additional commands are shown. </p>
@@ -1718,11 +1718,11 @@ bmk bsp_images</pre>
 
 <p>All binaries for the target have been created now. </p>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412103424"></a>9.7. Use Binary Versions of Phytec Linux - First Time</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875556608"></a>9.7. Use Binary Versions of Phytec Linux - First Time</h3></div></div></div>
 
 
 <p>This chapter shows how to download the binary images of the bootloader, Linux kernel and the root file system and boot the device in different ways. </p>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412101824"></a>9.7.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875555008"></a>9.7.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</h4></div></div></div>
 
 
 <p>Save barebox image, kernel image and device tree in image folder. </p>
@@ -1733,21 +1733,21 @@ bmk kernel_01</pre>
 <pre class="screen">
 bmk  parted_sdcard_01 cp_archive_sdcard_01 cp_file_sdcard_01</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412098864"></a>9.7.2. Update Bootloader in NAND</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875552048"></a>9.7.2. Update Bootloader in NAND</h4></div></div></div>
 
 
 <p>You can update the bootloader in NAND:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <p>by copying the images from SD-Card or </p></li><li class="listitem">
 <p>by downloading the images from an TFTP server. </p></li></ul></div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412095392"></a>9.7.2.1. Use images from SD-Card</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875548576"></a>9.7.2.1. Use images from SD-Card</h5></div></div></div>
 
 
 <p>You can copy the images from an SD-card :</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <p>after booting from the SD-Card or</p></li><li class="listitem">
 <p>after mounting the SD-Card manually. </p></li></ul></div>
-<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm140169412092016"></a>9.7.2.1.1. Boot from SD-Card</h6></div></div></div>
+<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm139738875545200"></a>9.7.2.1.1. Boot from SD-Card</h6></div></div></div>
 
 
 <p>When you boot from SD-card, the card is already mounted at /boot.</p>
@@ -1778,7 +1778,7 @@ cp /boot/barebox.bin /dev/nand0.barebox.bb</pre>
 <pre class="screen">
 erase /dev/nand0.bareboxenv</pre>
 </div>
-<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm140169412091760"></a>9.7.2.1.2. Mount SD-Card</h6></div></div></div>
+<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm139738875544944"></a>9.7.2.1.2. Mount SD-Card</h6></div></div></div>
 
 
 <p>Further information is available in L-775e_3.pdf on page 22. </p>
@@ -1819,7 +1819,7 @@ cp /mnt/disk/barebox.bin /dev/nand0.barebox.bb</pre>
 erase /dev/nand0.bareboxenv</pre>
 </div>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412084720"></a>9.7.2.2. Download images from TFTP Server</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875537904"></a>9.7.2.2. Download images from TFTP Server</h5></div></div></div>
 
 
 <p>Copy barebox image of boot_nand into images folder</p>
@@ -1835,7 +1835,7 @@ bmk tftpboot_barebox</pre>
 bmk update_barebox</pre>
 </div>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412072944"></a>9.7.3. Boot via NAND</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875526128"></a>9.7.3. Boot via NAND</h4></div></div></div>
 
 
 <p>copy kernel image for boot_tftp_nfs and boot_nand into images folder</p>
@@ -1860,7 +1860,7 @@ bmk update_target_boot_nand</pre>
 </div>
 <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="Boot_via_TFTP_and_NFS"></a>9.7.4. Boot via TFTP and NFS</h4></div></div></div>
 
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412066048"></a>9.7.4.1. Prepare tftp config</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875519296"></a>9.7.4.1. Prepare tftp config</h5></div></div></div>
 
 
 <p>cp env into images. Copy the prepared tftpboot files into the images folder</p>
@@ -1875,7 +1875,7 @@ bmk cp_barebox_config</pre>
 <pre class="screen">
 bmk set_ip_barebox_config</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412062192"></a>9.7.4.2. Copy init files to the Target </h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875515472"></a>9.7.4.2. Copy init files to the Target </h5></div></div></div>
 
 
 <p>Copy <code class="code">env/boot/net-02</code> and some other files to the target.</p>
@@ -1890,14 +1890,14 @@ boot net-02</pre>
 <p> you can boot the board via TFTP and NFS. The file <code class="code">/env/boot/net-02</code> is executed and loads the file <code class="code">/env/bin/net-03</code> from the TFTP server. This file is also executed. </p>
 <p><span class="strong"><strong>Note: </strong></span>It is very important that you copy the init files to the target. Some commands in the makefile are changing the config file in the tftpboot folder on the host.</p>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412055232"></a>9.7.4.3. Setup barebox config to boot via tftp and nfs </h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875508432"></a>9.7.4.3. Setup barebox config to boot via tftp and nfs </h5></div></div></div>
 
 
 <p>Adjust boot.default in env/config to boot from TFTP and NFS</p>
 <pre class="screen">
 bmk tftpboot_config_loc_boot_tftp_nfs</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412053376"></a>9.7.4.4. Prepare kernel and rootfs for boot via TFTP and NFS </h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875506672"></a>9.7.4.4. Prepare kernel and rootfs for boot via TFTP and NFS </h5></div></div></div>
 
 
 <p>Build BSP with ptxdist </p>
@@ -1944,7 +1944,7 @@ bmk tftpboot_config</pre>
 <pre class="screen">
 bmk netconsole</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412053248"></a>9.7.4.5. Switching between booting from NAND and via TFTP and NFS</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875506544"></a>9.7.4.5. Switching between booting from NAND and via TFTP and NFS</h5></div></div></div>
 
 
 <p>You have just configured the board to boot via TFTP and NFS. If you want to switch back to booting from NAND, you can use the following command. </p>
@@ -1959,7 +1959,7 @@ bmk rm_tftpboot_config_loc_boot_tftp_nfs
 bmk tftpboot_config_loc_boot_tftp_nfs</pre>
 </div>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412038512"></a>9.7.5. Boot the board</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875491664"></a>9.7.5. Boot the board</h4></div></div></div>
 
 
 <p>Check if you have the correct hardware versions:</p>
@@ -1986,7 +1986,7 @@ bmk tftpboot_config_loc_boot_tftp_nfs</pre>
 
 <p>Boot the board again. </p>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412038256"></a>9.7.6. Summary</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875491408"></a>9.7.6. Summary</h4></div></div></div>
 
 
 <p>Create images for SD-card</p>
@@ -2055,12 +2055,12 @@ bmk  \
 	tftpboot_config_loc_boot_tftp_nfs</pre>
 </div>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169412016800"></a>9.8. Use Binary Versions of Phytec Linux - Again</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875469984"></a>9.8. Use Binary Versions of Phytec Linux - Again</h3></div></div></div>
 
 
 <p>When you want to install the binary images in the internal flash again, you have to remove the make states before you can use the make targets. The additional commands are shown. </p>
 <p>This chapter shows how to download the binary images of the bootloader, Linux kernel and the root file system and boot the device in different ways. </p>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412014672"></a>9.8.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875467856"></a>9.8.1. Create Archives of Filesystems and Install  Phytec Linux BSP on SD-Card for boot_mmc</h4></div></div></div>
 
 
 <p>Build Phytec Linux BSP, if you have not already done it.Build BSP with ptxdist </p>
@@ -2085,21 +2085,21 @@ bmk kernel_01</pre>
 bmk  rm_parted_sdcard_01
 bmk  parted_sdcard_01 cp_archive_sdcard_01 cp_file_sdcard_01</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169412009392"></a>9.8.2. Update Bootloader in NAND</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875461968"></a>9.8.2. Update Bootloader in NAND</h4></div></div></div>
 
 
 <p>You can update the bootloader in NAND:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <p>by copying the images from SD-Card or </p></li><li class="listitem">
 <p>by downloading the images from an TFTP server. </p></li></ul></div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169412014416"></a>9.8.2.1. Use images from SD-Card</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875458512"></a>9.8.2.1. Use images from SD-Card</h5></div></div></div>
 
 
 <p>You can copy the images from an SD-card :</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <p>after booting from the SD-Card or</p></li><li class="listitem">
 <p>after mounting the SD-Card manually. </p></li></ul></div>
-<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm140169412002224"></a>9.8.2.1.1. Boot from SD-Card</h6></div></div></div>
+<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm139738875455104"></a>9.8.2.1.1. Boot from SD-Card</h6></div></div></div>
 
 
 <p>When you boot from SD-card, the card is already mounted at /boot.</p>
@@ -2130,7 +2130,7 @@ cp /boot/barebox.bin /dev/nand0.barebox.bb</pre>
 <pre class="screen">
 erase /dev/nand0.bareboxenv</pre>
 </div>
-<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm140169412001968"></a>9.8.2.1.2. Mount SD-Card</h6></div></div></div>
+<div class="sect5"><div class="titlepage"><div><div><h6 class="title"><a name="idm139738875454848"></a>9.8.2.1.2. Mount SD-Card</h6></div></div></div>
 
 
 <p>Further information is available in L-775e_3.pdf on page 22. </p>
@@ -2171,7 +2171,7 @@ cp /mnt/disk/barebox.bin /dev/nand0.barebox.bb</pre>
 erase /dev/nand0.bareboxenv</pre>
 </div>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169411994944"></a>9.8.2.2. Download images from TFTP Server</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875447872"></a>9.8.2.2. Download images from TFTP Server</h5></div></div></div>
 
 
 <p>Copy barebox image of boot_nand into images folder</p>
@@ -2190,7 +2190,7 @@ bmk rm_update_barebox
 bmk update_barebox</pre>
 </div>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169411982976"></a>9.8.3. Boot via NAND</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875435984"></a>9.8.3. Boot via NAND</h4></div></div></div>
 
 
 <p>copy kernel image for boot_tftp_nfs and boot_nand into images folder</p>
@@ -2217,9 +2217,9 @@ bmk tftpboot_root_ubi</pre>
 <pre class="screen">
 bmk update_target_boot_nand</pre>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169411982656"></a>9.8.4. Boot via TFTP and NFS</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875435696"></a>9.8.4. Boot via TFTP and NFS</h4></div></div></div>
 
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169411976576"></a>9.8.4.1. Copy init files to the Target </h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875429632"></a>9.8.4.1. Copy init files to the Target </h5></div></div></div>
 
 
 <p>Copy <code class="code">env/boot/net-02</code> and some other files to the target.</p>
@@ -2235,7 +2235,7 @@ boot net-02</pre>
 <p> you can boot the board via TFTP and NFS. The file <code class="code">/env/boot/net-02</code> is executed and loads the file <code class="code">/env/bin/net-03</code> from the TFTP server. This file is also executed. </p>
 <p><span class="strong"><strong>Note: </strong></span>It is very important that you copy the init files to the target. Some commands in the makefile are changing the config file in the tftpboot folder on the host.</p>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169411969408"></a>9.8.4.2. Setup barebox config to boot via tftp and nfs </h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875422592"></a>9.8.4.2. Setup barebox config to boot via tftp and nfs </h5></div></div></div>
 
 
 <p>Adjust boot.default in env/config to boot from TFTP and NFS</p>
@@ -2243,7 +2243,7 @@ boot net-02</pre>
 bmk rm_tftpboot_config_loc_boot_tftp_nfs
 bmk tftpboot_config_loc_boot_tftp_nfs</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169411967776"></a>9.8.4.3. Prepare kernel and rootfs for boot via TFTP and NFS </h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875420960"></a>9.8.4.3. Prepare kernel and rootfs for boot via TFTP and NFS </h5></div></div></div>
 
 
 <p>Build BSP with ptxdist </p>
@@ -2296,7 +2296,7 @@ bmk ssh_fingerprint</pre>
 bmk rm_netconsole
 bmk netconsole</pre>
 </div>
-<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm140169411967520"></a>9.8.4.4. Switching between booting from NAND and via TFTP and NFS</h5></div></div></div>
+<div class="sect4"><div class="titlepage"><div><div><h5 class="title"><a name="idm139738875420704"></a>9.8.4.4. Switching between booting from NAND and via TFTP and NFS</h5></div></div></div>
 
 
 <p>You have just configured the board to boot via TFTP and NFS. If you want to switch back to booting from NAND, you can use the following command. </p>
@@ -2312,7 +2312,7 @@ bmk rm_tftpboot_config_loc_boot_tftp_nfs
 bmk tftpboot_config_loc_boot_tftp_nfs</pre>
 </div>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169411953168"></a>9.8.5. Boot the board</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875406352"></a>9.8.5. Boot the board</h4></div></div></div>
 
 
 <p>Check if you have the correct hardware versions:</p>
@@ -2339,7 +2339,7 @@ bmk tftpboot_config_loc_boot_tftp_nfs</pre>
 
 <p>Boot the board again. </p>
 </div>
-<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm140169411952912"></a>9.8.6. Summary</h4></div></div></div>
+<div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idm139738875406096"></a>9.8.6. Summary</h4></div></div></div>
 
 
 <p>Create images for SD-card</p>
@@ -2474,7 +2474,7 @@ bmk  \
 </div>
 </div>
 </div>
-<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm140169412289648"></a>10. Test or Debug</h2></div></div></div>
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm139738875739872"></a>10. Test or Debug</h2></div></div></div>
 
 
 <p>Remove fingerprint in .ssh/known_hosts</p>
@@ -2490,7 +2490,7 @@ bmk netconsole</pre>
 <pre class="screen">
 bmk ssh_dmesg</pre>
 </div>
-<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm140169411923760"></a>11. Version Control with Git</h2></div></div></div>
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idm139738875377024"></a>11. Version Control with Git</h2></div></div></div>
 
 
 <p>Create and manage git repositories for the source code of the BSP and its software packages. </p>
@@ -2510,7 +2510,7 @@ more ${DISTRIB_IN}/install/scripts/pd_src_git.mk</pre>
 <p>A <span class="emphasis"><em>remote</em></span> repository is used to create or update the <span class="emphasis"><em>local</em></span> repository. Usually you don't have write access to the <span class="emphasis"><em>remote</em></span> repository. </p></li></ul></div>
 
 <p>In the following chapters some useful commands are shown.</p>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169411910816"></a>11.1. Create environment setup files</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875364096"></a>11.1. Create environment setup files</h3></div></div></div>
 
 
 <p>For the work with repositories of some source code folders you need to define an environment.</p>
@@ -2534,7 +2534,7 @@ bmk setup_env_git_gcc-linaro_work</pre>
 <p>The output of this make command describes the usage of the setup-env file. Follow the instructions.</p>
 <p></p>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169411910560"></a>11.2. Start Tools with GUI for Repositories</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875363840"></a>11.2. Start Tools with GUI for Repositories</h3></div></div></div>
 
 
 <p>Start tools with GUI like <code class="code">git gui</code> and <code class="code">gitk</code>. </p>
@@ -2594,7 +2594,7 @@ bmk gui_git_tftpboot_local</pre>
 <pre class="screen">
 bmk gui_git_tftpboot_work</pre>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169411904144"></a>11.3. Show and Check Repositories</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875357616"></a>11.3. Show and Check Repositories</h3></div></div></div>
 
 
 <p>Show and check current state of the git repositories.  </p>
@@ -2610,7 +2610,7 @@ bmk check_branch_git</pre>
 <pre class="screen">
 bmk show_release_git</pre>
 </div>
-<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm140169411885424"></a>11.4. Summary</h3></div></div></div>
+<div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idm139738875338752"></a>11.4. Summary</h3></div></div></div>
 
 
 <p>Create environment setup files</p>
