@@ -187,7 +187,7 @@ emerge --ask -v tftp-hpa nfs-utils minicom taylor-uucp</screen>
 <para>Please install the software into the folder <code>${DISTRIB_IN}</code></para>
 <screen>
 mkdir -p $(dirname ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle)  &amp;&amp; \
-wget -O ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle http://www.koblersystems.de/bsp-doc/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle; 
+wget -O ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle http://www.koblersystems.de/distrib/20141113-1/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle; 
 mkdir -p ${DISTRIB_IN}/install
 git clone --branch phyBOARD-WEGA-13.0.0-01 ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle ${DISTRIB_IN}/install</screen>
 

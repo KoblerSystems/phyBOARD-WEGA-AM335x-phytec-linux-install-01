@@ -151,7 +151,7 @@ TOOLCHAIN_ARCHIVE:=OSELAS.Toolchain-Phytec-phyBOARD-WEGA-AM335x-$(MY_VERSION)
 PTXDIST:=$(MY_PD)/tools/bin/ptxdist-$(PTX_VERSION)
 
 # Server with files and bundles for this tutorial
-TUTORIAL_SERVER1:=http://www.koblersystems.de/bsp-doc
+TUTORIAL_SERVER1:=http://www.koblersystems.de/distrib/20141113-1
 
 # Current version of the scripts 
 SCRIPT_VERSION:=1
