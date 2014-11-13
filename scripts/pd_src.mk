@@ -33,7 +33,7 @@
 MY_DEVELOP:=/MyDevelop/phyBOARD-WEGA-AM335x
 
 # current version number
-MY_VERSION:=20140923-1
+MY_VERSION:=20141113-1
 
 # VERY IMPORTANT: This is the device name of the SD-card on the host, when it is inserted in the card reader.
 # This device will be ERASED and FORMATTED!!!
