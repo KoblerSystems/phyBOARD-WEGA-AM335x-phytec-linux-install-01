@@ -192,6 +192,9 @@ mkdir -p ${DISTRIB_IN}/install
 git clone --branch phyBOARD-WEGA-13.0.0-01 ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle ${DISTRIB_IN}/install</screen>
 
 <para>So far only a small part of the software has been installed into the folder <code>${DISTRIB_IN}</code>. The rest of the Phytec software is downloaded later. </para>
+<para>The tutorial has also been installed. You can now switch to the installed tutorial, if you like. </para>
+<screen>
+firefox ${DISTRIB_IN}/install/doc/install_pd_src.html</screen>
 </sect2>
 </sect1>
 <sect1>
