@@ -1222,19 +1222,9 @@ INFO_TARGET_LIST += info_target_ptxdist_install
 ##############################
 
 $(STATE_DIR)/ptxdist_setup: 
-	@echo
-	@echo "Source Directories  ---> "
-	@echo "old value"
-	@echo "\$${PTXDIST_WORKSPACE}/src "
-	@echo
-	@echo "new value"
-	@echo "$(MY_DOWNLOAD_SRC)"
-	@echo
-	@read -p "Remember the new value $(MY_SRC) and enter it in the following config dialog. Please press a key to continue. " A
+	# Check or change the settings of ptxdist
 	cd $(PTX_DIR)/ && \
 	$(PTXDIST) setup
-	@echo "The variable PTXCONF_SETUP_SRCDIR is set to the new value in $${HOME}/.ptxdist/ptxdistrc-*:"
-	@grep PTXCONF_SETUP_SRCDIR $${HOME}/.ptxdist/ptxdistrc-*
 	@mkdir -p $(STATE_DIR); touch $@
 
 .PHONY : ptxdist_setup
