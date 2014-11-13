@@ -183,15 +183,15 @@ emerge --ask -v tftp-hpa nfs-utils minicom taylor-uucp</screen>
 <sect2>
 <title>Install Phytec software on the host</title>
 
-<para>Phytec software for Linux for phyBOARD-WEGA-AM335x is shipped  as git bundle. </para>
-<para>Please extract the archive into the folder <code>${DISTRIB_IN}</code></para>
+<para>Phytec software for Linux for phyBOARD-WEGA-AM335x is shipped in several parts. The first part is shipped  as git bundle. </para>
+<para>Please install the software into the folder <code>${DISTRIB_IN}</code></para>
 <screen>
 mkdir -p $(dirname ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle)  &amp;&amp; \
 wget -O ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle http://www.koblersystems.de/bsp-doc/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle; 
 mkdir -p ${DISTRIB_IN}/install
 git clone --branch phyBOARD-WEGA-13.0.0-01 ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle ${DISTRIB_IN}/install</screen>
 
-<para>Now the Phytec software is available in the folder <code>${DISTRIB_IN}</code>.</para>
+<para>So far only a small part of the software has been installed into the folder <code>${DISTRIB_IN}</code>. The rest of the Phytec software is downloaded later. </para>
 </sect2>
 </sect1>
 <sect1>
