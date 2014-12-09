@@ -384,12 +384,6 @@ create_new_git_tftpboot_local[label="create_new_git\ntftpboot_local" shape=box ]
 git_init_tftpboot_local[label="git init" shape=invhouse ];
 git_init_tftpboot_local[label="git init" shape=invhouse ];
 __GIT_REPO_DIR_tftpboot_local_[shape=octagon color=grey style=filled ];
-download_bundle_git_tftpboot_local[label="download_bundle_git\ntftpboot_local" shape=box ];
-download_bundle_tftpboot_local[label="wget" shape=invhouse ];
-__GIT_REPO_DIR_tftpboot_remote_url_[shape=octagon color=lightskyblue style=filled ];
-download_bundle_tftpboot_local[label="wget" shape=invhouse ];
-download_bundle_tftpboot_local[label="wget" shape=invhouse ];
-__GIT_REPO_DIR_tftpboot_remote_[shape=octagon color=lightskyblue style=filled ];
 create_new_git_tftpboot_work[label="create_new_git\ntftpboot_work" shape=box ];
 git_init_tftpboot_work[label="git init" shape=invhouse ];
 git_init_tftpboot_work[label="git init" shape=invhouse ];
@@ -810,12 +804,6 @@ git_fetch_tftpboot_local->__GIT_REPO_DIR_tftpboot_local_
 create_new_git_tftpboot_local->git_init_tftpboot_local[style=dashed ]
 
 git_init_tftpboot_local->__GIT_REPO_DIR_tftpboot_local_
-
-download_bundle_git_tftpboot_local->download_bundle_tftpboot_local[style=dashed ]
-
-__GIT_REPO_DIR_tftpboot_remote_url_->download_bundle_tftpboot_local
-
-download_bundle_tftpboot_local->__GIT_REPO_DIR_tftpboot_remote_
 
 create_new_git_tftpboot_work->git_init_tftpboot_work[style=dashed ]
 

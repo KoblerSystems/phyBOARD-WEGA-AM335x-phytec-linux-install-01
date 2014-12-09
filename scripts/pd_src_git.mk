@@ -46,8 +46,7 @@ GIT_REPO_DIR_toolchain_work:=$(GIT_WORK_DIR_toolchain_work)/.git
 GIT_REPO_DIR_gcc-linaro_local:=$(LOCAL_GIT)/gcc-linaro-4.6-2011.11.git
 GIT_REPO_DIR_gcc-linaro_work:=$(MY_PD)/git-OSELAS.Toolchain-2012.12.1/platform-arm-cortexa8-linux-gnueabi-gcc-4.6.2-glibc-2.14.1-binutils-2.21.1a-kernel-2.6.39-sanitized/build-cross/gcc-linaro-4.6-2011.11.git
 GIT_WORK_DIR_gcc-linaro_work:=$(MY_PD)/OSELAS.Toolchain-2012.12.1/platform-arm-cortexa8-linux-gnueabi-gcc-4.6.2-glibc-2.14.1-binutils-2.21.1a-kernel-2.6.39-sanitized/build-cross/gcc-linaro-4.6-2011.11
-GIT_REPO_DIR_tftpboot_remote_url:=$(TUTORIAL_SERVER1)/bundles/tftpboot-phyBOARD-WEGA.bundle
-GIT_REPO_DIR_tftpboot_remote:=$(DISTRIB_IN)/bundles/tftpboot-phyBOARD-WEGA.bundle
+GIT_REPO_DIR_tftpboot_remote:=$(TUTORIAL_GITHUB1)/tftpboot-phyBOARD-WEGA-01
 GIT_REPO_DIR_tftpboot_local:=$(LOCAL_GIT)/tftpboot/phyBOARD-WEGA.git
 GIT_WORK_DIR_tftpboot_work:=$(MY_PD)/tftpboot/phyBOARD-WEGA
 GIT_REPO_DIR_tftpboot_work:=$(GIT_WORK_DIR_tftpboot_work)/.git
@@ -2418,40 +2417,6 @@ info_target_show_release_git_tftpboot_local :
 	@echo "show_release_git_tftpboot_local:	 show commit id of release branch in tftpboot_local"
 
 INFO_TARGET_LIST += info_target_show_release_git_tftpboot_local
-
-
-##############################
-# Download bundle of tftpboot_local
-##############################
-
-$(STATE_DIR)/download_bundle_git_tftpboot_local: 
-	# Download bundles from remote server
-	@if [ -e $(GIT_REPO_DIR_tftpboot_remote) ] ; then  \
-		echo "File $(GIT_REPO_DIR_tftpboot_remote) already exists!! "; \
-		echo "If you want to download  $(GIT_REPO_DIR_tftpboot_remote_url) again, remove at first $(GIT_REPO_DIR_tftpboot_remote)."; \
-		exit 0;  \
-	fi 
-	@mkdir -p $$(dirname $(GIT_REPO_DIR_tftpboot_remote)) ;
-	@if [ -e $(GIT_REPO_DIR_tftpboot_remote_url) ] ; then  \
-		cp -v $(GIT_REPO_DIR_tftpboot_remote_url) $(GIT_REPO_DIR_tftpboot_remote); \
-	else \
-		wget -O $(GIT_REPO_DIR_tftpboot_remote) $(GIT_REPO_DIR_tftpboot_remote_url); \
-	fi ;
-	@mkdir -p $(STATE_DIR); touch $@
-
-.PHONY : download_bundle_git_tftpboot_local
-
-download_bundle_git_tftpboot_local: $(STATE_DIR)/download_bundle_git_tftpboot_local
-
-rm_download_bundle_git_tftpboot_local: 
-	if [ -e $(STATE_DIR)/download_bundle_git_tftpboot_local ]; then rm $(STATE_DIR)/download_bundle_git_tftpboot_local; fi
-
-CLEAN_STATE_LIST += rm_download_bundle_git_tftpboot_local
-
-info_target_download_bundle_git_tftpboot_local : 
-	@echo "download_bundle_git_tftpboot_local:	 Download bundle of tftpboot_local"
-
-INFO_TARGET_LIST += info_target_download_bundle_git_tftpboot_local
 
 
 ##############################

@@ -183,13 +183,11 @@ emerge --ask -v tftp-hpa nfs-utils minicom taylor-uucp</screen>
 <sect2>
 <title>Install Phytec software on the host</title>
 
-<para>Phytec software for Linux for phyBOARD-WEGA-AM335x is shipped in several parts. The first part is shipped  as git bundle. </para>
+<para>Phytec software for Linux for phyBOARD-WEGA-AM335x is shipped in several parts. The first part is shipped  as git repository. </para>
 <para>Please install the software into the folder <code>${DISTRIB_IN}</code></para>
 <screen>
-mkdir -p $(dirname ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle)  &amp;&amp; \
-wget -O ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle http://www.koblersystems.de/distrib/20141113-1/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle; 
 mkdir -p ${DISTRIB_IN}/install
-git clone --branch phyBOARD-WEGA-13.0.0-01 ${DISTRIB_IN}/bundles/phyBOARD-WEGA-AM335x-phytec-linux-install.bundle ${DISTRIB_IN}/install</screen>
+git clone http://github.com/koblersystems/phyBOARD-WEGA-AM335x-phytec-linux-install-01 ${DISTRIB_IN}/install</screen>
 
 <para>So far only a small part of the software has been installed into the folder <code>${DISTRIB_IN}</code>. The rest of the Phytec software is downloaded later. </para>
 <para>The tutorial has also been installed. You can now switch to the installed tutorial, if you like. </para>
@@ -498,10 +496,6 @@ bmk bsp_check_srcdir</screen>
 <sect4>
 <title>Barebox environment for tftpboot folder</title>
 
-<para>Download bundle of tftpboot_local</para>
-<screen>
-bmk download_bundle_git_tftpboot_local</screen>
-
 <para>Create repository of local repository of tftpboot</para>
 <screen>
 bmk create_git_tftpboot_local</screen>
@@ -540,7 +534,6 @@ bmk  \
 	bsp_config \
 	bsp_compiler \
 	bsp_check_srcdir \
-	download_bundle_git_tftpboot_local \
 	create_git_tftpboot_local \
 	create_co_git_tftpboot_work \
 	archive_barebox_env</screen>
@@ -1102,10 +1095,6 @@ bmk bsp_check_srcdir</screen>
 <sect3>
 <title>Barebox environment for tftpboot folder</title>
 
-<para>Download bundle of tftpboot_local</para>
-<screen>
-bmk download_bundle_git_tftpboot_local</screen>
-
 <para>Create repository of local repository of tftpboot</para>
 <screen>
 bmk create_git_tftpboot_local</screen>
@@ -1150,7 +1139,6 @@ bmk  \
 	bsp_config \
 	bsp_compiler \
 	bsp_check_srcdir \
-	download_bundle_git_tftpboot_local \
 	create_git_tftpboot_local \
 	create_co_git_tftpboot_work \
 	archive_barebox_env</screen>
@@ -1327,11 +1315,6 @@ bmk bsp_check_srcdir</screen>
 <sect3>
 <title>Barebox environment for tftpboot folder</title>
 
-<para>Download bundle of tftpboot_local</para>
-<screen>
-bmk rm_download_bundle_git_tftpboot_local
-bmk download_bundle_git_tftpboot_local</screen>
-
 <para>Create repository of local repository of tftpboot</para>
 <screen>
 bmk rm_create_git_tftpboot_local
@@ -1377,7 +1360,6 @@ bmk  \
 	rm_bsp_config \
 	rm_bsp_compiler \
 	rm_bsp_check_srcdir \
-	rm_download_bundle_git_tftpboot_local \
 	rm_create_git_tftpboot_local \
 	rm_create_co_git_tftpboot_work \
 	rm_archive_barebox_env
@@ -1408,7 +1390,6 @@ bmk  \
 	bsp_config \
 	bsp_compiler \
 	bsp_check_srcdir \
-	download_bundle_git_tftpboot_local \
 	create_git_tftpboot_local \
 	create_co_git_tftpboot_work \
 	archive_barebox_env</screen>
