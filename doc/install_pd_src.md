@@ -1,6 +1,12 @@
 
 Build and Use Phytec Linux BSP on Phytec phyBOARD-WEGA-AM335x
 
+## License
+Author: Jan Kobler, Kobler Systems GmbH, email: eng1@koblersystems.de
+
+This work by [http://www.koblersystems.de Kobler Systems GmbH] is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+
+
 ## About this manual
 This manual shows how to 
 
